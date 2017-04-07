@@ -1,0 +1,16 @@
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a1"},"year":2017.0,"month":2.0,"day":15.0,"dayOfWeek":4.0,"dateToString":"2017-02-15"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a2"},"year":2017.0,"month":2.0,"day":18.0,"dayOfWeek":7.0,"dateToString":"2017-02-18"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a3"},"year":2017.0,"month":2.0,"day":19.0,"dayOfWeek":1.0,"dateToString":"2017-02-19"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a4"},"year":2017.0,"month":2.0,"day":22.0,"dayOfWeek":4.0,"dateToString":"2017-02-22"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a5"},"year":2017.0,"month":2.0,"day":24.0,"dayOfWeek":6.0,"dateToString":"2017-02-24"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a6"},"year":2017.0,"month":2.0,"day":28.0,"dayOfWeek":3.0,"dateToString":"2017-02-28"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a7"},"year":2017.0,"month":3.0,"day":1.0,"dayOfWeek":4.0,"dateToString":"2017-03-01"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a8"},"year":2017.0,"month":3.0,"day":3.0,"dayOfWeek":6.0,"dateToString":"2017-03-03"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6a9"},"year":2017.0,"month":3.0,"day":5.0,"dayOfWeek":1.0,"dateToString":"2017-03-05"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6aa"},"year":2017.0,"month":3.0,"day":6.0,"dayOfWeek":2.0,"dateToString":"2017-03-06"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6ab"},"year":2017.0,"month":3.0,"day":7.0,"dayOfWeek":3.0,"dateToString":"2017-03-07"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6ac"},"year":2017.0,"month":3.0,"day":13.0,"dayOfWeek":2.0,"dateToString":"2017-03-13"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6ad"},"year":2017.0,"month":3.0,"day":16.0,"dayOfWeek":5.0,"dateToString":"2017-03-16"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6ae"},"year":2017.0,"month":3.0,"day":17.0,"dayOfWeek":6.0,"dateToString":"2017-03-17"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6af"},"year":2017.0,"month":3.0,"day":18.0,"dayOfWeek":7.0,"dateToString":"2017-03-18"}
+{"_id":{"$oid":"58e7e239ec7fbb5eae43d6b0"},"year":2017.0,"month":3.0,"day":20.0,"dayOfWeek":2.0,"dateToString":"2017-03-20"}
