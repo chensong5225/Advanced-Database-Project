@@ -13,10 +13,39 @@
     <link type="text/css" rel="stylesheet" href="style/reset.css">
     <link type="text/css" rel="stylesheet" href="style/main.css">
     <link type="text/css" rel="stylesheet" href="style/cart.css">
+    <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
+    <script type="text/javascript">
+            function Mongodbrequest() {
+                            alert("click button");
+                            /*先删除以前查找的内容*/
+                            $("#show_Sch_Rlt").empty();
+                            var inputSearch = $('#User_Sch_input').val();
+                            alert("input search -->"+inputSearch);
+                            var xmlhttp;
+                            var txt, x, i;
+                            if(window.XMLHttpRequest) {
+                                    xmlhttp = new XMLHttpRequest();
+                            } else {
+                                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                            }
+                            xmlhttp.onreadystatechange = function() {
+                                    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                            xmlDoc = xmlhttp.responseText;
+                                            txt = "";
+                                            /*接受数据并且显示*/
+                                            NameSearchShow(xmlDoc);
+                                    }
+                            }
+                            xmlhttp.open("GET", "http://localhost:8080/SteamGame/NameSearch", true);
+                            xmlhttp.setRequestHeader("MyHeader", inputSearch);
+                            xmlhttp.send();
+            }
+    </script>
     <style type="text/css">
         #goods{
             border: 1px solid black;
         }
+        
     </style>
 </head>
 <body>
@@ -41,31 +70,24 @@
     </div>
 </div>
 <center>
-    <%
-    HttpSession hs = request.getSession(true);
-    List bookList =(List) hs.getAttribute("bookList");
-    Iterator it = bookList.iterator();
-    while(it.hasNext()){
-    Book book = (Book) it.next();
-    %>
     <div class="show" name="cart">
         <h2>Shopping Cart</h2>
         <form action=""method="post">
             <table id="goods">
                 <tr>
-                    <td><img src="<%= book.getImage() %>" width="200" height="100"/></td>
+                    <td><img src="#" width="200" height="100"/></td>
                     <td>Book Name:</td>
-                    <td><%= book.getName() %></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>Amount:</td>
                     <td><input class="p1" type="text" name="number" value="1" width="30" height="10"/></td>
                 </tr>
-                <tr><td></td><td>Book Information:</td><td><%= book.getIntroducation() %></td></tr>
+                <tr><td></td><td>Book Information:</td><td></td></tr>
                 <tr></tr>
-                <tr><td></td><td></td><td></td><td><a href="/DeleteBook?Bid=<%book.getBID();%>">Delete</a></td><td></td><td></td></tr>
-                <tr><td></td><td></td><td></td><td>Price:<%= book.getPrice() %> $</td><td></td></tr>
+                <tr><td></td><td></td><td></td><td><a href="/DeleteBook?Bid=#">Delete</a></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td>Price:$</td><td></td></tr>
                 <tr></tr>
                 <tr></tr>
             </table>
@@ -78,9 +100,6 @@
             </table>
         </form>
     </div>
-    <%
-    }
-    %>
 </center>
 <div class="footer">
     <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
