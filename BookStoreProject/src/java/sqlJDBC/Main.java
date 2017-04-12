@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yuq6;
+package sqlJDBC;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -76,11 +76,18 @@ public class Main{
         }
         */
         
+        /*
         HashMap<String, HashMap<Double, Double>> map = DemandCurve.demand();
         for(String s: map.keySet()){
             for(Double d: map.get(s).keySet()){
                 System.out.println(s + " price " + d + " sale " + map.get(s).get(d));
             }
+        }
+        */
+        
+        ArrayList<String[]> list = StartLoad.load();
+        for(String[] str: list){
+            System.out.println(str[0] + "  " +  str[1]);
         }
         
     }
