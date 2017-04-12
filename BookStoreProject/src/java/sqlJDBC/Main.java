@@ -94,7 +94,12 @@ public class Main{
         String[] str = LoadCustomer.load("3", "2");
         System.out.println(str[0] + "  " + str[1]);
         */
+        /*
         String[] str = LoadStore.load("3", "2");
+        System.out.println(str[0] + "  " + str[1]);
+        */
+        
+        String[] str = LoadProduct.load("2");
         System.out.println(str[0] + "  " + str[1]);
         
     }
