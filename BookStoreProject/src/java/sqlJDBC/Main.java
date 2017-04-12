@@ -84,12 +84,15 @@ public class Main{
             }
         }
         */
-        
+        /*
         ArrayList<String[]> list = StartLoad.load();
         for(String[] str: list){
             System.out.println(str[0] + "  " +  str[1]);
         }
+        */
         
+        String[] str = LoadCustomer.load("3", "2");
+        System.out.println(str[0] + "  " + str[1]);
     }
     
     
