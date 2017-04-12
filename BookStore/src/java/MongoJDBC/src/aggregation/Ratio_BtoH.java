@@ -1,19 +1,9 @@
-package aggregation;
+package MongoJDBC.src.aggregation;
 
-import java.util.ArrayList;
-
-import javax.management.Query;
-import javax.print.Doc;
-
-import org.bson.BsonDocument;
-import org.bson.BsonString;
 import org.bson.Document;
-import org.bson.conversions.Bson;
-
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 
-import connectMongo.MongoDbCon;
+import MongoJDBC.src.connectMongo.MongoDbCon;
 
 public class Ratio_BtoH extends MongoDbCon{
 	public static String ratio(){

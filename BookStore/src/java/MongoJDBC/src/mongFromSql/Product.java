@@ -1,22 +1,15 @@
-package mongFromSql;
+package MongoJDBC.src.mongFromSql;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
-import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.print.Doc;
-import javax.print.DocFlavor;
-import javax.print.attribute.DocAttributeSet;
 
 import org.bson.Document;
 
-import connectMongo.MongoDbCon;
+import MongoJDBC.src.connectMongo.MongoDbCon;
 
 public class Product extends MongoDbCon{
 	public void load(){

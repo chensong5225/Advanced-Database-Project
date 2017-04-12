@@ -1,4 +1,4 @@
-package dataStru;
+package MongoJDBC.src.dataStru;
 
 public class QueryAndColl {
 	public QueryAndColl() {

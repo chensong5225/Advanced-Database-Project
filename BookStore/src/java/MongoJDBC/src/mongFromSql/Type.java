@@ -1,15 +1,11 @@
-package mongFromSql;
+package MongoJDBC.src.mongFromSql;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.naming.StringRefAddr;
-
 import org.bson.Document;
 
-import connectMongo.MongoDbCon;
-
+import MongoJDBC.src.connectMongo.MongoDbCon;
 public class Type extends MongoDbCon{
 	public void load(){
 		//connect to mongodb

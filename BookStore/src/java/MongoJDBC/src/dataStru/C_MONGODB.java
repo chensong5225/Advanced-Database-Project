@@ -1,4 +1,4 @@
-package dataStru;
+package MongoJDBC.src.dataStru;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;

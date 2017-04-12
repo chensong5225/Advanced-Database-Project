@@ -1,26 +1,17 @@
-package Operation;
+package MongoJDBC.src.Operation;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Vector;
-
-import javax.print.Doc;
 
 import org.bson.Document;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
 
-import connectMongo.MongoDbCon;
+import MongoJDBC.src.connectMongo.MongoDbCon;
 
 
 public  class Insert extends MongoDbCon{

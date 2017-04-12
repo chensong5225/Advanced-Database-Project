@@ -1,18 +1,12 @@
-package Operation;
+package MongoJDBC.src.Operation;
 
-import org.bson.Document;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
 import com.mongodb.Mongo;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
-import com.mongodb.client.result.UpdateResult;
 import com.mongodb.util.JSON;
 
-import connectMongo.MongoDbCon;
 
 public class Updata {
 	public DBCollection collection ;

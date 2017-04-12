@@ -1,16 +1,14 @@
-package mongFromSql;
+package MongoJDBC.src.mongFromSql;
 
-import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.naming.StringRefAddr;
 
 import org.bson.Document;
-import connectMongo.MongoDbCon;
+import MongoJDBC.src.connectMongo.MongoDbCon;
 
 public class Store extends MongoDbCon{
 	public void load(){

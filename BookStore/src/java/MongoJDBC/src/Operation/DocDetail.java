@@ -1,4 +1,4 @@
-package Operation;
+package MongoJDBC.src.Operation;
 
 public class DocDetail {
 	public String key;

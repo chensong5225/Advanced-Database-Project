@@ -1,18 +1,14 @@
-package aggregation;
+package MongoJDBC.src.aggregation;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.print.Doc;
 
 import org.bson.Document;
 
 import com.mongodb.Block;
 import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.FindIterable;
-import com.mongodb.connection.Connection;
 
-import connectMongo.MongoDbCon;
+import MongoJDBC.src.connectMongo.MongoDbCon;
 
 public class StoreSalesInc  extends MongoDbCon {
 	static Block<Document> printBlock = new Block<Document>() {

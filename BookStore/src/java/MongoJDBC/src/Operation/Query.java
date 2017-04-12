@@ -1,33 +1,17 @@
-package Operation;
+package MongoJDBC.src.Operation;
 
-import java.lang.annotation.Target;
-import java.nio.channels.SelectableChannel;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Vector;
 
-import javax.lang.model.element.VariableElement;
-import javax.print.Doc;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import org.ietf.jgss.Oid;
-
-import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.model.Filters;
-import com.mongodb.util.JSON;
 
-import connectMongo.MongoDbCon;
-import dataStru.QueryAndColl;
+import MongoJDBC.src.connectMongo.MongoDbCon;
+import MongoJDBC.src.dataStru.QueryAndColl;
 
 public class Query extends MongoDbCon {
 	 //打印输出函数
