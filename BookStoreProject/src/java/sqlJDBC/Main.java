@@ -98,9 +98,12 @@ public class Main{
         String[] str = LoadStore.load("3", "2");
         System.out.println(str[0] + "  " + str[1]);
         */
-        
+        /*
         String[] str = LoadProduct.load("2");
         System.out.println(str[0] + "  " + str[1]);
+        */
+        String[] str = LoadSale.load("3", "2");
+        System.out.println(str[0] + "  " + str[1] + "  " + str[2] + "   " + str[3]);
         
     }
     
