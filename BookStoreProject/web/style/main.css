@@ -1,0 +1,289 @@
+/*public css*/
+.comWidth{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;}
+.leftArea{
+    float: left;
+}
+.rightArea{
+    float: right;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+/*topBar*/
+.topBar{
+    height: 31px;
+    background-color: #F7F7F7;
+    line-height: 31px;
+}
+.topBar a:hover{
+    color: red;
+}
+.collection{
+    font-weight: bold;
+}
+
+/*logo*/
+.logoBar{
+    height: 85px;
+    background-color: #1D7AD9;
+}
+.logo{
+    padding-left: 41px;
+    padding-top: 13px;
+}
+
+/*search*/
+.search_box{
+    width: 430px;
+    padding-top: 23px;
+    padding-left: 185px;
+}
+.search_text{
+    width: 350px;
+    height: 14px;
+    line-height: 14px;
+    padding: 11px 5px 10px;
+    background-color:#FFF;
+}
+.search_btn{
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    background-color: #FF8C00;
+    color: #FFF;
+}
+
+/*shopCar*/
+.shopCar{
+    width: 145px;
+    height: 35px;
+    background-color: #FF8C00;
+    margin-top: 23px;
+}
+.shopText{
+    font-size: 14px;
+    color: #FFF;
+    width: 87px;
+    height: 100%;
+    border-right: #E27A00 solid 1px;
+    line-height: 35px;
+}
+.shopNum{
+    width: 56px;
+    height: 35px;
+    border-left: #FF9C01 solid 1px;
+    font-size: 14px;
+    color: #FFF;
+    line-height: 35px;
+}
+
+/*nav*/
+.navBox{
+    height: 35px;
+    background-color: #1369C0;
+    color: #FFF;
+}
+.shopClass{
+    width: 190px;
+    position: relative;
+}
+.shopClass h3{
+    line-height: 35px;
+    text-align: center;
+}
+.nav{
+    line-height: 35px;
+}
+.nav li{
+    float: left;
+}
+.nav a{
+    height: 35px;
+    display: inline-block;
+    padding: 0 35px;
+    color: #FFF;
+}
+.nav .active{
+    background-color: #4593FD;
+}
+
+/*item Show*/
+.shopClass_show{
+    background-color: #4593FD;
+    position: absolute;
+    left: 0;
+    top:35px;
+    width: 100%;
+}
+.shopClass_item{
+    padding: 14px 10px;
+    border-bottom: #3487F2 solid 1px;
+    border-top: #5AA1FE solid 1px;
+}
+.shopClass_item dt{
+    height: 24px;
+}
+.shopClass_item .b{
+    font-size: 14px;
+    font-weight: bold;
+}
+.shopClass_item a:hover{
+    text-decoration: underline;
+}
+.shopClass a{
+    color: #FFF;
+}
+/*shopClass_item active*/
+.shopClass_active{
+    background-color: #FFF;
+    border-left: #4593FD solid 1px;
+}
+.shopClass_active dt{
+    background: none;
+}
+.shopClass_active a{
+    color: #000;
+}
+
+
+/*List*//*delete*/
+.shopclass_list{
+    width: 568px;
+    height: 378px;
+    border: #CCC solid 1px;
+    position: absolute;
+    left: 190px;
+    top: 35px;
+    background-color: red;
+}
+.shopClass_cont{
+    padding: 10px 20px;
+}
+.shopList_item{
+    padding: 10px 0;
+    border-bottom: #CCC solid 1px;
+}
+.shopList_item dt{
+    color: #4B87D9;
+    font-weight: bold;
+    height: 24px;
+    line-height: 24px;
+}
+.shopList_item dd{
+    padding-left: 68px;
+    margin-top: -24px;
+    line-height: 24px;
+}
+.shopList_item dd a{
+    margin-right: 12px;
+}
+
+/*banner part*/
+.banner{
+    margin-bottom: 15px;
+}
+.banner_bar{
+    width: 810px;
+    height: 326px;
+    float: right;
+    position: relative;
+    overflow: hidden;
+}
+.imgBox{
+    width: 1620px;
+    height: 326px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.imgBox li{
+    float: left;
+}
+.imgBox img{
+    width: 810px;
+    height: 326px;
+    display: block;
+}
+.imgNum{
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+.imgNum a{
+    width: 20px;
+    height: 5px;
+    overflow: hidden;
+    background-color: #FF7700;
+    display: inline-block;
+    margin: 0 3px;
+}
+.imgNum .active{
+    background-color: #FF7700;
+}
+
+.shopTit{
+    height: 44px;
+    line-height: 44px;
+    margin-bottom: 15px;
+}
+.shopTit h3{
+    font-size: 24px;
+    float: left;
+    font-weight: normal;
+}
+
+.more{
+    float: right;
+}
+.more:hover{
+    text-decoration: underline;
+}
+
+.shopList .leftArea{
+    width: 190px;
+    height: 400px;
+}
+.shopList .rightArea{
+    width: 808px;
+    height: 280px;
+    border:#999 solid 1px;
+    border-bottom: #FF7201 solid 3px;
+    overflow: hidden;
+}
+
+.shopList_top{
+    margin-right: -4px;
+}
+.shop_item{
+    width: 202px;
+    border-right:#999 solid 1px;
+    height:279px;
+    border-bottom:#999 solid 1px;
+    text-align: center;
+    float: left;
+}
+.shop_img{
+    height: 218px;
+
+}
+.shop_img img{
+    width: 100%;
+    height: 218px;
+    display: block;
+}
+
+.footer{
+    text-align: center;
+    background-color: #D4D4D4;
+    line-height: 24px;
+    padding: 50px 0;
+}
