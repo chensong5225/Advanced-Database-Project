@@ -1,9 +1,0 @@
-如何上传自己代码：
-上传之前，一定要 git pull
-1.git add .
-2.git commit -m “这块随便写，但是一定得写”
-3.git push
-
-
-如何下载修改后的代码：
-git pull
