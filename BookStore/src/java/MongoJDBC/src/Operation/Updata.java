@@ -12,7 +12,7 @@ import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.UpdateResult;
 import com.mongodb.util.JSON;
 
-import innerface.MongoDbCon;
+import connectMongo.MongoDbCon;
 
 public class Updata {
 	public DBCollection collection ;

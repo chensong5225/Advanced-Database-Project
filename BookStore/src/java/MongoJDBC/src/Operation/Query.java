@@ -26,8 +26,8 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 import com.mongodb.util.JSON;
 
+import connectMongo.MongoDbCon;
 import dataStru.QueryAndColl;
-import innerface.MongoDbCon;
 
 public class Query extends MongoDbCon {
 	 //打印输出函数
@@ -46,34 +46,11 @@ public class Query extends MongoDbCon {
 		if(query.Query!=""){
 			Document doc = Document.parse(query.Query);
 			result =collection.find(doc);
-			System.out.println("以下是打印输出查询结果");
 			collection.find(doc).forEach(printBlock);
-			//find responding id
-			Vector<Object> vid = new Vector<>();
-			Object id=new Object();
-			for(Document a : result){
-				id=a.get("_id");
-				vid.add(a.get("$oid"));
-				System.out.println(a.get("_id"));
-			}
-			// Given id, query linked document
-//			Connect("finalpr"
-//					+ "oject","customer");
-//			ObjectId oId = new ObjectId(id.toString());
-//			System.out.println("objectId"+oId);
-//			String tmp = "{'_id':"+oId+"}";
-//			System.out.println("根据id查找文档"+tmp);
-//			Document doc2 = Document.parse("{'_id':{'$oid':'58e2a79d6d60ab35109d98af'} }");
-////			Document doc2 = Document.parse("{'type':'home'}");
-//			System.out.println("doc2是"+doc2);
-////			collection.find().forEach(printBlock);
-//			collection.find(doc2).forEach(printBlock);
 		}
 		return result;
 	}
 
-	//@query: {"":""}, like where
-	//@
 	public static ArrayList<Document> userInput(String dbname, QueryAndColl query, QueryAndColl target){
 		ArrayList<Document> result= new ArrayList<>();
 		/*connect to querydb

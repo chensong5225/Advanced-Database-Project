@@ -20,7 +20,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
 
-import innerface.MongoDbCon;
+import connectMongo.MongoDbCon;
 
 
 public  class Insert extends MongoDbCon{
