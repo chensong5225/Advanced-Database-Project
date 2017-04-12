@@ -27,7 +27,7 @@ public class LoadCustomer {
     static private ResultSet rs = null;
     
     public static String[] load(String tid, String pid) throws ClassNotFoundException{
-        
+        //customer[0]:name, customer[1]:category
         String[] customer = new String[2];
         PreparedStatement ps = null;       
         try {
