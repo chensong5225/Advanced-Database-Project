@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yuq6;
+package sqlJDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,14 +29,14 @@ public class IncreasingStores {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/mysql";
-            conn = DriverManager.getConnection(connectionURL, "root", "admin");
+            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
+            conn = DriverManager.getConnection(connectionURL, "root", "root");
             ps = conn.prepareStatement("SELECT distinct store_id  from fact");
             rs = ps.executeQuery();
             while(rs.next()){
                 storeList.add(rs.getString(1));
             }
-            ps = conn.prepareStatement("SELECT time, sum(sale) from fact where store_id =? group by time");
+            ps = conn.prepareStatement("SELECT time, sum(sale) from transaction where store_id =? group by time");
             for(String s: storeList){
                  HashMap<String, String> store = new  HashMap<String, String>();
                  ps.setObject(1, s);

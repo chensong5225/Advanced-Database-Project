@@ -3,13 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/StartLoad.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/LoadCustomer.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/RegionCompare.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/LoadSale.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/BusinessBuyMost.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/LoadStore.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/LoadProduct.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/Main.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/mongFromSql/Fact.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/StoreSalesInc.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q3.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/connectMongo/MongoDbCon.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q5.java</file>
+=======
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/bean/Cart.java</file>
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/shoppingCart.jsp</file>
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/bean/Book.java</file>
+<<<<<<< HEAD
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/testCart.jsp</file>
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/AddToCartServlet.java</file>
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/CartService.java</file>
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/bookService.java</file>
+=======
+>>>>>>> 5aecd59c6caeced48150df2792b0f9cc209539ad
+>>>>>>> ff93fe6d537624c75452fb203752811684883866
+>>>>>>> 28f49d015402de5e571b21a6d05971a66509d9c0
         </group>
     </open-files>
 </project-private>

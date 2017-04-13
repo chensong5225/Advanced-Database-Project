@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yuq6;
+package sqlJDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,9 +27,9 @@ public class EverydaySales {
         PreparedStatement ps = null;       
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/mysql";
-            conn = DriverManager.getConnection(connectionURL, "root", "admin");
-            ps = conn.prepareStatement("select fact.product_id, time, sum(sale), sum(amount), cost from fact, product_dim where fact.product_id = product_dim.product_id group by fact.product_id, time");
+            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
+            conn = DriverManager.getConnection(connectionURL, "root", "root");
+            ps = conn.prepareStatement("select transaction.product_id, time, sum(sale), sum(amount), product.cost from transaction, product where transaction.product_id = product.id group by transaction.product_id, time");
             rs = ps.executeQuery();
             while(rs.next()){
                 String id = rs.getString(1);

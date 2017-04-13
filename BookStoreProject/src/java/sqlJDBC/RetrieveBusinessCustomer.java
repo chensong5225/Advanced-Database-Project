@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yuq6;
+package sqlJDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,9 +27,9 @@ public class RetrieveBusinessCustomer {
         ArrayList<String> businessList = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/mysql";
-            conn = DriverManager.getConnection(connectionURL, "root", "admin");
-            ps = conn.prepareStatement("SELECT customer_id  from customer_dim where type=?");
+            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
+            conn = DriverManager.getConnection(connectionURL, "root", "root");
+            ps = conn.prepareStatement("SELECT id  from customer where type=?");
             
             ps.setObject(1,type1);           
             rs = ps.executeQuery();

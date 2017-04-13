@@ -9,7 +9,7 @@ import java.util.Map;
 
 import org.bson.Document;
 
-import MongoJDBC.src.connectMongo.MongoDbCon;
+import MongoJDBC.connectMongo.MongoDbCon;
 
 public class ViewsProduct extends MongoDbCon{
 	public void load(){

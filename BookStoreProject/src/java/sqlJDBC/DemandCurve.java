@@ -26,9 +26,9 @@ public class DemandCurve {
         PreparedStatement ps = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/mysql";
+            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("select fact.product_id, category, price, amount from fact, product_dim where fact.product_id = product_dim.product_id group by fact.product_id");            
+            ps = conn.prepareStatement("select transaction.product_id, category, transaction.price, amount from transaction, product where transaction.product_id = product.id group by transaction.product_id");            
             rs = ps.executeQuery();            
             while(rs.next()){
                 String category = rs.getString(2);

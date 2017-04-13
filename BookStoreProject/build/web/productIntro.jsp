@@ -142,14 +142,14 @@
                         <div class="dl">
                             <div class="dt">Number:</div>
                             <div class="dd clearfix">
-                                <div class="des_number">
-                                    <input type="text">
+                                <div class="des_number hide">
+                                   <input type="text">
                                 </div>
-                                <p>we have left</p><a href="#">100</a>
+                                <p></p><a href="#">1</a>
                             </div>
                         </div>
                         <div class="shop_buy">
-                            <form action="#" class="f1 fl">
+                            <form action="AddToCartServlet" class="f1 fl">
                                 <input type="button" value="AddToCart" class="search_btn">
                             </form>
                             <form action="#" class="f2 fl">
