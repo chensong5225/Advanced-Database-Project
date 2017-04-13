@@ -14,7 +14,8 @@
         <link type="text/css" rel="stylesheet" href="style/main.css">
         <link type="text/css" rel="stylesheet" href="style/cart.css">
         <script type="text/javascript" src="js/jquery-3.2.0.js"></script>
-        <script type="text/javascript">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript"> //Reference from: http://www.jb51.net/article/50732.htm
             function Mongodbrequest() {
                 alert("click button");
                 /*先删除以前查找的内容*/
@@ -42,28 +43,30 @@
             }
 
 
-            function checkout() {
-                location.href = "index.jsp";
-            }
-            function add(event) {
-                var id = $(event.currentTarget).attr('data-id');
-
-                var amount = $("#" + id).text();
-                $("#" + id).text(parseInt(amount) + 1);
-                $("#getAmount" + id).val(parseInt(amount) + 1);
-            }
-            function minus(event) {
-                var id = $(event.currentTarget).attr('data-id');
-
-                var amount = $("#" + id).text();
-                if (parseInt(amount) == 0) {
-                    $("#" + id).text(0);
-                    $("#getAmount" + id).val(0);
-                } else {
-                    $("#" + id).text(parseInt(amount) - 1);
-                    $("#getAmount" + id).val(parseInt(amount) - 1);
+            $(function () {//Reference from: http://www.jb51.net/article/50732.htm
+                $(".add").click(function () {
+                    var t = $(this).parent().find('input[class*=text_box]');
+                    t.val(parseInt(t.val()) + 1)
+                    setTotal();
+                })
+                $(".min").click(function () {
+                    var t = $(this).parent().find('input[class*=text_box]');
+                    t.val(parseInt(t.val()) - 1)
+                    if (parseInt(t.val()) < 0) {
+                        t.val(0);
+                    }
+                    setTotal();
+                })
+                function setTotal() {
+                    var s = 0;
+                    $("#tab td").each(function () {
+                        s += parseInt($(this).find('input[class*=text_box]').val()) * parseFloat($(this).find('span[class*=price]').text());
+                    });
+                    $("#total").html(s.toFixed(2));
                 }
-            }
+                setTotal();
+
+            })
         </script>
         <style type="text/css">
             #goods{
@@ -94,6 +97,10 @@
             </div>
         </div>
     <center>
+        <%
+
+
+        %>
         <div class="show" name="cart">
             <h2>Shopping Cart</h2>
             <form action=""method="post">
@@ -101,21 +108,27 @@
                     <tr>
                         <td><img src="#" width="200" height="100"/></td>
                         <td>Book Name:</td>
-                        <td></td>
                     </tr>
-                    <tr>
+                    <tr> 
                         <td></td>
-                        <td>Amount:</td><td></td><td id="minus"  style="text-align:right" onclick="minus(event)">- </td><td style="text-align:left" class="amount"</td><td id="add" onclick="add(event)"> +</td>
-                    </tr>
-                    <tr><td></td><td>Book Information:</td><td></td></tr>
+                        <td> 
+                            <span>Price:</span><span class="price">1.50&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                            <input class="min" name="" type="button" value="-" /> 
+                            <input class="text_box" name="" type="text" value="1" /> 
+                            <input class="add" name="" type="button" value="+" /> 
+                        </td> 
+                    </tr> 
+                    <tr><td></td><td>Book Information:</td></tr>
                     <tr></tr>
                     <tr><td></td><td></td><td></td><td><a href="/DeleteBook?Bid=#">Delete</a></td><td></td><td></td></tr>
-                    <tr><td></td><td></td><td></td><td>Price:$</td><td></td></tr>
                     <tr></tr>
-                    <tr></tr>
+                    <tr></tr> 
                 </table>
+                <%
+                %>
+
                 <table>
-                    <tr><td>total:</td><td>$</td><td></td></tr>
+                    <tr><td>total:</td><label id="total">$</label><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <div class="br25"></div>

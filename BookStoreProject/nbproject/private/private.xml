@@ -4,7 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/bean/Cart.java</file>
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/shoppingCart.jsp</file>
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/bean/Book.java</file>
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/testCart.jsp</file>
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/AddToCartServlet.java</file>
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/CartService.java</file>
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/bookService.java</file>
         </group>
     </open-files>
 </project-private>
