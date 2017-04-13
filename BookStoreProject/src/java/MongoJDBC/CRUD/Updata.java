@@ -1,4 +1,4 @@
-package MongoJDBC.src.Operation;
+package MongoJDBC.CRUD;
 
 
 import com.mongodb.BasicDBObject;

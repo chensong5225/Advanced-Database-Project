@@ -1,4 +1,4 @@
-package MongoJDBC.src.mongFromSql;
+package MongoJDBC.mongFromSql;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
 
 
 import org.bson.Document;
-import MongoJDBC.src.connectMongo.MongoDbCon;
+import MongoJDBC.connectMongo.MongoDbCon;
 
 public class ViewsStore extends MongoDbCon{
 	public void load(){

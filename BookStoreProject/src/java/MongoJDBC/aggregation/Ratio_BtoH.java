@@ -3,7 +3,7 @@ package MongoJDBC.aggregation;
 import org.bson.Document;
 import com.mongodb.client.FindIterable;
 
-import MongoJDBC.src.connectMongo.MongoDbCon;
+import MongoJDBC.connectMongo.MongoDbCon;
 
 public class Ratio_BtoH extends MongoDbCon{
 	public static String ratio(){
