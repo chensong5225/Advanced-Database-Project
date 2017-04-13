@@ -6,8 +6,10 @@
 package MongoJDBC.aggregation;
 
 import MongoJDBC.connectMongo.MongoDbCon;
+import com.mongodb.Block;
 import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCursor;
 import java.util.Arrays;
 import org.bson.Document;
 
@@ -16,6 +18,12 @@ import org.bson.Document;
  * @author fei
  */
 public class Q5 extends MongoDbCon{
+     static Block<Document> printBlock = new Block<Document>() {
+	       @Override
+	       public void apply(final Document document) {
+	           System.out.println(document.toJson());
+	       }
+    };
     /*
     which business are buying given products the most
     */
@@ -25,9 +33,16 @@ public class Q5 extends MongoDbCon{
         //
        FindIterable<Document>  it = this.collection.find(
                new Document().append("customer.name", "betty")
-        );
-        
-                                                    
+       );
+       MongoCursor<Document> mongoCursor = it.iterator();
+        try {
+                 while (mongoCursor.hasNext()) {
+                    System.out.println(mongoCursor.next().toJson());
+                }
+            } finally {
+                 mongoCursor.close();
+            }
+                                                   
         //
     }
     
