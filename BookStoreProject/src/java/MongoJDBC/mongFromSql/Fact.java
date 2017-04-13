@@ -9,6 +9,7 @@ import MongoJDBC.src.connectMongo.MongoDbCon;
 import java.util.ArrayList;
 import org.bson.Document;
 import sqlJDBC.LoadCustomer;
+import sqlJDBC.LoadProduct;
 import sqlJDBC.LoadStore;
 import sqlJDBC.StartLoad;
 /**
@@ -46,6 +47,13 @@ public class Fact extends MongoDbCon{
              System.out.println("storeDoc-->"+storeDoc[0]+"  ,  "+storeDoc[1]);
              /*
              load product Document
+             */
+             Document productDocument = new Document();
+             String[] productDoc = new LoadProduct().load(pId);
+             productDocument.append(storeDoc[0],storeDoc[1]);
+             System.out.println("productDocument-->"+productDoc[0]+"  ,  "+productDoc[1]);
+             /*
+             
              */
          }
     }
