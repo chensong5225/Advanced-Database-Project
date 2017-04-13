@@ -8,7 +8,7 @@ import com.mongodb.Block;
 import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.FindIterable;
 
-import MongoJDBC.src.connectMongo.MongoDbCon;
+import MongoJDBC.connectMongo.MongoDbCon;
 
 public class StoreSalesInc  extends MongoDbCon {
 	static Block<Document> printBlock = new Block<Document>() {
