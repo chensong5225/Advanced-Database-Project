@@ -7,6 +7,7 @@ package MongoJDBC.aggregation;
 
 import MongoJDBC.connectMongo.MongoDbCon;
 import com.mongodb.client.AggregateIterable;
+import com.mongodb.client.FindIterable;
 import java.util.Arrays;
 import org.bson.Document;
 
@@ -20,14 +21,18 @@ public class Q5 extends MongoDbCon{
     */
     public void query(){
         //connect
-        Connect("finalproject","fact");
+        Connect("ADB_ware","Fact");
         //
-        AggregateIterable<Document> aggregate = this.collection.aggregate(
-                Arrays.asList(new Document().append("$match", ""))
+       FindIterable<Document>  it = this.collection.find(
+               new Document().append("customer.name", "betty")
         );
         
                                                     
         //
     }
     
+    public static void main(String args[]){
+        Q5 q = new Q5();
+        q.query();
+    }
 }
