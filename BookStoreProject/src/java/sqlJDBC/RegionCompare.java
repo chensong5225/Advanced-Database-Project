@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yuq6;
+package sqlJDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,9 +27,9 @@ public class RegionCompare {
         PreparedStatement ps = null;       
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/mysql";
-            conn = DriverManager.getConnection(connectionURL, "root", "admin");
-            ps = conn.prepareStatement("select region, sum(amount) from fact, store_dim where fact.store_id = store_dim.store_id group by region");
+            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
+            conn = DriverManager.getConnection(connectionURL, "root", "root");
+            ps = conn.prepareStatement("select state, sum(amount) from transaction, store where transaction.store_id = store.id group by state");
             rs = ps.executeQuery();
             while(rs.next()){
                 String region = rs.getString(1);

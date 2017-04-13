@@ -39,12 +39,16 @@ public class Main{
     
     
     public static void main(String[] args) throws ClassNotFoundException{   
-        /*
-           ArrayList<String> list = RetrieveHomeCustomer.retrieveHome();
-           for(String s: list){
+        
+           ArrayList<String> hlist = RetrieveHomeCustomer.retrieveHome();
+           for(String s: hlist){
                 System.out.println(s);
             }
-        */
+        
+           ArrayList<String> blist = RetrieveBusinessCustomer.retrieveBusiness();
+           for(String s: blist){
+                System.out.println(s);
+            }
         /*
         HashMap<String, HashMap<String,String>> map = IncreasingStores.stores();
         for(String s :map.keySet()){
@@ -102,9 +106,10 @@ public class Main{
         String[] str = LoadProduct.load("2");
         System.out.println(str[0] + "  " + str[1]);
         */
+        /*
         String[] str = LoadSale.load("3", "2");
         System.out.println(str[0] + "  " + str[1] + "  " + str[2] + "   " + str[3]);
-        
+        */
     }
     
     
