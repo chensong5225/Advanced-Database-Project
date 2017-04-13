@@ -49,4 +49,28 @@ public class bookService {
         return books;
     }
     
+    public Book aBookSearch(int bid){     
+        Book abook = new Book();
+        try{
+            pstmt = conn.prepareStatement("SELECT * FROM product where id=?");
+            pstmt.setInt(1, bid);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                abook.setName(rs.getString("name"));
+                abook.setAuthor(rs.getString("author"));
+                abook.setPrice(rs.getFloat("price"));
+                abook.setIntroduction(rs.getString("introduction"));
+                abook.setCategory(rs.getString("category"));
+                abook.setImage(rs.getString("image"));
+                abook.setCost(rs.getFloat("cost"));
+            }
+        }
+        catch(SQLException se){
+            se.printStackTrace();
+        }
+        
+        
+        return abook;
+    }
+    
 }

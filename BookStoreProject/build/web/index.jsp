@@ -66,8 +66,8 @@
                         <input type="text" class="search_text fl">
                         <input type="button" value="Search" class="search_btn fr">
                     </div>
-                    <div class="shopCar fr hide">
-                        <span class="shopText fl">Shopping Cart</span>
+                    <div class="shopCar fr">
+                        <span class="shopText fl">Cart</span>
                         <span class="shopNum fl"> 0 </span>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                 <div class="shopList_top clearfix">
                     <div class="shop_item">
                         <div class="shop_img">
-                            <a href="productIntro.jsp?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
+                            <a href="BookDetailServlet?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
                         </div>
                             <h3><%=bookName%></h3>
                             <p>$<%=bookPrice%></p>
@@ -190,7 +190,7 @@
                     </div>                           
                     <div class="shop_item">
                         <div class="shop_img">
-                            <a href="productIntro?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
+                            <a href="BookDetailServlet?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
                         </div>
                             <h3><%=bookName%></h3>
                             <p>$<%=bookPrice%></p>
@@ -198,7 +198,7 @@
                     </div>
                     <div class="shop_item">
                         <div class="shop_img">
-                            <a href="productIntro?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
+                            <a href="BookDetailServlet?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
                         </div>
                             <h3><%=bookName%></h3>
                             <p>$<%=bookPrice%></p>
@@ -206,7 +206,7 @@
                     </div>
                     <div class="shop_item">
                         <div class="shop_img">
-                            <a href="productIntro?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
+                            <a href="BookDetailServlet?Bid=<%=bookId%>"><img src="<%=image%>" alt="image"/></a>
                         </div>
                             <h3><%=bookName%></h3>
                             <p>$<%=bookPrice%></p>
