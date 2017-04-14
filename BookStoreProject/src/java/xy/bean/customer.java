@@ -15,9 +15,9 @@ import java.io.Serializable;
 
 public class customer extends Object implements Serializable{
     
-    public static final String ISTATUS = "Login";
+    private static final long serialVersionUID = 102831973239L;
     
-    private String id;
+    private int id;
     private String password;
     private String email;
     private String name;
@@ -28,19 +28,7 @@ public class customer extends Object implements Serializable{
     private long income;
     private String category;
 
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
+    
 
     /**
      * @return the name
@@ -166,6 +154,20 @@ public class customer extends Object implements Serializable{
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
     
 }

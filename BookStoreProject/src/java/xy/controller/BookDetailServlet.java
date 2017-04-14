@@ -43,6 +43,7 @@ public class BookDetailServlet extends HttpServlet {
         Book abook = new Book();
         abook = bs.aBookSearch(bid);
         if (abook != null) {
+            abook.setId(bid);
             session.setAttribute("book", abook);
             ServletContext SC = getServletContext();
             RequestDispatcher rd = SC.getRequestDispatcher("/productIntro.jsp");

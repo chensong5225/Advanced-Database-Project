@@ -1,0 +1,51 @@
+/*
+insert arraylist document
+*/
+
+
+/*
+query nested document
+*/
+
+Equality match require "exact" match
+	T: db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )    
+	F: db.inventory.find(  { size: { w: 21, h: 14, uom: "cm" } }  )
+
+So, improve Equality match:
+	T: db.inventory.find( { "size.h":  14 } )    
+
+or, use "$match"
+	db.articles.aggregate(
+   		 [ { $match : { author : "dave" } } ]
+	);
+	
+how to write in java:
+
+
+/*
+group nested document
+*/
+db.getCollection('Fact').aggregate
+(
+    [
+        {
+            $group:
+            {
+                _id:{storeId:"$store.storeId"},
+                count:{$sum:1}
+            }
+        }
+    ]
+)
+
+how to write in java:
+ AggregateIterable<Document>  it = this.collection.aggregate(
+               asList(
+                       new Document("$match", new Document("product.name","Leonardo and the Last Supper")),
+                       new Document("$group", new Document("_id",new Document("businessCat","$customer.category")).
+                                                    append("count", new Document("$sum",1)) 
+                                   )
+                     )
+                      
+               
+       );

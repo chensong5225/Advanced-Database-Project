@@ -26,7 +26,7 @@ public class userService {
         
         try{
             pstmt = conn.prepareStatement("SELECT * FROM customer where id=? and password=?");
-            pstmt.setString(1, ct.getId());
+            pstmt.setInt(1, ct.getId());
             pstmt.setString(2, ct.getPassword());
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()){

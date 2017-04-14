@@ -113,7 +113,7 @@ public class Main{
         */
         
         ArrayList<String[]> list = NeoLoadFact.load();
-        System.out.print(list.size());
+        System.out.println(list.size());
     }
     
     

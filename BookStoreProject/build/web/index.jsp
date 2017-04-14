@@ -47,7 +47,7 @@
                     </div>
                     <div class="rightArea">
                         <% if (session.getAttribute("customer") == null) {%>
-                        Welcome to our website! <a href="#">[Login]</a> <a href="#">[Register]</a>
+                        Welcome to our website! <a href="login.jsp">[Login]</a> <a href="#">[Register]</a>
                         <%} else {
                             customer cst = (customer) session.getAttribute("customer");%>
 

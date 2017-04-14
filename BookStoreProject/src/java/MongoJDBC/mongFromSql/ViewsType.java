@@ -14,7 +14,8 @@ import sqlJDBC.RetrieveHomeCustomer;
 public class ViewsType extends MongoDbCon{
 	public void load() throws ClassNotFoundException{
 		//connect to mongodb
-		Connect("finalproject", "typeCol");
+		Connect("ADB_ware", "Viewtype");
+                this.collection.drop();
 		/*
 		 * type collection
 		*/
@@ -33,11 +34,10 @@ public class ViewsType extends MongoDbCon{
                             String tmp = (String) bit.next();
                             sdbusiness = sdbusiness +","+tmp;
                     }
-                    Document Dhome = new Document("home",sdhome);
-                    Document Dbusiness = new Document("business",sdbusiness);
+                    Document Dhome = new Document("home",home);
+                    Document Dbusiness = new Document("business",business);
                     
-                    Document test = new Document("home", Arrays.asList("c1","c2") );
-                    this.collection.insertOne(test);
+                 
                     this.collection.insertOne(Dhome);
                     this.collection.insertOne(Dbusiness);
 	}
