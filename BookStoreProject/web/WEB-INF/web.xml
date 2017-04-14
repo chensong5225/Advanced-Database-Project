@@ -41,6 +41,13 @@
         <servlet-name>BookDetailServlet</servlet-name>
         <url-pattern>/BookDetailServlet</url-pattern>
     </servlet-mapping>
-    
+    <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>xy.controller.AddToCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCartServlet</url-pattern>
+    </servlet-mapping>
     
 </web-app>

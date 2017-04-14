@@ -7,11 +7,20 @@ package xy.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import xy.bean.Book;
+import xy.bean.Cart;
+import xy.bean.Message;
+import xy.bean.customer;
+import xy.service.CartService;
+import xy.service.bookService;
 
 /**
  *
@@ -31,13 +40,55 @@ public class AddToCartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+        customer ct = (customer) session.getAttribute("customer");
+        Book book1 = (Book) session.getAttribute("book");
+
+        if (ct != null) {
+            Cart cart = new Cart();
+            CartService cs = new CartService();
+            bookService bs = new bookService();
+
+            int cid = Integer.valueOf(ct.getId());
+            cart.setCid(cid);
+            cart.setBid(Integer.valueOf(book1.getId()));
+            cart.setQuantity(1);
+            cart.setTotoal_price(book1.getPrice());
+
+            if (cs.addToCart(cart)) {
+                System.out.println("Insert Success.");
+            } else {
+                if (cs.findCart(cart)) {
+                    //already exists, update shopping cart.
+                    Cart oldCart = cs.findOldCart(ct.getId(), book1.getId());
+                    cart.setQuantity(oldCart.getQuantity() + 1);
+                    cart.setTotoal_price(oldCart.getTotoal_price()*cart.getQuantity());
+                    if(cs.updateCart(cart)){
+                        System.out.println("update cart success.");
+                    }
+                }
+            }
+            
+            List<Cart>carts = cs.findCartList(ct.getId());
+            List<Book> books = new ArrayList<Book>();
+            
+            
+
+        } else {
+            Message msg = new Message();
+            msg.setMessageInfo("Please login first.");
+            session.setAttribute("msgInfo", msg);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddToCartServlet</title>");            
+            out.println("<title>Servlet AddToCartServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddToCartServlet at " + request.getContextPath() + "</h1>");

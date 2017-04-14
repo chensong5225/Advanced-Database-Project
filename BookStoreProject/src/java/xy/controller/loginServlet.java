@@ -37,17 +37,17 @@ public class loginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
-        
-        String uid = request.getParameter("uid");
+
+        int uid = Integer.valueOf(request.getParameter("uid"));
         String password = request.getParameter("password");
         customer ct = new customer();
         ct.setId(uid);
         ct.setPassword(password);
         userService us = new userService();
         if (us.validUser(ct)) {
-            
+
             session.setAttribute("customer", ct);
             ServletContext SC = getServletContext();
             RequestDispatcher rd = SC.getRequestDispatcher("/index.jsp");

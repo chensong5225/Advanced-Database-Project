@@ -12,6 +12,9 @@ import java.io.Serializable;
  * @author mac
  */
 public class Cart extends Object implements Serializable{
+    
+    private static final long serialVersionUID = 102831973239L;
+    
     private int cid;
     private int bid;
     private float totoal_price;

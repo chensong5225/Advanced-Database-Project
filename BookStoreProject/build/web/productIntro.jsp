@@ -147,13 +147,15 @@
                                 </div>
                                 <p></p><a href="#">1</a>
                             </div>
+                            
+                            <p class="pt hide">test bookId: <%= book.getId() %></p>
                         </div>
                         <div class="shop_buy">
                             <form action="AddToCartServlet" class="f1 fl">
-                                <input type="button" value="AddToCart" class="search_btn">
+                                <input type="submit" value="AddToCart" class="search_btn">
                             </form>
                             <form action="#" class="f2 fl">
-                                <input type="button" value="CheckOut" class="search_btn">
+                                <input type="submit" value="CheckOut" class="search_btn">
                             </form>
                         </div>
                     </div>
