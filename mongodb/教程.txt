@@ -1,0 +1,22 @@
+/*
+query nested document
+*/
+
+Equality match require "exact" match
+	T: db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )    
+	F: db.inventory.find(  { size: { w: 21, h: 14, uom: "cm" } }  )
+
+So, improve Equality match:
+	T: db.inventory.find( { "size.h":  14 } )    
+
+or, use "$match"
+	db.articles.aggregate(
+   		 [ { $match : { author : "dave" } } ]
+	);
+	
+how to write in java:
+
+
+/*
+group nested document
+*/
