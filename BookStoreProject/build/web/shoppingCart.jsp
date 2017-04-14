@@ -84,7 +84,7 @@
             <div class="topBar">
                 <div class="comWidth">
                     <div class="leftArea">
-                        <a href="#" class="collection">Order</a>
+                        <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
                     <div class="rightArea">
                         <!--   Welcome to our website! <a href="#">[Login]</a> <a href="#">[Register]</a>-->

@@ -4,6 +4,7 @@
     Author     : mac
 --%>
 
+<%@page import="xy.bean.customer"%>
 <%@page import="xy.bean.Book"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,10 +21,17 @@
             <div class="topBar">
                 <div class="comWidth">
                     <div class="leftArea">
-                        <a href="#" class="collection">Collection</a>
+                        <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
                     <div class="rightArea">
-                        Welcome to our website! <a href="#">[Login]</a> <a href="#">[Register]</a>
+                        <% if (session.getAttribute("customer") == null) {%>
+                        Welcome to our website! <a href="login.jsp">[Login]</a> <a href="#">[Register]</a>
+                        <%} else {
+                            customer cst = (customer) session.getAttribute("customer");%>
+
+                        Welcome <%=cst.getId()%> to our website.
+                        <%}
+                        %>
                     </div>
                 </div>
             </div>
@@ -125,30 +133,30 @@
             <div class="description clearfix">
                 <div class="leftArea">
                     <div class="description_imgs">
-                        <img src="<%= book.getImage() %>" alt="image1">
+                        <img src="<%= book.getImage()%>" alt="image1">
                     </div>
                 </div>
                 <div class="rightArea">
                     <div class="des_content">
-                        <h3><%= book.getName() %></h3>
+                        <h3><%= book.getName()%></h3>
                         <div class="dl clearfix">
                             <div class="dt">Price:</div>
-                            <div class="dd"><span class="des_money">$ <%= book.getPrice() %></span></div>
+                            <div class="dd"><span class="des_money">$ <%= book.getPrice()%></span></div>
                         </div>
                         <div class="dl clearfix">
                             <div class="dt">Description:</div>
-                            <div class="dd"><span class="hg"> <%= book.getIntroduction() %></span></div>
+                            <div class="dd"><span class="hg"> <%= book.getIntroduction()%></span></div>
                         </div>
                         <div class="dl">
                             <div class="dt">Number:</div>
                             <div class="dd clearfix">
                                 <div class="des_number hide">
-                                   <input type="text">
+                                    <input type="text">
                                 </div>
                                 <p></p><a href="#">1</a>
                             </div>
-                            
-                            <p class="pt hide">test bookId: <%= book.getId() %></p>
+
+                            <p class="pt hide">test bookId: <%= book.getId()%></p>
                         </div>
                         <div class="shop_buy">
                             <form action="AddToCartServlet" class="f1 fl">

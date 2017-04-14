@@ -15,7 +15,12 @@
     </head>
     <body>
         <h1>Error Page!</h1>
-
+        <center>
+        <div class="error commonWidth">
+            <!--<img src="images/404.png">-->
+            <p style="font-family:Microsoft YaHei;color:black;font-size:20px;">There are something wrong, Please Click <a href="index.jsp" style="color: red">here</a> to return the Home page!</p>
+        </div>
+    </center> 
         <div class="footer">
             <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
             <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
