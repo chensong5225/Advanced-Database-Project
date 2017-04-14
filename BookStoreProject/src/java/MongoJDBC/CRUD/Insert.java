@@ -11,7 +11,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
 
-import MongoJDBC.src.connectMongo.MongoDbCon;
+import MongoJDBC.connectMongo.MongoDbCon;
 
 
 public  class Insert extends MongoDbCon{

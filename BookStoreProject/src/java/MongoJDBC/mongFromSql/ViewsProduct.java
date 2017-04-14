@@ -14,7 +14,7 @@ import MongoJDBC.connectMongo.MongoDbCon;
 public class ViewsProduct extends MongoDbCon{
 	public void load(){
 		//connect to MongoDb
-		Connect("finalproject", "Product");
+		Connect("ADB_ware", "ViewProduct");
 		/*
 		 * Product collection
 		 */
