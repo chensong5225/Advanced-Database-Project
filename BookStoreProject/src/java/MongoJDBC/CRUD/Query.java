@@ -10,7 +10,7 @@ import org.bson.types.ObjectId;
 import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
 
-import MongoJDBC.src.connectMongo.MongoDbCon;
+import MongoJDBC.connectMongo.MongoDbCon;
 import MongoJDBC.src.dataStru.QueryAndColl;
 
 public class Query extends MongoDbCon {

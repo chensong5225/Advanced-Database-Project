@@ -12,7 +12,7 @@ import MongoJDBC.connectMongo.MongoDbCon;
 
 public class ViewsStore extends MongoDbCon{
 	public void load(){
-		Connect("finalproject","storeCol");
+		Connect("ADB_ware","ViewStore");
 		/*
 		 * Store load from Sql
 		 */
