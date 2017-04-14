@@ -43,7 +43,7 @@
             <div class="topBar">
                 <div class="comWidth">
                     <div class="leftArea">
-                        <a href="#" class="collection hide">Collection</a>
+                        <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
                     <div class="rightArea">
                         <% if (session.getAttribute("customer") == null) {%>

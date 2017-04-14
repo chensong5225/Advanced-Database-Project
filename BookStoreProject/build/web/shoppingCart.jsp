@@ -4,6 +4,10 @@
     Author     : mac
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="xy.bean.Cart"%>
+<%@page import="xy.bean.Book"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -83,7 +87,7 @@
                         <a href="#" class="collection">Order</a>
                     </div>
                     <div class="rightArea">
-                        Welcome to our website! <a href="#">[Login]</a> <a href="#">[Register]</a>
+                        <!--   Welcome to our website! <a href="#">[Login]</a> <a href="#">[Register]</a>-->
                     </div>
                 </div>
             </div>
@@ -98,7 +102,18 @@
         </div>
     <center>
         <%
-
+            HttpSession hs = request.getSession(true);
+            List<Book> bookList = (List<Book>) hs.getAttribute("bookList");
+            List<Cart> cartList = (List<Cart>) hs.getAttribute("cartList");
+            Iterator itb = bookList.iterator();
+            Iterator itc = cartList.iterator();
+            int index = 0;
+            float total_price = 0;
+            while (itb.hasNext() && itc.hasNext()) {
+                Book book = (Book) itb.next();
+                Cart cart = (Cart) itc.next();
+                index++;
+                total_price = total_price + (float) (book.getPrice()) * Integer.valueOf(cart.getQuantity());
 
         %>
         <div class="show" name="cart">
@@ -106,34 +121,36 @@
             <form action=""method="post">
                 <table id="goods">
                     <tr>
-                        <td><img src="#" width="200" height="100"/></td>
-                        <td>Book Name:</td>
+                        <td><img src="<%= book.getImage()%>" width="200" height="100"/></td>
+                        <td>Book Name: <%= book.getName()%></td>
                     </tr>
                     <tr> 
                         <td></td>
                         <td> 
-                            <span>Price:</span><span class="price">1.50&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                            <span>Price:</span><span class="price"><%= book.getPrice()%>&nbsp;&nbsp;&nbsp;&nbsp;</span> 
                             <input class="min" name="" type="button" value="-" /> 
                             <input class="text_box" name="" type="text" value="1" /> 
                             <input class="add" name="" type="button" value="+" /> 
                         </td> 
                     </tr> 
-                    <tr><td></td><td>Book Information:</td></tr>
+                    <tr><td></td><td>Book Information:<%= book.getIntroduction()%></td></tr>
                     <tr></tr>
-                    <tr><td></td><td></td><td></td><td><a href="/DeleteBook?Bid=#">Delete</a></td><td></td><td></td></tr>
+                    <tr><td></td><td></td><td></td><td><a href="/DeleteBook?Bid=<%= book.getId()%>">Delete</a></td><td></td><td></td></tr>
                     <tr></tr>
                     <tr></tr> 
                 </table>
                 <%
+                    }
                 %>
 
                 <table>
-                    <tr><td>total:</td><label id="total">$</label><td></td><td></td></tr>
+                    <tr><td>total:<%= total_price%></td><label id="total">$</label><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <div class="br25"></div>
                     <tr><td><input type="button" class="cart_btn" value="Check Out"/></td></tr>
                 </table>
+
             </form>
         </div>
     </center>
