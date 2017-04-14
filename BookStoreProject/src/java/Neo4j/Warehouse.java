@@ -58,7 +58,6 @@ public class Warehouse {
 				ArrayList<Record> result = (ArrayList<Record>) sr.list();
 			}
 		}
-    
 }
         public void closeDriver(){
             driver.close();
