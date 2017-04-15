@@ -28,7 +28,7 @@ public class getFact {
         try {
             conn = ConnectSQL.getConn();
             // product_id,amount,cost,store_id,sale,customer_id,week
-            ps = conn.prepareStatement("select product_id,amout,cost,store_id,sale,customer_id,week from product,fact where product.id=fact.product_id");
+            ps = conn.prepareStatement("select product_id,amout,cost,store_id,customer_id,sale,week from product,fact where product.id=fact.product_id");
             rs = ps.executeQuery();
             while(rs.next()){
                 String[] str = new String[7];
