@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadStore.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadCustomer.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getFact.java</file>
@@ -10,6 +11,9 @@
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Warehouse.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadProduct.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/test.java</file>
+=======
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/WEB-INF/web.xml</file>
+>>>>>>> e640f9b24cc639d82aee49be9b6fb6a1975beb24
         </group>
     </open-files>
 </project-private>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sqlJDBC;
+package SQL.Aggregation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,18 +14,18 @@ import java.sql.SQLException;
  *
  * @author yuq
  */
-public class CreateCustomerDim {
+public class CreateStoreDim {
     public static void create(){
         Connection conn;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            conn = ConnectSQL.getConn();
-            ps = conn.prepareStatement("DROP TABLE IF EXISTS customer_dim");
+            conn = SQLConnectSQL.getConn();
+            ps = conn.prepareStatement("DROP TABLE IF EXISTS store_dim");
             ps.executeUpdate();
-            ps = conn.prepareStatement("CREATE TABLE customer_dim (customer_id int(11) NOT NULL, type varchar(45) NOT NULL)");            
+            ps = conn.prepareStatement("CREATE TABLE store_dim (store_id varchar(45) NOT NULL,vregion varchar(45) NOT NULL)");            
             ps.executeUpdate();
-            ps = conn.prepareCall("Insert into customer_dim select id, type from customer");
+            ps = conn.prepareStatement("Insert into store_dim select id,state from store");
             ps.executeUpdate();
             
         } catch (SQLException se) {

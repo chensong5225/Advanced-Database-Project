@@ -65,7 +65,7 @@ public class AddToCartServlet extends HttpServlet {
                     //already exists, update shopping cart.
                     Cart oldCart = cs.findOldCart(ct.getId(), book1.getId());
                     cart.setQuantity(oldCart.getQuantity() + 1);
-                    cart.setTotoal_price(oldCart.getTotoal_price() * cart.getQuantity());
+                    cart.setTotoal_price(oldCart.getTotoal_price()+oldCart.getTotoal_price());
                     if (cs.updateCart(cart)) {
                         System.out.println("--------------------------------------------------------------------update cart success.");
                     }
@@ -86,7 +86,7 @@ public class AddToCartServlet extends HttpServlet {
                 session.setAttribute("cartList", carts);
                 session.setAttribute("bookList", books);
                 ServletContext SC = getServletContext();
-                RequestDispatcher rd = SC.getRequestDispatcher("/cartTest.jsp");
+                RequestDispatcher rd = SC.getRequestDispatcher("/shoppingCart.jsp");
                 rd.forward(request, response);
 
             } else {
