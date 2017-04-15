@@ -36,6 +36,7 @@ public class getProduct {
                 str[2] = rs.getString(3);
                 str[3] = rs.getString(4);
                 str[4] = rs.getString(5);
+                System.out.println("id: "+str[0]+"  name: "+str[1]+"  cost: "+str[2]+"  price: "+str[3]+"  category: "+str[4]);
                 list.add(str);
             }
         } catch (SQLException se) {

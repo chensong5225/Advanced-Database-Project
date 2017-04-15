@@ -19,40 +19,40 @@ import org.neo4j.driver.v1.Transaction;
 import static org.neo4j.driver.v1.Values.parameters;
 import java.util.ArrayList;
 
-public class loadCustomer {
+public class loadStore {
 
     private Driver driver;
     private Connection con;
     private ArrayList<String[]> list;
-    private getCustomer getc;
-    private String customer_id;
-    private String category;
+    private getStore gets;
+    private String store_id;
+    private String region;
 
-    public loadCustomer() {
+    public loadStore() {
         con = new Connection();
         driver = con.driver;
         list = new ArrayList<>();
-        getc = new getCustomer();
+        gets = new getStore();
     }
 
     public void load() {
-        list = getc.load();
+        list = gets.load();
         try (Session s = driver.session()) {
             try (Transaction tx = s.beginTransaction()) {
-                StatementResult sr = tx.run("match (a:Customer_D) delete a", parameters());
+                StatementResult sr = tx.run("match (a:Store_D) delete a", parameters());
                 tx.success();
             }
         }
         for (String[] str : list) {
-            customer_id = str[0];
-            category = str[1];
+            store_id = str[0];
+            region = str[1];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("CREATE (a:Customer_D{id:{id},category:{category}})", parameters("id", customer_id, "category", category));
+                    StatementResult sr = tx.run("CREATE (a:Store_D{id:{id},region:{region}})", parameters("id", store_id, "category", region));
                     tx.success();
                 }
             }
         }
-        System.out.println("finish loading Customer_D");
+        System.out.println("finish loading Store_D");
     }
 }
