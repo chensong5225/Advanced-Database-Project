@@ -101,23 +101,23 @@
             </div>
         </div>
     <center>
-        <%
-            HttpSession hs = request.getSession(true);
-            List<Book> bookList = (List<Book>) hs.getAttribute("bookList");
-            List<Cart> cartList = (List<Cart>) hs.getAttribute("cartList");
-            Iterator itb = bookList.iterator();
-            Iterator itc = cartList.iterator();
-            int index = 0;
-            float total_price = 0;
-            while (itb.hasNext() && itc.hasNext()) {
-                Book book = (Book) itb.next();
-                Cart cart = (Cart) itc.next();
-                index++;
-                total_price = total_price + (float) (book.getPrice()) * Integer.valueOf(cart.getQuantity());
-
-        %>
         <div class="show" name="cart">
             <h2>Shopping Cart</h2>
+            <%
+                HttpSession hs = request.getSession(true);
+                List<Book> bookList = (List<Book>) hs.getAttribute("bookList");
+                List<Cart> cartList = (List<Cart>) hs.getAttribute("cartList");
+                Iterator itb = bookList.iterator();
+                Iterator itc = cartList.iterator();
+                int index = 0;
+                float total_price = 0;
+                while (itb.hasNext() && itc.hasNext()) {
+                    Book book = (Book) itb.next();
+                    Cart cart = (Cart) itc.next();
+                    index++;
+                    total_price = total_price + (float) (book.getPrice()) * Integer.valueOf(cart.getQuantity());
+
+            %>
             <form action=""method="post">
                 <table id="goods">
                     <tr>
@@ -129,7 +129,7 @@
                         <td> 
                             <span>Price:</span><span class="price"><%= book.getPrice()%>&nbsp;&nbsp;&nbsp;&nbsp;</span> 
                             <input class="min" name="" type="button" value="-" /> 
-                            <input class="text_box" name="" type="text" value="1" /> 
+                            <input class="text_box" name="" type="text" value="<%= cart.getQuantity()%>" /> 
                             <input class="add" name="" type="button" value="+" /> 
                         </td> 
                     </tr> 

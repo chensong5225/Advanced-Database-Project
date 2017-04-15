@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getFact.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Connection.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadCustomer.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Warehouse.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getCustomer.java</file>
-=======
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/historyOrder.jsp</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/shoppingCart.jsp</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/OrderService.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/OrderHistoryServlet.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/AddToCartServlet.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/bookService.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/index.jsp</file>
->>>>>>> 3c41fc48086252cd3cc7a3dab0e4085fc5ad6725
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>
