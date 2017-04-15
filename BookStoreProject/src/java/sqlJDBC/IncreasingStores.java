@@ -19,6 +19,8 @@ import java.util.HashMap;
  * @author surface
  */
 public class IncreasingStores {
+    //get a keyset of stores
+    //for each stores, show a list of time-sales map.
     static private Connection conn;
     static private ResultSet rs = null;
     static private Statement st;
@@ -31,7 +33,7 @@ public class IncreasingStores {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("SELECT distinct store_id  from fact");
+            ps = conn.prepareStatement("SELECT distinct store_id from transaction");
             rs = ps.executeQuery();
             while(rs.next()){
                 storeList.add(rs.getString(1));

@@ -116,8 +116,7 @@ public class Main{
         //CreateFact.create();
         //CreateCustomerDim.create();
         //CreateProductDim.create();
-        CreateStoreDim.create();
-        
+        //CreateStoreDim.create();
         
         
     }
