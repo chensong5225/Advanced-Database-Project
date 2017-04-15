@@ -1,1 +1,0 @@
-MongoJDBC.src.Operation.DocDetail
