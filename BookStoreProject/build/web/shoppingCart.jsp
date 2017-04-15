@@ -144,7 +144,7 @@
                 %>
 
                 <table>
-                    <tr><td>total:<%= total_price%></td><label id="total">$</label><td></td><td></td></tr>
+                    <tr><td>total:<%= total_price%></td><label id="total">$0.00</label><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <div class="br25"></div>

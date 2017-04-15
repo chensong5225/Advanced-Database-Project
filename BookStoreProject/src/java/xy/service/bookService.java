@@ -54,6 +54,7 @@ public class bookService {
     public Book aBookSearch(int bid) {
         Book abook = new Book();
         abook.setId(bid);
+        
         try {
             pstmt = conn.prepareStatement("SELECT * FROM product where id=?");
             pstmt.setInt(1, bid);
@@ -95,5 +96,27 @@ public class bookService {
             se.printStackTrace();
         }
         return books;
+    }
+    
+    public Book cartBookSearch(Book book) {
+           
+        try {
+            pstmt = conn.prepareStatement("SELECT * FROM product where id=?");
+            pstmt.setInt(1, book.getId());
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                book.setName(rs.getString("name"));
+                book.setAuthor(rs.getString("author"));
+                book.setPrice(rs.getFloat("price"));
+                book.setIntroduction(rs.getString("introduction"));
+                book.setCategory(rs.getString("category"));
+                book.setImage(rs.getString("image"));
+                book.setCost(rs.getFloat("cost"));
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return book;
     }
 }

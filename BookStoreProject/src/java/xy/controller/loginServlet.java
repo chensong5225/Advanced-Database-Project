@@ -23,7 +23,6 @@ import xy.service.userService;
  *
  * @author mac
  */
-@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
 public class loginServlet extends HttpServlet {
 
     /**
