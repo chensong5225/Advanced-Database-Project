@@ -43,7 +43,7 @@
             <div class="topBar">
                 <div class="comWidth">
                     <div class="leftArea">
-                        <a href="#" class="collection hide">Collection</a>
+                        <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
                     <div class="rightArea">
                         <% if (session.getAttribute("customer") == null) {%>
@@ -51,7 +51,7 @@
                         <%} else {
                             customer cst = (customer) session.getAttribute("customer");%>
 
-                        Welcome <%=cst.getId()%> to our website.
+                            Welcome <%=cst.getId()%> to our website.<a href="LogoutServlet">[Logout]</a>
                         <%}
                         %>
                     </div>

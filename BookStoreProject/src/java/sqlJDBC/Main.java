@@ -17,13 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -111,9 +104,22 @@ public class Main{
         String[] str = LoadSale.load("3", "2");
         System.out.println(str[0] + "  " + str[1] + "  " + str[2] + "   " + str[3]);
         */
-        
+        /*
         ArrayList<String[]> list = NeoLoadFact.load();
         System.out.println(list.size());
+        */
+        /*
+        String[] str = LoadDate.load("3", "2");
+        System.out.println(str[0] + "  " + str[1] + "  " + str[2]);
+        */
+        
+        //CreateFact.create();
+        //CreateCustomerDim.create();
+        //CreateProductDim.create();
+        CreateStoreDim.create();
+        
+        
+        
     }
     
     

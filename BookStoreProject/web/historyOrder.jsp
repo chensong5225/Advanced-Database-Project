@@ -4,6 +4,10 @@
     Author     : mac
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="xy.bean.Transaction"%>
+<%@page import="xy.bean.Book"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,20 +28,39 @@
                 </div>
             </div>
         </div>
+        <%
+            HttpSession hs = request.getSession(true);
+            List<Book> bookList = (List<Book>) hs.getAttribute("bookList");
+            List<Transaction> transactionList = (List<Transaction>) hs.getAttribute("transactionList");
+            Iterator itb = bookList.iterator();
+            Iterator itt = transactionList.iterator();
+            int index = 0;
+            while (itb.hasNext() && itt.hasNext()) {
+                Book book = (Book) itb.next();
+                Transaction tt = (Transaction) itt.next();
+                index++;
+        %>
+    <center>
         <div class="orderView">
             <table>
-                <tr><td>transaction number:</td><td></td></tr>
-                <tr><td>product name:</td><td></td></tr>
-                <tr><td>amount:</td><td></td></tr>
-                <tr><td>price:</td><td></td></tr>
-                <tr><td>time:</td><td></td></tr>
+                <tr><td>transaction number:<%= tt.getTransaction_id()%></td><td></td></tr>
+                <tr><td>product name: <%= book.getName()%></td><td></td></tr>
+                <tr><td><img height="150px" width="150px" src="<%= book.getImage()%>" alt="image1"/></td><td></td></tr>
+                <tr><td>amount: <%= tt.getAmount()%> </td><td></td></tr>
+                <tr><td>price: <%= tt.getPrice()%> </td><td></td></tr>
+                <tr><td>time: <%= tt.getTime()%> </td><td></td></tr>
             </table>
         </div>
-    </body>
+    </center>
 
-    <div class="footer">
-        <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-        <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-        <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-    </div>
+    <%
+        }
+    %>
+</body>
+
+<div class="footer">
+    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+</div>
 </html>

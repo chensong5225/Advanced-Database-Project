@@ -7,8 +7,6 @@ package xy.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -17,19 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import xy.bean.Book;
-import xy.bean.Cart;
-import xy.bean.Message;
-import xy.bean.customer;
-import xy.service.CartService;
-import xy.service.bookService;
 
 /**
  *
  * @author mac
  */
-@WebServlet(name = "AddToCartServlet", urlPatterns = {"/AddToCartServlet"})
-public class AddToCartServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/LogoutServlet"})
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,61 +36,10 @@ public class AddToCartServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        customer ct = (customer) session.getAttribute("customer");
-        Book book1 = (Book) session.getAttribute("book");
-
-        if (ct != null) {
-            Cart cart = new Cart();
-            CartService cs = new CartService();
-            bookService bs = new bookService();
-
-            int cid = Integer.valueOf(ct.getId());
-            cart.setCid(cid);
-            cart.setBid(Integer.valueOf(book1.getId()));
-            cart.setQuantity(1);
-            cart.setTotoal_price(book1.getPrice());
-
-            if (cs.addToCart(cart)) {
-                System.out.println("---------------------------------------------------------------Insert Success.");
-            } else {
-                if (cs.findCart(cart)) {
-                    //already exists, update shopping cart.
-                    Cart oldCart = cs.findOldCart(ct.getId(), book1.getId());
-                    cart.setQuantity(oldCart.getQuantity() + 1);
-                    cart.setTotoal_price(oldCart.getTotoal_price() * cart.getQuantity());
-                    if (cs.updateCart(cart)) {
-                        System.out.println("--------------------------------------------------------------------update cart success.");
-                    }
-                }
-            }
-            
-            cart = new Cart();
-            cart.setCid(cid);
-            List<Cart> carts = cs.findCartList(cart);
-            List<Book> books = new ArrayList<Book>();
-            for (Cart item : carts) {
-                Book book = new Book();
-                int bid = item.getBid();
-                book.setId(bid);
-                books.add(bs.aBookSearch(bid));
-            }
-            if (books != null) {
-                session.setAttribute("cartList", carts);
-                session.setAttribute("bookList", books);
-                ServletContext SC = getServletContext();
-                RequestDispatcher rd = SC.getRequestDispatcher("/cartTest.jsp");
-                rd.forward(request, response);
-
-            } else {
-                request.getRequestDispatcher("/error.jsp").forward(request, response);
-            }
-
-        } else {
-            Message msg = new Message();
-            msg.setMessageInfo("Please login first.");
-            session.setAttribute("msgInfo", msg);
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
-        }
+        session.invalidate();
+        ServletContext SC = getServletContext();
+        RequestDispatcher rd = SC.getRequestDispatcher("/index.jsp");
+        rd.forward(request, response);
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -106,10 +47,10 @@ public class AddToCartServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddToCartServlet</title>");
+            out.println("<title>Servlet LogoutServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddToCartServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

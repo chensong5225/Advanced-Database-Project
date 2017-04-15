@@ -104,17 +104,17 @@ public class CartService {
 
     }
 
-    public List findCartList(int cid) {
+    public List findCartList(Cart cart) {
 
         List cartList = new ArrayList();
 
         try {
-            pstmt = conn.prepareStatement("SELECT * FROM cart where cid=");
-            pstmt.setInt(1, cid);
+            pstmt = conn.prepareStatement("SELECT * FROM cart where cid=?");
+            pstmt.setInt(1, cart.getCid());
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                Cart cart = new Cart();
-                cart.setCid(cid);
+                //Cart cart = new Cart();
+                //cart.setCid(cid);
                 cart.setBid(rs.getInt("bid"));
                 cart.setTotoal_price(rs.getFloat("totoal_price"));
                 cart.setQuantity(rs.getInt("quantity"));
