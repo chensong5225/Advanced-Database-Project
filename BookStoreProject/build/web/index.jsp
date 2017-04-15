@@ -51,7 +51,7 @@
                         <%} else {
                             customer cst = (customer) session.getAttribute("customer");%>
 
-                        Welcome <%=cst.getId()%> to our website.
+                            Welcome <%=cst.getId()%> to our website.<a href="LogoutServlet">[Logout]</a>
                         <%}
                         %>
                     </div>
