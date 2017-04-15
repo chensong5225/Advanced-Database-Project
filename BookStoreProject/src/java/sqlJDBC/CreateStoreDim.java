@@ -5,39 +5,31 @@
  */
 package sqlJDBC;
 
-
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 /**
  *
  * @author yuq
  */
-public class LoadDate {
-    
-    
-    public static String[] load(String tid, String pid){
+public class CreateStoreDim {
+    public static void create(){
         Connection conn;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String[] date = new String[3];
-        //date[0]: year, date[1]: month, date[2]: day
         try {
             conn = ConnectSQL.getConn();
-            ps = conn.prepareStatement("select time from transaction where transaction_id = ? and product_id = ?");
-            ps.setObject(1, tid);
-            ps.setObject(2, pid);
-            rs = ps.executeQuery();
-            if(rs.next()){
-                String time = rs.getString(1);
-                date = time.split("-");
-            }
+            ps = conn.prepareStatement("DROP TABLE IF EXISTS store_dim");
+            ps.executeUpdate();
+            ps = conn.prepareStatement("CREATE TABLE store_dim (store_id varchar(45) NOT NULL,vregion varchar(45) NOT NULL)");            
+            ps.executeUpdate();
+            ps = conn.prepareCall("Insert into store_dim select id,state from store");
+            ps.executeUpdate();
             
         } catch (SQLException se) {
             se.printStackTrace();
         }
-        return date;
     }
 }
