@@ -24,7 +24,7 @@ public class loadFact {
     private Driver driver;
     private Connection con;
     private ArrayList<String[]> list;
-    private getProduct getp;
+    private getFact getf;
     private String product_id;
     private String amount;
     private String cost;
@@ -37,15 +37,14 @@ public class loadFact {
         con = new Connection();
         driver = con.driver;
         list = new ArrayList<>();
-        getp = new getProduct();
+        getf = new getFact();
     }
 
     public void load() {
-        list = getp.load();
+        list = getf.load();
         try (Session s = driver.session()) {
             try (Transaction tx = s.beginTransaction()) {
-                StatementResult sr = tx.run("match (a:Fact) delete a",
-                        parameters());
+                StatementResult sr = tx.run("match (a:Fact) delete a",parameters());
                 tx.success();
             }
         }
