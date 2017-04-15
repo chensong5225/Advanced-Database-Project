@@ -27,7 +27,7 @@
                         <%} else {
                             customer cst = (customer) session.getAttribute("customer");%>
 
-                        Welcome <%=cst.getId()%> to our website.
+                        Welcome <%=cst.getId()%> to our website.<a href="LogoutServlet">[Logout]</a>
                         <%}
                         %>
                     </div>
@@ -110,13 +110,11 @@
                         </div>-->
                     </div>
                     <ul class="nav fl">
-                        <li><a href="#" class="active">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
+                        <li><a href="index.jsp" class="active">Book</a></li>
+                        <li><a href="index.jsp">Arts & Photography</a></li>
+                        <li><a href="index.jsp">Biographies&Memoirs</a> </li>
+                        <li><a href="index.jsp">Children Books</a></li>
+                        <li><a href="index.jsp">History</a></li>
                     </ul>
                 </div>
             </div>
