@@ -28,7 +28,7 @@ public class Q7DemandCurve {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("select fact.product_id, category, product_dim.price, amount from fact, product_dim where fact.product_id = product_dim.product_id group by fact.product_id");            
+            ps = conn.prepareStatement("select fact.product_id, category, fact.price, amount from fact, product_dim where fact.product_id = product_dim.product_id group by fact.product_id");            
             rs = ps.executeQuery();            
             while(rs.next()){
                 String category = rs.getString(2);

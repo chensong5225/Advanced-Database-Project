@@ -29,12 +29,12 @@ public class Main {
         //CreateCustomerDim.create();
         //CreateStoreDim.create();
         
-        /*
+        
         HashMap<String, Integer> map = Q5RegionCompare.regionCompare();
         for(String s: map.keySet()){
                 System.out.println(s + " " + map.get(s));
             }
-        */
+        
         
         /*
         HashMap<String, HashMap<Double, Double>> map = Q7DemandCurve.demand();
@@ -46,7 +46,7 @@ public class Main {
         */
         
         //Q3EverydaySales.maintain("2017-02-28");
-        Q4aTopCustomerCategories.maintain("2017-02-28");
+        //Q4aTopCustomerCategories.maintain("2017-02-28");
         //Q4bTopProductCategories.maintain("2017-02-28");
         
         /*
