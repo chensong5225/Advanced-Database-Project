@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass1.java</file>
-=======
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/itemClass.jsp</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/loginServlet.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/teachServlet.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/WEB-INF/web.xml</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/login.jsp</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/adcSearchNeo4j.jsp</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/userService.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/bookService.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/index.jsp</file>
->>>>>>> f7bafd1e8f51b0c5293d71f1c29698e233bf849e
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/web/adcSearch.jsp</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoServlet/MongoQ6.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/loginServlet.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/teachServlet.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/nbproject/build-impl.xml</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q1.java</file>
         </group>
     </open-files>
 </project-private>
