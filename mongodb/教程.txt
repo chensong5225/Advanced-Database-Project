@@ -18,7 +18,9 @@ or, use "$match"
 	db.articles.aggregate(
    		 [ { $match : { author : "dave" } } ]
 	);
-	
+
+db.getCollection('Fact').aggregate([{$match:{"date.day":"15","date.year":"2017","date.month":"02"}}])
+
 how to write in java:
 
 
@@ -49,3 +51,23 @@ how to write in java:
                       
                
        );
+       
+
+
+/* 
+match and project nested document
+*/
+
+db.getCollection('Fact').aggregate([{$match:{"date.day":"28"}},{$project:{"date.day":1,"store.storeId":1}}])
+
+how to write in java:
+
+
+
+
+/*
+获取所有storeId的值，说明一下：做key的时候，查询nested key不需要加$,但是做value，查询nested value，需要$
+*/
+
+
+db.getCollection('Fact').aggregate([{$match:{"date.day":"28"}},{$group:{_id:"$store.storeId",totalsales:{$sum:{$multiply:["$price_per_item","$amount"]}}}}])
