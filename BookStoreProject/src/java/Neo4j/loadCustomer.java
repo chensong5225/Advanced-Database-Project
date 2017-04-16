@@ -22,32 +22,37 @@ import java.util.ArrayList;
 public class loadCustomer {
 
     private Driver driver;
-    private Connection con;
+    private Neo4jcon con;
     private ArrayList<String[]> list;
-    private getCustomer gc;
+    private getCustomer getc;
     private String customer_id;
     private String category;
 
     public loadCustomer() {
-        con = new Connection();
+        con = new Neo4jcon();
         driver = con.driver;
         list = new ArrayList<>();
-        gc = new getCustomer();
+        getc = new getCustomer();
     }
 
     public void load() {
-        list = gc.load();
-        for(String[] str : list){
-            customer_id = str[0];
-            category = str[1];
+        list = getc.load();
         try (Session s = driver.session()) {
             try (Transaction tx = s.beginTransaction()) {
-                StatementResult sr = tx.run("MATCH (a:Transaction) " + "RETURN a.name AS name", parameters());
-                ArrayList<Record> result = (ArrayList<Record>) sr.list();
-
+                StatementResult sr = tx.run("match (a:Customer_D) delete a", parameters());
+                tx.success();
             }
         }
+        for (String[] str : list) {
+            customer_id = str[0];
+            category = str[1];
+            try (Session s = driver.session()) {
+                try (Transaction tx = s.beginTransaction()) {
+                    StatementResult sr = tx.run("CREATE (a:Customer_D{id:{id},category:{category}})", parameters("id", customer_id, "category", category));
+                    tx.success();
+                }
+            }
+        }
+        System.out.println("finish loading Customer_D");
     }
-    }
-
 }

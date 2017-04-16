@@ -4,6 +4,10 @@
     Author     : mac
 --%>
 
+<%@page import="Neo4j.ProductTest"%>
+<%@page import="Neo4j.Product"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@page import="xy.bean.customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,16 +25,7 @@
                     <div class="leftArea">
                         <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
-                    <div class="rightArea">
-                        <% if (session.getAttribute("customer") == null) {%>
-                        Welcome to our website! <a href="login.jsp">[Login]</a> <a href="#">[Register]</a>
-                        <%} else {
-                            customer cst = (customer) session.getAttribute("customer");%>
-
-                        Welcome <%=cst.getId()%> to our website.
-                        <%}
-                        %>
-                    </div>
+                   
                 </div>
             </div>
             <div class="logoBar">
@@ -43,7 +38,7 @@
                         <input type="button" value="Search" class="search_btn fr">
                     </div>
                     <div class="shopCar fr">
-                        <span class="shopText fl">Shopping Cart</span>
+                        <span class="shopText fl">Cart</span>
                         <span class="shopNum fl"> 0 </span>
                     </div>
                 </div>
@@ -110,18 +105,36 @@
                         </div>-->
                     </div>
                     <ul class="nav fl">
-                        <li><a href="#" class="active">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Book</a></li>
+                        <li><a href="index.jsp" class="active">Book</a></li>
+                        <li><a href="index.jsp">Arts & Photography</a></li>
+                        <li><a href="index.jsp">Biographies&Memoirs</a> </li>
+                        <li><a href="index.jsp">Children Books</a></li>
+                        <li><a href="index.jsp">History</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="comWidth"> </div>
+
+
+        <jsp:useBean id="test" class="Neo4j.test"></jsp:useBean>
+
+            <div id="t">
+            <%
+                ProductTest pt = new ProductTest();
+                List products = pt.first();
+                //out.print(node.size());
+                Iterator iter = products.iterator();
+                while (iter.hasNext()) {
+                    //out.print(iter.next());
+                    Product product = (Product) iter.next();
+                   // String name = product.getName();
+                   // String category = product.getCategory();
+            %>
+           <!-- <p></p>-->
+            <p><%=  product.getCategory() %></p>
+            <%}%>
+        </div>
 
         <div class="footer">
             <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>

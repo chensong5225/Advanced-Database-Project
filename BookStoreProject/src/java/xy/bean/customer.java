@@ -16,6 +16,7 @@ import java.io.Serializable;
 public class customer extends Object implements Serializable{
     
     private static final long serialVersionUID = 102831973239L;
+    //private static final long serialVersionUID = 1L;
     
     private int id;
     private String password;

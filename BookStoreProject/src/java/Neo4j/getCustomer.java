@@ -34,7 +34,7 @@ public class getCustomer {
                 String[] str = new String[2];
                 str[0] = rs.getString(1);
                 str[1] = rs.getString(2);
-                System.out.println("customer id : "+str[0]+"type : "+ str[1]);
+//                System.out.println("customer id : "+str[0]+"type : "+ str[1]);
                 list.add(str);
             }
         } catch (SQLException se) {

@@ -17,49 +17,25 @@ import org.neo4j.driver.v1.Record;
 import org.neo4j.driver.v1.StatementResult;
 import org.neo4j.driver.v1.Transaction;
 import java.util.ArrayList;
+import net.sf.cglib.core.EmitUtils;
 import static org.neo4j.driver.v1.Values.parameters;
 
 public class Warehouse {
-    Driver driver;
-	Connection con;
+    private loadCustomer load_C;
+    private loadFact load_F;
+    private loadProduct load_P;
+    private loadStore load_S;
 
 	public Warehouse() {
-		con = new Connection();
-		driver = con.driver;
+            load_C = new loadCustomer();
+            load_F = new loadFact();
+            load_P = new loadProduct();
+            load_S = new loadStore();
 	}
-
-	private void creatCustomer() {
-		try (Session s = driver.session()) {
-			try (Transaction tx = s.beginTransaction()) {
-				StatementResult sr = tx.run("MATCH (a:Transaction) " + "RETURN a.name AS name", parameters());
-				ArrayList<Record> result = (ArrayList<Record>) sr.list();
-//				while (sr.hasNext()) {
-//					Record record = sr.next();
-//					System.out.println(String.format("%s", record.get("name").asString()));
-//				}
-//				for (Record record : result) {
-//					System.out.println(String.format("%s", record.get("name").asString()));
-//				}
-			}
-		}
+       public void loadWarehouse(){
+           load_C.load();
+           load_F.load();
+           load_P.load();
+           load_S.load();
+       }
 	}
-	private void creatStore(){//wait qiuyu
-		try (Session s = driver.session()) {
-			try (Transaction tx = s.beginTransaction()) {
-				StatementResult sr = tx.run("MATCH (a:Transaction) " + "RETURN a.store AS store", parameters());
-				ArrayList<Record> result = (ArrayList<Record>) sr.list();
-			}
-		}
-	}
-        private void creatProduct(){
-            try (Session s = driver.session()) {
-			try (Transaction tx = s.beginTransaction()) {
-				StatementResult sr = tx.run("MATCH (a:Transaction) " + "RETURN a.store AS store", parameters());
-				ArrayList<Record> result = (ArrayList<Record>) sr.list();
-			}
-		}
-}
-        public void closeDriver(){
-            driver.close();
-        }
-}

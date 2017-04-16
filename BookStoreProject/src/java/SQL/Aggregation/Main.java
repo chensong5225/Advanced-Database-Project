@@ -6,6 +6,7 @@
 package SQL.Aggregation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -20,15 +21,33 @@ public class Main {
             System.out.println(s);
         }
         */
-        
+        /*
         int[] arr = Q1CustomerRatio.ratio();
         System.out.println(arr[0] + " ：" + arr[1]);
-        
+        */
         
         //CreateCustomerDim.create();
+        //CreateStoreDim.create();
         
+        /*
+        HashMap<String, Integer> map = Q5RegionCompare.regionCompare();
+        for(String s: map.keySet()){
+                System.out.println(s + " " + map.get(s));
+            }
+        */
         
+        /*
+        HashMap<String, HashMap<Double, Double>> map = Q7DemandCurve.demand();
+        for(String s: map.keySet()){
+            for(Double d: map.get(s).keySet()){
+                System.out.println(s + " price " + d + " sale " + map.get(s).get(d));
+            }
+        }
+        */
         
+        //Q3EverydaySales.maintain("2017-02-28");
+        Q4aTopCustomerCategories.maintain("2017-02-28");
+        Q4bTopProductCategories.maintain("2017-02-28");
     }
     
 }
