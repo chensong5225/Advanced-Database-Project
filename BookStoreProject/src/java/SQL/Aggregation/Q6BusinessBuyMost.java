@@ -28,17 +28,19 @@ public class Q6BusinessBuyMost {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("select customer_id, sum(sale) from fact, product_dim where fact.product_id = product_dim.product_id and product.name = ? group by customer_id order by sum(sale) desc");
+            ps = conn.prepareStatement("select customer_id, sum(sale) from fact, product_dim where fact.product_id = product_dim.product_id and product_dim.name = ? group by customer_id order by sum(sale) desc");
             ps.setObject(1, product);
             rs = ps.executeQuery();
             ArrayList<String> list = SQLRetrieveBusinessCustomer.retrieveBusiness();
             while(rs.next()){
-                if(list.contains(rs.getString(1))){
+                String str = rs.getString(1);
+                double num = rs.getDouble(2);
+                if(list.contains(str)){
                     if(max == 0){
-                        max = rs.getDouble(2);
-                        res.add(rs.getString(1));
-                    }else if(max == rs.getDouble(2)){
-                        res.add(rs.getString(1));
+                        max = num;
+                        res.add(str);
+                    }else if(max == num){
+                        res.add(str);
                     }else{
                         break;
                     }
