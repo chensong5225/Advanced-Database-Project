@@ -23,9 +23,9 @@ public class CreateProductDim {
             conn = SQLConnectSQL.getConn();
             ps = conn.prepareStatement("DROP TABLE IF EXISTS product_dim");
             ps.executeUpdate();
-            ps = conn.prepareStatement("CREATE TABLE product_dim (product_id int(11) NOT NULL,name varchar(45) NOT NULL,price float(11), cost float(11), category varchar(45) NOT NULL)");            
+            ps = conn.prepareStatement("CREATE TABLE product_dim (product_id int(11) NOT NULL, name varchar(45) NOT NULL, cost decimal(10,2), category varchar(45) NOT NULL)");            
             ps.executeUpdate();
-            ps = conn.prepareStatement("Insert into product_dim select id,name, price, cost, category from product");
+            ps = conn.prepareStatement("Insert into product_dim select id,name, cost, category from product");
             ps.executeUpdate();
             
         } catch (SQLException se) {
