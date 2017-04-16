@@ -72,7 +72,7 @@
             <table>
                 <tr><td>1.What is the ratio of business to home customers?</td><td><a href="itemClass.jsp">result</a></td></tr>
                 <tr><td>2.What stores are increasing in sales?</td><td></td></tr>
-                <tr><form action="#"><td>Start date: 
+                <tr><form action="teachServlet"><td>Start date: 
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>

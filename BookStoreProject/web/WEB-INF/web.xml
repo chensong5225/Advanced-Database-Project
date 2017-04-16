@@ -13,19 +13,17 @@
         <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>MongodbQ6</servlet-name>
-        <servlet-class>xy.controller.MongodbQ6</servlet-class>
+        <servlet-name>MongoQ1</servlet-name>
+        <servlet-class>MongoServlet.MongoQ6</servlet-class>
     </servlet>
-     <servlet-mapping>
-        <servlet-name>MongodbQ6</servlet-name>
-        <url-pattern>/MongodbQ6</url-pattern>
-    </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-   
+    <servlet-mapping>
+        <servlet-name>MongoQ1</servlet-name>
+        <url-pattern>/MongoQ1</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -78,9 +76,20 @@
         <servlet-name>firstServlet</servlet-name>
         <servlet-class>Neo4j.firstServlet</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>firstServlet</servlet-name>
         <url-pattern>/firstServlet</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
+   <servlet>
+        <servlet-name>teachServlet</servlet-name>
+        <servlet-class>xy.controller.teachServlet</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>teachServlet</servlet-name>
+        <url-pattern>/teachServlet</url-pattern>
+    </servlet-mapping>
    
+=======
+>>>>>>> 835be7bd9cbf4b14ba40edeb4677fd3b522712b5
 </web-app>

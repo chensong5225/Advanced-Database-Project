@@ -72,53 +72,61 @@
             <table>
                 <tr><td>1.What is the ratio of business to home customers?</td><td><a href="itemClass.jsp">result</a></td></tr>
                 <tr><td>2.What stores are increasing in sales?</td><td></td></tr>
-                <tr><td>Start date: 
+                <tr><form action="#"><td>Start date: 
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
                 <tr><td></td><td></td></tr>
-                <tr><td></td><td><form action="#"><input type="submit" value="submit"/></form></td></tr>
-                <tr><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
+                <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
+                <tr><form action="#"><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
                 <tr><td>Start date: 
                         <input type="text" id="startdate2" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate2" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-                <tr><td></td><td><form action="#"><input type="submit" value="submit"></form></td></tr>
-                <tr><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
+                <tr><td></td><td><input type="submit" value="submit"></form></td></tr>
+                <tr><form action="#"><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
                 <tr><td>Start date: 
                         <input type="text" id="startdate3" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate3" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-                <tr><td></td><td><form action="#"><input type="submit" value="submit"/></form></td></tr>
+                <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
                 <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>
-                <tr><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
+<<<<<<< HEAD
+                <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
+=======
+                <tr><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value=""  selected="selected">please select.</option>
+>>>>>>> 835be7bd9cbf4b14ba40edeb4677fd3b522712b5
                             <% while (iter.hasNext()) {
                                     Book book = (Book) iter.next();
                                     int bid = book.getId();
                                     String bname = book.getName();%>
-                            <option value="<%= bname%>" ><%=  bname%></option>
+                            <option id="Q6" value="<%= bname%>" ><%=  bname%></option>
                             <%}%>
-                        </select></td><td><form action="#"><input type="submit" value="submit"/></form></td></tr>
+                        </select></td><td><input type="submit" value="submit"/></form></td></tr>
                         <%
                             List products2 = productSearch.findProductList();
                             Iterator iter2 = products2.iterator();
                         %>
-                <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
+<<<<<<< HEAD
+                <tr><form action="#"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
+=======
+                <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" id="Q7" selected="selected">please select.</option>
+>>>>>>> 835be7bd9cbf4b14ba40edeb4677fd3b522712b5
                             <%
                                 while (iter2.hasNext()) {
                                     Book book2 = (Book) iter2.next();
                                     int bid2 = book2.getId();
                                     String bname2 = book2.getName();
                             %>
-                            <option value="<%=bname2%>"><%=bname2%></option>
+                            <option id="" value="<%=bname2%>"><%=bname2%></option>
                             <%}
                             %>
-                        </select></td><td><form action="#"><input type="submit" value="submit"/></form></td></tr>
+                        </select></td><td><input type="submit" value="submit"/></form></td></tr>
                         <%
                             List products3 = productSearch.findProductList();
                             Iterator iter3 = products3.iterator();
                         %>
-                <tr><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
+                <tr><form action="#" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
                         <select id="week" name="week"><option value="pls" selected="selected">please select.</option>
 
                         </select>
@@ -134,7 +142,7 @@
                             <%}
                             %>
                         </select>
-                    </td><td><form action="#" ><input type="submit" value="submit"/></form></td></tr>
+                    </td><td><input type="submit" value="submit"/></form></td></tr>
                 <tr><td>9.Other interesting aggregate values that you will come up with.</td><td><a href="#">result</a></td></tr>
             </table>
         </div>

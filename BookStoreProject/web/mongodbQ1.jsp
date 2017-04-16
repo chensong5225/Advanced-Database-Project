@@ -1,9 +1,11 @@
 <%-- 
-    Document   : itemClass
-    Created on : Apr 1, 2017, 10:51:48 PM
-    Author     : mac
+    Document   : mongodbQ1
+    Created on : 2017-4-16, 17:11:57
+    Author     : fei
 --%>
 
+<%@page import="Neo4j.ProductTest"%>
+<%@page import="Neo4j.Product"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="xy.bean.customer"%>
@@ -23,7 +25,7 @@
                     <div class="leftArea">
                         <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
-
+                   
                 </div>
             </div>
             <div class="logoBar">
@@ -115,14 +117,15 @@
         <div class="comWidth"> </div>
 
 
-        <%
-            HttpSession hs = request.getSession(true);
-            String sd = hs.getAttribute("st").toString();
-            String ed = hs.getAttribute("et").toString();
-        %>
-        <div id="t">
-            <p><%= sd%></p>
-            <p><%= ed%></p>
+        <jsp:useBean id="m1" class="MongoJDBC.aggregation.Q1"></jsp:useBean>
+
+            <div id="t">
+            <%
+                String r1=m1.ratio();
+            %>
+           <!-- <p></p>-->
+            <p><%=r1%></p>
+         
         </div>
 
         <div class="footer">
@@ -132,3 +135,4 @@
         </div>
     </body>
 </html>
+

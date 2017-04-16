@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xy.controller;
+package MongoServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,12 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author fei
  */
-public class MongodbQ6 extends HttpServlet {
+public class MongoQ6 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,15 +31,21 @@ public class MongodbQ6 extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+         HttpSession session = request.getSession();
+        //获取前端数据
+        request.getParameter("");
+        
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MongodbQ6</title>");            
+            out.println("<title>Servlet MongoQ1</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet MongodbQ6 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet MongoQ1 at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

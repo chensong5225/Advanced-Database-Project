@@ -16,7 +16,7 @@ public class Q1 extends MongoDbCon{
     What is the ratio of business to home customers?
     Q1 query by ViewsType
     */
-	public static String ratio(){
+	public  String ratio(){
 		//connect to mongodb
 		Connect("ADB_ware", "Viewtype");
                 //unwind home
@@ -58,7 +58,7 @@ public class Q1 extends MongoDbCon{
 		return busi+":"+home;
 	}
 	
-	public static void main(String args[]){
-		System.out.println(Q1.ratio());
-	}
+//	public static void main(String args[]){
+//		System.out.println(Q1.ratio());
+//	}
 }
