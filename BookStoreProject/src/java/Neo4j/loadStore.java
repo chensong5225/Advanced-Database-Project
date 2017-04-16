@@ -48,7 +48,7 @@ public class loadStore {
             region = str[1];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("CREATE (a:Store_D{id:{id},region:{region}})", parameters("id", store_id, "category", region));
+                    StatementResult sr = tx.run("CREATE (a:Store_D{id:{id},region:{region}})", parameters("id", store_id, "region", region));
                     tx.success();
                 }
             }

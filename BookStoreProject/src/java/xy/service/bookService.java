@@ -50,6 +50,108 @@ public class bookService {
 
         return books;
     }
+    
+    
+    public List searchBooksByArt() {
+        List books = new ArrayList();
+
+        try {
+            pstmt = conn.prepareStatement("SELECT * FROM product where category = 'Art&Photography'");
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Book book = new Book();
+                book.setId(rs.getInt("id"));
+                book.setName(rs.getString("name"));
+                book.setAuthor(rs.getString("author"));
+                book.setPrice(rs.getFloat("price"));
+                book.setIntroduction(rs.getString("introduction"));
+                book.setCategory(rs.getString("category"));
+                book.setImage(rs.getString("image"));
+                book.setCost(rs.getFloat("cost"));
+                books.add(book);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return books;
+    }
+    
+    public List searchBooksByBio() {
+        List books = new ArrayList();
+
+        try {
+            pstmt = conn.prepareStatement("SELECT * FROM product where category = 'Biographies&Memoirs'");
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Book book = new Book();
+                book.setId(rs.getInt("id"));
+                book.setName(rs.getString("name"));
+                book.setAuthor(rs.getString("author"));
+                book.setPrice(rs.getFloat("price"));
+                book.setIntroduction(rs.getString("introduction"));
+                book.setCategory(rs.getString("category"));
+                book.setImage(rs.getString("image"));
+                book.setCost(rs.getFloat("cost"));
+                books.add(book);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return books;
+    }
+    
+    public List searchBooksByChild() {
+        List books = new ArrayList();
+
+        try {
+            pstmt = conn.prepareStatement("SELECT * FROM product where category = 'Childrens Books'");
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Book book = new Book();
+                book.setId(rs.getInt("id"));
+                book.setName(rs.getString("name"));
+                book.setAuthor(rs.getString("author"));
+                book.setPrice(rs.getFloat("price"));
+                book.setIntroduction(rs.getString("introduction"));
+                book.setCategory(rs.getString("category"));
+                book.setImage(rs.getString("image"));
+                book.setCost(rs.getFloat("cost"));
+                books.add(book);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return books;
+    }
+    
+    public List searchBooksByHis() {
+        List books = new ArrayList();
+
+        try {
+            pstmt = conn.prepareStatement("SELECT * FROM product where category = 'History'");
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Book book = new Book();
+                book.setId(rs.getInt("id"));
+                book.setName(rs.getString("name"));
+                book.setAuthor(rs.getString("author"));
+                book.setPrice(rs.getFloat("price"));
+                book.setIntroduction(rs.getString("introduction"));
+                book.setCategory(rs.getString("category"));
+                book.setImage(rs.getString("image"));
+                book.setCost(rs.getFloat("cost"));
+                books.add(book);
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return books;
+    }
+    
 
     public Book aBookSearch(int bid) {
         Book abook = new Book();
