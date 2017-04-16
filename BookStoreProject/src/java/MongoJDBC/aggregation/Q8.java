@@ -20,10 +20,10 @@ import org.bson.Document;
  * @author fei
  * 
  * 
- * Develop a direct marketing data; for each product, a list of customers that buy the product more
+ * Q8:Develop a direct marketing data; for each product, a list of customers that buy the product more
 than 2 times per week.
  */
-public class Q7 extends MongoDbCon{
+public class Q8 extends MongoDbCon{
     public HashMap<String,String> query(String prdtName){      
         //connect
         Connect("ADB_ware","Fact");
@@ -71,7 +71,7 @@ public class Q7 extends MongoDbCon{
     }
     
     public static void main(String args[]){
-        Q7 q = new Q7();
+        Q8 q = new Q8();
         HashMap<String,String> c=q.query("Leonardo and the Last Supper");    
         ArrayList proList = q.productList();
         System.out.println("proList结果是:-->"+proList);

@@ -74,14 +74,14 @@ public class Main{
         }
         */
         
-        
+        /*
         HashMap<String, HashMap<Double, Double>> map = DemandCurve.demand();
         for(String s: map.keySet()){
             for(Double d: map.get(s).keySet()){
                 System.out.println(s + " price " + d + " sale " + map.get(s).get(d));
             }
         }
-        
+        */
         /*
         ArrayList<String[]> list = StartLoad.load();
         for(String[] str: list){

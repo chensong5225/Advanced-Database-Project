@@ -96,7 +96,7 @@
                                     Book book = (Book) iter.next();
                                     int bid = book.getId();
                                     String bname = book.getName();%>
-                            <option value="<%= bid%>" ><%=  bname%></option>
+                            <option value="<%= bname%>" ><%=  bname%></option>
                             <%}%>
                         </select></td><td><form action="#"><input type="submit" value="submit"/></form></td></tr>
                         <%
@@ -110,7 +110,7 @@
                                     int bid2 = book2.getId();
                                     String bname2 = book2.getName();
                             %>
-                            <option value="<%=bid2%>"><%=bname2%></option>
+                            <option value="<%=bname2%>"><%=bname2%></option>
                             <%}
                             %>
                         </select></td><td><form action="#"><input type="submit" value="submit"/></form></td></tr>
@@ -130,7 +130,7 @@
                                     int bid3 = book3.getId();
                                     String bname3 = book3.getName();
                             %>
-                            <option value="<%=bid3%>"><%=bname3%></option>
+                            <option value="<%=bname3%>"><%=bname3%></option>
                             <%}
                             %>
                         </select>
