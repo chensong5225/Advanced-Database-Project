@@ -16,7 +16,7 @@ public class Main {
     
     public static void main(String[] args) throws ClassNotFoundException{
         /*
-        ArrayList<String> list = Q2FindIncreasingStores.stores("2017-02-18", "2017-03-18");
+        ArrayList<String> list = Q2FindIncreasingStores.stores("2017-02-18", "2017-02-28");
         for(String s: list){
             System.out.println(s);
         }
@@ -46,8 +46,13 @@ public class Main {
         */
         
         //Q3EverydaySales.maintain("2017-02-28");
-        Q4aTopCustomerCategories.maintain("2017-02-28");
-        Q4bTopProductCategories.maintain("2017-02-28");
+        //Q4aTopCustomerCategories.maintain("2017-02-28");
+        //Q4bTopProductCategories.maintain("2017-02-28");
+        
+        ArrayList<String> list = Q6BusinessBuyMost.buyMost("Leonardo and the Last Supper");
+        for(String s: list){
+                System.out.println(s);
+            }
     }
     
 }

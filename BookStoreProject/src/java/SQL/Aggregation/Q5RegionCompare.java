@@ -29,7 +29,7 @@ public class Q5RegionCompare {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("select region, sum(amount) from fact, store_dim where fact.store_id = store_dim.store_id group by region");
+            ps = conn.prepareStatement("select region, sum(sale) from fact, store_dim where fact.store_id = store_dim.store_id group by region");
             rs = ps.executeQuery();
             while(rs.next()){
                 String region = rs.getString(1);

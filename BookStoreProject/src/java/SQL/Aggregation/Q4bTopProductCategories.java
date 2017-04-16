@@ -22,7 +22,7 @@ public class Q4bTopProductCategories {
         PreparedStatement nestps = null;
         ResultSet rs = null;
         ResultSet nestrs = null;
-        String viewName = "TopCustomerCategories" + RemoveDateSlash.remove(date);
+        String viewName = "TopCustomerCategories_" + RemoveDateSlash.remove(date);
         
         try {
             conn = SQLConnectSQL.getConn();
