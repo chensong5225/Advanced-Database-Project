@@ -37,52 +37,7 @@
                     document.getElementById("bCustomer").style.display = "hide";
                 }
             }
-
-
-
-
-
-
-            function check(obj) {
-                $(":radio").removeAttr("checked");
-                obj.setAttribute("checked", "checked");
-            }
-            $(document).ready(function () {
-                $("#sb").click(function () {
-
-                    var valid1 = 0;
-                    var valid2 = 0;
-                    var valid3 = 1;
-                    var Gender = null;
-                    var Marriage = null;
-                    $("#gr").each(function () {
-                        if ($(this).attr("checked") === "checked") {
-                            Gender = $(this).attr("value");
-                        }
-                    });
-                    $("#ms").each(function () {
-                        if ($(this).attr("checked") === "checked") {
-                            Marriage = $(this).attr("value");
-                        }
-                    });
-
-                    hcname = document.getElementById("name1").value;
-                    password = document.getElementById("pwd1").value;
-                    street = document.getElementById("street").value;
-                    city = document.getElementById("city").value;
-                    state = document.getElementById("state").value;
-                    zip = document.getElementById("zip").value;
-                    age = document.getElementById("age").value;
-                    income = document.getElementById("income").value;
-
-                    if (hcname === '') {
-                        alert("username could not be null");
-                        valid3 = 0;
-                        document.getElementById("name1").style.borderColor = "#FF7700";
-                    }
-
-
-                });
+            
         </script>
     </head>
     <body>
@@ -121,12 +76,12 @@
                     <tr><td>Zip code:</td></tr>
                     <tr><td><input id="zip" type="text"></td></tr>
                     <tr><td>Marriage status:</td></tr>
-                    <tr><td><input id="ms" onclick="check(this)" checked="checked" name="marriage" type="radio" value="no"/>no</td>
-                        <td><input id="ms" onclick="check(this)" name="marriage" type="radio" value="yes"/>yes</td>
+                    <tr><td><input id="ms" checked="checked" name="marriage" type="radio" value="no"/>no</td>
+                        <td><input id="ms" name="marriage" type="radio" value="yes"/>yes</td>
                     </tr>
                     <tr><td>Gender:</td></tr>
-                    <tr><td><input id="gr" onclick="check(this)" checked="checked" name="sex" type="radio" value="male" />male</td>
-                        <td><input id="gr" onclick="check(this)"  name="sex" type="radio" value="female" />female</td>
+                    <tr><td><input id="gr"  checked="checked" name="sex" type="radio" value="male" />male</td>
+                        <td><input id="gr"   name="sex" type="radio" value="female" />female</td>
                     </tr>
                     <tr><td>age:</td></tr>
                     <tr><td><input id="age" type="text"></td></tr>
