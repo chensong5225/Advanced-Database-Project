@@ -16,15 +16,15 @@
         <script type="text/javascript" src="js/jquery-3.2.0.js" ></script>
         <script language="javascript" type="text/javascript">//Reference from: https://my.oschina.net/moson/blog/147370   http://blog.csdn.net/u011031689/article/details/50866713
             function check_name() {
-                var tag = document.getElementById('uname');
+                var tag = document.getElementById('email');
                 var msg = document.getElementById('msg_uname');
                 msg.innerHTML = "";
                 tag.style.border = "0";
-                reg = /^[\w\u4E00-\u9FA5]{1,}$/;
+                reg = /^[\w\u4E00-\u9FA5]{3,}$/;
                 if (!reg.test(tag.value)) {
                     tag.style.border = "2px solid #EEEE00";
                     msg.style.color = "#FF7700";
-                    msg.innerHTML = "Username must be 1 or more character or number.";
+                    msg.innerHTML = "Email must be 3 or more character or number.";
                     return false;
                 }
                 return true;
@@ -46,7 +46,7 @@
                 return check_name() && check_pwd();
             }
             window.onload = function () {
-                var tag = document.getElementById('uname');
+                var tag = document.getElementById('email');
                 tag.onblur = check_name;
                 var tag2 = document.getElementById('pwd');
                 tag2.onblur = check_pwd;
@@ -69,8 +69,8 @@
             <center>
                 <form action="loginServlet" onsubmit="return check();">
                 <table>
-                    <tr><td>UserID:</td></tr>
-                    <tr><td><input id="uname" type="text" name="uid"></td></tr>
+                    <tr><td>Email:</td></tr>
+                    <tr><td><input id="email" type="text" name="email"></td></tr>
                     <tr><td id="msg_uname"></td></tr>
                     <tr><td>Password:</td></tr>
                     <tr><td><input id="pwd" type="text" name="password"></td></tr>
