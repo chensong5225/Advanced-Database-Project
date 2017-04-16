@@ -19,7 +19,7 @@ public class conn {
             Class.forName("com.mysql.jdbc.Driver");
             String url ="jdbc:mysql://localhost:3306/booksys";
             String user ="root";
-            String password ="123456";
+            String password ="root";
             Connection conn = DriverManager.getConnection(url, user, password);
             System.out.println(conn.getMetaData().getURL());
             
