@@ -38,7 +38,7 @@
                         <input type="button" value="Search" class="search_btn fr">
                     </div>
                     <div class="shopCar fr">
-                        <span class="shopText fl">Shopping Cart</span>
+                        <span class="shopText fl">Cart</span>
                         <span class="shopNum fl"> 0 </span>
                     </div>
                 </div>

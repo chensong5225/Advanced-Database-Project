@@ -128,4 +128,29 @@ public class CartService {
         return cartList;
 
     }
+    
+    public List findCartListNum(int cid) {
+
+        List cartList = new ArrayList();
+
+        try {
+            pstmt = conn.prepareStatement("SELECT * FROM cart where cid=?");
+            pstmt.setInt(1, cid);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Cart cart = new Cart();
+                cart.setCid(cid);
+                cart.setBid(rs.getInt("bid"));
+                cart.setTotoal_price(rs.getFloat("totoal_price"));
+                cart.setQuantity(rs.getInt("quantity"));
+                cartList.add(cart);
+
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return cartList;
+
+    }
 }
