@@ -49,7 +49,7 @@ public class Main {
         //Q4aTopCustomerCategories.maintain("2017-02-28");
         //Q4bTopProductCategories.maintain("2017-02-28");
         
-        ArrayList<String> list = Q6BusinessBuyMost.buyMost("Leonardo and the Last Supper");
+        ArrayList<String> list = Q6BusinessBuyMost.buyMost("Brunelleschis Dome");
         for(String s: list){
                 System.out.println(s);
             }
