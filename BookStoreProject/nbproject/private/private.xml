@@ -3,6 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/loginServlet.java</file>
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/login.jsp</file>
+            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/adcSearch.jsp</file>
+=======
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q2FindIncreasingStores.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Main.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q6BusinessBuyMost.java</file>
@@ -25,6 +30,7 @@
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/Main.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/ConnectSQL.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/SQLRetrieveHomeCustomer.java</file>
+>>>>>>> 0be066cd48a6a7c0d1f812e9ad90d2b76fdae1b5
         </group>
     </open-files>
 </project-private>
