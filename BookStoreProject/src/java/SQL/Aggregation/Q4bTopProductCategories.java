@@ -9,24 +9,30 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  *
  * @author yuq
  */
-public class CreateStoreDim {
-    public static void create(){
+public class Q4bTopProductCategories {
+    public static void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
+        PreparedStatement nestps = null;
         ResultSet rs = null;
+        ResultSet nestrs = null;
+        String viewName = "TopCustomerCategories" + RemoveDateSlash.remove(date);
+        
         try {
             conn = SQLConnectSQL.getConn();
-            ps = conn.prepareStatement("DROP TABLE IF EXISTS store_dim");
+            
+            ps = conn.prepareStatement("Drop View if exists " + viewName);
             ps.executeUpdate();
-            ps = conn.prepareStatement("CREATE TABLE store_dim (store_id varchar(45) NOT NULL,region varchar(45) NOT NULL)");            
+            ps = conn.prepareStatement("Create View " + viewName +  " as Select category, sum(sale) as sales from fact, product_dim where fact.product_id = product_dim.product_id and time = ? group by category order by sales desc limit 1");
+            ps.setObject(1, date);
             ps.executeUpdate();
-            ps = conn.prepareStatement("Insert into store_dim select id,state from store");
-            ps.executeUpdate();
+            
             
         } catch (SQLException se) {
             se.printStackTrace();
