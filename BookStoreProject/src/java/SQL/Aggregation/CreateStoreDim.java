@@ -23,7 +23,7 @@ public class CreateStoreDim {
             conn = SQLConnectSQL.getConn();
             ps = conn.prepareStatement("DROP TABLE IF EXISTS store_dim");
             ps.executeUpdate();
-            ps = conn.prepareStatement("CREATE TABLE store_dim (store_id varchar(45) NOT NULL,vregion varchar(45) NOT NULL)");            
+            ps = conn.prepareStatement("CREATE TABLE store_dim (store_id varchar(45) NOT NULL,region varchar(45) NOT NULL)");            
             ps.executeUpdate();
             ps = conn.prepareStatement("Insert into store_dim select id,state from store");
             ps.executeUpdate();

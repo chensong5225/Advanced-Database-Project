@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -59,17 +60,18 @@ public class Q3EverydaySales {
             Arrays.sort(salesArr, new Comparator<Node>(){
                 @Override
                 public int compare(Node one, Node two){
-                    return (int)(one.sales - two.sales);
+                    return (int)(two.sales - one.sales);
                 }
             });
             
             Arrays.sort(profitArr, new Comparator<Node>(){
                 @Override
                 public int compare(Node one, Node two){
-                    return (int)(one.profit - two.profit);
+                    return (int)(two.profit - one.profit);
                 }
             });
             
+            ArrayList<String> salesTop5 = new ArrayList<>();
             
             
             

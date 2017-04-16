@@ -6,6 +6,7 @@
 package SQL.Aggregation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -20,14 +21,19 @@ public class Main {
             System.out.println(s);
         }
         */
-        
+        /*
         int[] arr = Q1CustomerRatio.ratio();
         System.out.println(arr[0] + " ：" + arr[1]);
-        
+        */
         
         //CreateCustomerDim.create();
+        //CreateStoreDim.create();
         
         
+        HashMap<String, Integer> map = Q5RegionCompare.regionCompare();
+        for(String s: map.keySet()){
+                System.out.println(s + " " + map.get(s));
+            }
         
     }
     

@@ -30,7 +30,7 @@ public class SQLRetrieveHomeCustomer {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("SELECT id from customer where type=?");
+            ps = conn.prepareStatement("SELECT customer_id from customer_dim where type=?");
             
             ps.setObject(1,type1);           
             rs = ps.executeQuery();
