@@ -18,7 +18,7 @@ public class Q4aTopCustomerCategories {
     public static void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
-        String viewName = "TopProductCategories_" + RemoveDateSlash.remove(date);
+        String viewName = "TopCustomerCategories_" + RemoveDateSlash.remove(date);
         
         try {
             conn = SQLConnectSQL.getConn();

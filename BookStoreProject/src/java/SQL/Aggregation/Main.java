@@ -46,13 +46,15 @@ public class Main {
         */
         
         //Q3EverydaySales.maintain("2017-02-28");
-        //Q4aTopCustomerCategories.maintain("2017-02-28");
+        Q4aTopCustomerCategories.maintain("2017-02-28");
         //Q4bTopProductCategories.maintain("2017-02-28");
         
-        ArrayList<String> list = Q6BusinessBuyMost.buyMost("Brunelleschis Dome");
+        /*
+        ArrayList<String> list = Q6BusinessBuyMost.buyMost("Today I ll Be a Princess");
         for(String s: list){
                 System.out.println(s);
             }
+        */
     }
     
 }
