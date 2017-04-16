@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class loadProduct {
     private Driver driver;
-    private Connection con;
+    private Neo4jcon con;
     private ArrayList<String[]> list;
     private getProduct getp;
     private String product_id;
@@ -30,7 +30,7 @@ public class loadProduct {
     private String price;
     private String category;
     public loadProduct(){
-        con = new Connection();
+        con = new Neo4jcon();
         driver = con.driver;
         list = new ArrayList<>();
         getp = new getProduct();

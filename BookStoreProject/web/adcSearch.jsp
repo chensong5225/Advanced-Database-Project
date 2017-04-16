@@ -27,7 +27,7 @@
         <div class="adSearch">
             <form>
                 <table>
-                    <tr><td>What is the ratio of business to home customers?</td><td><input type="button" value="Search"/></td></tr>
+                    <tr><td>What is the ratio of business to home customers?</td><td><a href="itemClass.jsp">777777</a></td></tr>
                     <tr><td>What stores are increasing in sales?</td><td><input type="button" value="Search"/></td></tr>
                     <tr><td>Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td><input type="button" value="Search"/></td></tr>
                     <tr><td>Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td><input type="button" value="Search"/></td></tr>

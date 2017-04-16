@@ -4,6 +4,10 @@
     Author     : mac
 --%>
 
+<%@page import="Neo4j.ProductTest"%>
+<%@page import="Neo4j.Product"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@page import="xy.bean.customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,16 +25,7 @@
                     <div class="leftArea">
                         <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
-                    <div class="rightArea">
-                        <% if (session.getAttribute("customer") == null) {%>
-                        Welcome to our website! <a href="login.jsp">[Login]</a> <a href="#">[Register]</a>
-                        <%} else {
-                            customer cst = (customer) session.getAttribute("customer");%>
-
-                        Welcome <%=cst.getId()%> to our website.<a href="LogoutServlet">[Logout]</a>
-                        <%}
-                        %>
-                    </div>
+                   
                 </div>
             </div>
             <div class="logoBar">
@@ -120,6 +115,26 @@
             </div>
         </div>
         <div class="comWidth"> </div>
+
+
+        <jsp:useBean id="test" class="Neo4j.test"></jsp:useBean>
+
+            <div id="t">
+            <%
+                ProductTest pt = new ProductTest();
+                List products = pt.first();
+                //out.print(node.size());
+                Iterator iter = products.iterator();
+                while (iter.hasNext()) {
+                    //out.print(iter.next());
+                    Product product = (Product) iter.next();
+                   // String name = product.getName();
+                   // String category = product.getCategory();
+            %>
+           <!-- <p></p>-->
+            <p><%=  product.getCategory() %></p>
+            <%}%>
+        </div>
 
         <div class="footer">
             <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class loadFact {
 
     private Driver driver;
-    private Connection con;
+    private Neo4jcon con;
     private ArrayList<String[]> list;
     private getFact getf;
     private String product_id;
@@ -34,7 +34,7 @@ public class loadFact {
     private String week;
 
     public loadFact() {
-        con = new Connection();
+        con = new Neo4jcon();
         driver = con.driver;
         list = new ArrayList<>();
         getf = new getFact();
