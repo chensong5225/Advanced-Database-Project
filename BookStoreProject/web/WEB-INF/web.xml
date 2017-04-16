@@ -12,18 +12,24 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
+<<<<<<< HEAD
     <servlet>
         <servlet-name>MongoServletQ6</servlet-name>
         <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
     </servlet>
+=======
+>>>>>>> 698a2bc287c03e40c7ebd6bc7bc6b349af1fd0bb
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
     <servlet-mapping>
         <servlet-name>MongoServletQ6</servlet-name>
         <url-pattern>/MongoServletQ6</url-pattern>
     </servlet-mapping>
+=======
+>>>>>>> 698a2bc287c03e40c7ebd6bc7bc6b349af1fd0bb
     <session-config>
         <session-timeout>
             30
@@ -80,7 +86,12 @@
         <servlet-name>firstServlet</servlet-name>
         <url-pattern>/firstServlet</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
     <servlet>
+=======
+    
+   <servlet>
+>>>>>>> 698a2bc287c03e40c7ebd6bc7bc6b349af1fd0bb
         <servlet-name>teachServlet</servlet-name>
         <servlet-class>xy.controller.teachServlet</servlet-class>
     </servlet>
@@ -88,4 +99,9 @@
         <servlet-name>teachServlet</servlet-name>
         <url-pattern>/teachServlet</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> 698a2bc287c03e40c7ebd6bc7bc6b349af1fd0bb
 </web-app>
