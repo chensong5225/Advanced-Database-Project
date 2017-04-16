@@ -28,7 +28,6 @@ import xy.service.bookService;
  *
  * @author mac
  */
-@WebServlet(name = "OrderHistoryServlet", urlPatterns = {"/OrderHistoryServlet"})
 public class OrderHistoryServlet extends HttpServlet {
 
     /**

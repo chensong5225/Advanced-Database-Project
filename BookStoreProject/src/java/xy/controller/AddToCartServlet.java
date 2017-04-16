@@ -28,7 +28,6 @@ import xy.service.bookService;
  *
  * @author mac
  */
-@WebServlet(name = "AddToCartServlet", urlPatterns = {"/AddToCartServlet"})
 public class AddToCartServlet extends HttpServlet {
 
     /**
@@ -80,7 +79,7 @@ public class AddToCartServlet extends HttpServlet {
                 Book book = new Book();
                 int bid = item.getBid();
                 book.setId(bid);
-                books.add(bs.aBookSearch(bid));
+                books.add(bs.cartBookSearch(book));
             }
             if (books != null) {
                 session.setAttribute("cartList", carts);

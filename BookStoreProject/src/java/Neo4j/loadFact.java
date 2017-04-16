@@ -19,40 +19,51 @@ import org.neo4j.driver.v1.Transaction;
 import static org.neo4j.driver.v1.Values.parameters;
 import java.util.ArrayList;
 
-public class loadCustomer {
+public class loadFact {
 
     private Driver driver;
     private Neo4jcon con;
     private ArrayList<String[]> list;
-    private getCustomer getc;
+    private getFact getf;
+    private String product_id;
+    private String amount;
+    private String cost;
+    private String store_id;
     private String customer_id;
-    private String category;
+    private String sale;
+    private String week;
 
-    public loadCustomer() {
+    public loadFact() {
         con = new Neo4jcon();
         driver = con.driver;
         list = new ArrayList<>();
-        getc = new getCustomer();
+        getf = new getFact();
     }
 
     public void load() {
-        list = getc.load();
+        list = getf.load();
         try (Session s = driver.session()) {
             try (Transaction tx = s.beginTransaction()) {
-                StatementResult sr = tx.run("match (a:Customer_D) delete a", parameters());
+                StatementResult sr = tx.run("match (a:Fact) delete a",parameters());
                 tx.success();
             }
         }
         for (String[] str : list) {
-            customer_id = str[0];
-            category = str[1];
+            product_id = str[0];
+            amount = str[1];
+            cost = str[2];
+            store_id = str[3];
+            customer_id = str[4];
+            sale = str[5];
+            week = str[6];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("CREATE (a:Customer_D{id:{id},category:{category}})", parameters("id", customer_id, "category", category));
+                    StatementResult sr = tx.run("CREATE (a:Fact{product_id:{id},amount:{amount},cost:{cost},store_id:{store_id},customer_id:{customer_id},sale:{sale},week:{week}})",
+                            parameters("id", product_id, "amount", amount, "cost", cost, "store_id", store_id, "customer_id", customer_id, "sale", sale, "week", week));
                     tx.success();
                 }
             }
         }
-        System.out.println("finish loading Customer_D");
+        System.out.println("finish loading Fact");
     }
 }
