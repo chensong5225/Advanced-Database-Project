@@ -38,10 +38,12 @@ public class loginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        int uid = Integer.valueOf(request.getParameter("uid"));
+        //int uid = Integer.valueOf(request.getParameter("uid"));
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
         customer ct = new customer();
-        ct.setId(uid);
+        //ct.setId(uid);
+        ct.setEmail(email);
         ct.setPassword(password);
         userService us = new userService();
         if (us.validUser(ct)) {
