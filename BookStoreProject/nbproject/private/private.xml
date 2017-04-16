@@ -2,55 +2,29 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass1.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/ProductTest.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/web/itemClass.jsp</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Product.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/web/adcSearch.jsp</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/test.java</file>
-=======
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/register.jsp</file>
->>>>>>> 3e454b0cd226743e91c9090ca900c35fe057f593
-        </group>
-=======
-<<<<<<< HEAD
-        <group>
-<<<<<<< HEAD
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/mongFromSql/ViewsStore.java</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/mongFromSql/Fact.java</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q2.java</file>
-=======
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q2FindIncreasingStores.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Main.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q6BusinessBuyMost.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/SQLConnectSQL.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q3.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/RemoveDateSlash.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateProductDim.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateFact.java</file>
-            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q5RegionCompare.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/IncreasingStores.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/SQLRetrieveBusinessCustomer.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q1CustomerRatio.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateCustomerDim.java</file>
-            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/DemandCurve.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/RegionCompare.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/EverydaySales.java</file>
-            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q3EverydaySales.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/RetrieveBusinessCustomer.java</file>
+            <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q4bTopProductCategories.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/BusinessBuyMost.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/SQLIncreasingStores.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateStoreDim.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/Main.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/ConnectSQL.java</file>
             <file>file:/Users/yuq/Dropbox/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/SQLRetrieveHomeCustomer.java</file>
->>>>>>> 880ed1dafb29c170806c2c64f79fee15acc8fe06
         </group>
-=======
-        <group/>
->>>>>>> 6065a3f75b72ee623b6d7597f93b74a855fbc1d9
->>>>>>> 5b729f8623317a654d32f4b96fbb5eaa4dd85cdf
     </open-files>
 </project-private>
