@@ -28,7 +28,7 @@ public class customer extends Object implements Serializable{
     private int age;
     private long income;
     private String category;
-
+    private String type;
     
 
     /**
@@ -169,6 +169,20 @@ public class customer extends Object implements Serializable{
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
     }
     
 }

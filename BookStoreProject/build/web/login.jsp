@@ -20,11 +20,11 @@
                 var msg = document.getElementById('msg_uname');
                 msg.innerHTML = "";
                 tag.style.border = "0";
-                reg = /^[\w\u4E00-\u9FA5]{3,}$/;
+                reg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 if (!reg.test(tag.value)) {
                     tag.style.border = "2px solid #EEEE00";
                     msg.style.color = "#FF7700";
-                    msg.innerHTML = "Email must be 3 or more character or number.";
+                    msg.innerHTML = "please input correct email format.";
                     return false;
                 }
                 return true;

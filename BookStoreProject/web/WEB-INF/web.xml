@@ -82,5 +82,13 @@
         <servlet-name>firstServlet</servlet-name>
         <url-pattern>/firstServlet</url-pattern>
     </servlet-mapping>
+   <servlet>
+        <servlet-name>teachServlet</servlet-name>
+        <servlet-class>xy.controller.teachServlet</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>teachServlet</servlet-name>
+        <url-pattern>/teachServlet</url-pattern>
+    </servlet-mapping>
    
 </web-app>
