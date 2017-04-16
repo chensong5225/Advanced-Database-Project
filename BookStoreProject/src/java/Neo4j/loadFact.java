@@ -58,9 +58,11 @@ public class loadFact {
             week = str[6];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("CREATE (a:Fact{product_id:{id},amount:{amount},cost:{cost},store_id:{store_id},customer_id:{customer_id},sale:{sale},week:{week}})",
+                    
+                    StatementResult sr = tx.run("CREATE(a:Fact{product_id:{id},amount:{amount},cost:{cost},store_id:{store_id},customer_id:{customer_id},sale:{sale},week:{week}})",
                             parameters("id", product_id, "amount", amount, "cost", cost, "store_id", store_id, "customer_id", customer_id, "sale", sale, "week", week));
                     tx.success();
+                    
                 }
             }
         }

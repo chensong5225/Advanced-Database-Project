@@ -24,14 +24,13 @@ public class SQLRetrieveBusinessCustomer {
     static private Statement st;
     public static ArrayList<String> retrieveBusiness() throws ClassNotFoundException{
         PreparedStatement ps = null;
-        String type1 = "business";
+        String type1 = "home";
         ArrayList<String> businessList = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("SELECT customer_id  from customer_dim where type=?");
-            
+            ps = conn.prepareStatement("SELECT customer_id from customer_dim where type != ?");           
             ps.setObject(1,type1);           
             rs = ps.executeQuery();
             while(rs.next()){

@@ -65,5 +65,17 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
+    <servlet>
+        <servlet-name>firstServlet</servlet-name>
+        <servlet-class>Neo4j.firstServlet</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>firstServlet</servlet-name>
+        <url-pattern>/firstServlet</url-pattern>
+    </servlet-mapping>
+   
+=======
+>>>>>>> 9cda851ea416fcf740397188b589dc5dc1f596cc
     
 </web-app>

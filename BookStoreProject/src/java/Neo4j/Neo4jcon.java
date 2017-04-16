@@ -22,7 +22,7 @@ import static org.neo4j.driver.v1.Values.parameters;
 public class Neo4jcon {
     public Driver driver;
 	private static String username = "neo4j";
-	private static String password = "130127";
+	private static String password = "123";
 	
 	public Neo4jcon(){
 		driver = GraphDatabase.driver("bolt://localhost:7687",AuthTokens.basic(username, password));
