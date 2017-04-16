@@ -19,12 +19,12 @@ import org.neo4j.driver.v1.StatementResult;
 import org.neo4j.driver.v1.Transaction;
 import static org.neo4j.driver.v1.Values.parameters;
 
-public class Connection {
+public class Neo4jcon {
     public Driver driver;
 	private static String username = "neo4j";
 	private static String password = "123";
 	
-	public Connection(){
+	public Neo4jcon(){
 		driver = GraphDatabase.driver("bolt://localhost:7687",AuthTokens.basic(username, password));
 	}
     

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 import sqlJDBC.LoadCustomer;
+import sqlJDBC.LoadDate;
 import sqlJDBC.LoadProduct;
 import sqlJDBC.LoadSale;
 import sqlJDBC.LoadStore;
@@ -22,6 +23,8 @@ public class Fact extends MongoDbCon{
     public void load() throws ClassNotFoundException{
          //connect
          Connect("ADB_ware","Fact");
+         //IF EXISTS, Drop
+         this.collection.drop();
          /*
          load transaction_id and product_id
          */
@@ -62,10 +65,22 @@ public class Fact extends MongoDbCon{
              load sale measure
              */
              String[] sale_amount_price = new LoadSale().load(tId,pId);
-             String price_per_item = sale_amount_price[1];
-             String cost_per_item = sale_amount_price[2];
-             String amount = sale_amount_price[3];
+             Float price_per_item = Float.valueOf(sale_amount_price[1]);
+             Float cost_per_item = Float.valueOf(sale_amount_price[2]);
+             Float amount = Float.valueOf(sale_amount_price[3]);
              
+             /*
+             load date measure
+             */
+             String[] date = new LoadDate().load(tId,pId);
+             String year = date[0];
+             String month = date[1];
+             String day = date[2];
+             Document dateDoc = new Document()
+                                    .append("year",year)
+                                    .append("month", month)
+                                    .append("day",day);
+                     
              /*
              load all the dimension and measure
              */
@@ -76,6 +91,7 @@ public class Fact extends MongoDbCon{
                                             .append("price_per_item",price_per_item)
                                             .append("cost_per_item", cost_per_item)
                                             .append("amount",amount)
+                                            .append("date",dateDoc)
              );
          }
          

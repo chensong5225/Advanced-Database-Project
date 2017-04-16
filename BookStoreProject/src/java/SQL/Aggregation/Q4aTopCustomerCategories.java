@@ -14,19 +14,21 @@ import java.sql.SQLException;
  *
  * @author yuq
  */
-public class CreateStoreDim {
-    public static void create(){
+public class Q4aTopCustomerCategories {
+    public static void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        String viewName = "TopCustomerCategories_" + RemoveDateSlash.remove(date);
+        
         try {
             conn = SQLConnectSQL.getConn();
-            ps = conn.prepareStatement("DROP TABLE IF EXISTS store_dim");
+            
+            ps = conn.prepareStatement("Drop View if exists " + viewName);
             ps.executeUpdate();
-            ps = conn.prepareStatement("CREATE TABLE store_dim (store_id varchar(45) NOT NULL,region varchar(45) NOT NULL)");            
+            ps = conn.prepareStatement("Create View " + viewName +  " as Select type, sum(sale) as sales from customer_dim, fact where fact.customer_id = customer_dim.customer_id and time = ? group by type order by sales desc limit 2");
+            ps.setObject(1, date);
             ps.executeUpdate();
-            ps = conn.prepareStatement("Insert into store_dim select id,state from store");
-            ps.executeUpdate();
+            
             
         } catch (SQLException se) {
             se.printStackTrace();

@@ -5,41 +5,40 @@
  */
 package SQL.Aggregation;
 
-import sqlJDBC.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author surface
  */
-public class SQLRetrieveBusinessCustomer {
+public class Q5RegionCompare {
     static private Connection conn;
     static private ResultSet rs = null;
-    static private Statement st;
-    public static ArrayList<String> retrieveBusiness() throws ClassNotFoundException{
-        PreparedStatement ps = null;
-        String type1 = "home";
-        ArrayList<String> businessList = new ArrayList<>();
+    
+    public static HashMap<String, Integer> regionCompare() throws ClassNotFoundException{
+        
+        HashMap<String, Integer> map = new HashMap<>();
+        PreparedStatement ps = null;       
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("SELECT customer_id from customer_dim where type != ?");           
-            ps.setObject(1,type1);           
+            ps = conn.prepareStatement("select region, sum(sale) from fact, store_dim where fact.store_id = store_dim.store_id group by region");
             rs = ps.executeQuery();
             while(rs.next()){
-                businessList.add(rs.getString(1));
+                String region = rs.getString(1);
+                int sum = (int) rs.getDouble(2);
+                map.put(region, sum);
             }
-            
         } catch (SQLException se) {
             se.printStackTrace();
-        }
-        return businessList;
+        }       
+        return map;
     }
 }

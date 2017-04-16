@@ -64,9 +64,19 @@
                         <input type="text" class="search_text fl">
                         <input type="button" value="Search" class="search_btn fr">
                     </div>
-                    <div class="shopCar fr">
-                        <span class="shopText fl">Cart</span>
-                        <span class="shopNum fl"> 0 </span>
+                    <jsp:useBean id="cartList" class="xy.service.CartService"></jsp:useBean>
+                        <div class="shopCar fr">
+                            <span class="shopText fl">Cart</span>
+                            <span class="shopNum fl">                             
+                                <%  if (session.getAttribute("customer") == null) {%>
+                                0 
+                                <%} else {
+                                    customer ct = new customer();
+                                    ct = (customer) session.getAttribute("customer");
+                                    List cl = cartList.findCartListNum(ct.getId());
+                                %>
+                                <%= cl.size()%>
+                                <%}  %>                    </span>
                     </div>
                 </div>
             </div>

@@ -6,70 +6,61 @@
 package MongoJDBC.aggregation;
 
 import MongoJDBC.connectMongo.MongoDbCon;
-import com.mongodb.Block;
+import static MongoJDBC.connectMongo.MongoDbCon.Connect;
+import static MongoJDBC.connectMongo.MongoDbCon.collection;
 import com.mongodb.client.AggregateIterable;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCursor;
-import java.util.Arrays;
+import java.util.ArrayList;
 import static java.util.Arrays.asList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import org.bson.Document;
 
 /**
  *
  * @author fei
+ * 
+ * 
+ * 
+ * How do the various regions compare by sales volume?
  */
 public class Q5 extends MongoDbCon{
-     static Block<Document> printBlock = new Block<Document>() {
-	       @Override
-	       public void apply(final Document document) {
-	           System.out.println(document.toJson());
-	       }
-    };
-    /*
-    which business are buying given products the most
-    */
-    public String query(String productname){
-        String result="1";
+    public HashMap<String,Double> query(){
+       
         //connect
         Connect("ADB_ware","Fact");
-        //
-        AggregateIterable<Document>  it = this.collection.aggregate(
-               asList(
-                       new Document("$match", new Document("product.name",productname)),
-                       new Document("$group", new Document("_id",new Document("businessCat","$customer.category")).
-                                                    append("count", new Document("$sum",1))
-                                                   
-                                   ),
-                       new Document("$sort", new Document("count",-1 ) )        
-                     )
-                      
-               
-       );
-       MongoCursor<Document> mongoCursor = it.iterator();
-      
-        try {
-                while (mongoCursor.hasNext()) {
-//                    System.out.println(mongoCursor.next().toJson());
-                    Document a=mongoCursor.tryNext();
-                    Document b=(Document)a.get("_id");
-                    String c = (String)b.get("businessCat");
-                    if(c.equals("home")){
-                        continue;
-                    }
-                    System.out.println("businessCat is "+c);
-                    return c;
-//                    System.out.println("businessCat is -->"+a.get("_id.businessCat"));
-                }
-            } finally {
-                 mongoCursor.close();
+        //query
+        HashMap<String,Double> result = new HashMap();
+        {
+            AggregateIterable<Document>  it = collection.aggregate(
+               asList(                     
+                       new Document("$group", new Document("_id","$store.region").
+                                                  append( "totalsale", new Document("$sum",new Document("$multiply", asList("$price_per_item", "$amount" ) ) ))                                                  
+                                   )                    
+                     )                                     
+            );
+            MongoCursor<Document> mongoCursor = it.iterator();
+            while(mongoCursor.hasNext()){
+                Document tmp = mongoCursor.next();
+                String tmpregion = (String)tmp.get("_id");
+                Double tmptotalsale = (Double)tmp.get("totalsale");
+                result.put(tmpregion, tmptotalsale);
             }
-                                                   
+        }
         return result;
     }
     
     public static void main(String args[]){
         Q5 q = new Q5();
-        String c=q.query("Leonardo and the Last Supper");
-        System.out.println("结果是:-->"+c);
+        HashMap c=q.query();
+        Iterator it = c.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry entry = (Map.Entry) it.next();
+            String region = (String)entry.getKey();
+            Double sale = (Double)entry.getValue();
+             System.out.println("结果是:-->"+"region : "+region+"and sales : "+sale);
+        }
+       
     }
 }

@@ -22,14 +22,14 @@ import java.util.ArrayList;
 public class loadCustomer {
 
     private Driver driver;
-    private Connection con;
+    private Neo4jcon con;
     private ArrayList<String[]> list;
     private getCustomer getc;
     private String customer_id;
     private String category;
 
     public loadCustomer() {
-        con = new Connection();
+        con = new Neo4jcon();
         driver = con.driver;
         list = new ArrayList<>();
         getc = new getCustomer();
