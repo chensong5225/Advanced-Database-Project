@@ -29,7 +29,7 @@ public class Q6 extends MongoDbCon{
     which business are buying given products the most
     */
     public String query(String productname){
-        String result="1";
+        String result="";
         //connect
         Connect("ADB_ware","Fact");
         //
@@ -41,9 +41,7 @@ public class Q6 extends MongoDbCon{
                                                    
                                    ),
                        new Document("$sort", new Document("count",-1 ) )        
-                     )
-                      
-               
+                     )                                     
        );
        MongoCursor<Document> mongoCursor = it.iterator();
       
@@ -69,7 +67,7 @@ public class Q6 extends MongoDbCon{
     
     public static void main(String args[]){
         Q6 q = new Q6();
-        String c=q.query("Leonardo and the Last Supper");
+        String c=q.query("Today I ll Be a Princess");
         System.out.println("结果是:-->"+c);
     }
 }

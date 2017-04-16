@@ -69,7 +69,9 @@ public class Q2 {
           
             AggregateIterable<Document>  it = collection.aggregate(
                    asList(
-                           new Document("$match", new Document("date.day",day1).append("day.month", month1)),
+                           new Document("$match", new Document("date.day",day1)
+                                                        .append("date.month", month1)
+                                                        .append("date.year", year1)),
                            new Document("$group", new Document("_id","$store.storeId").
                                                         append("today_total_sales", new Document("$sum",new Document("$multiply",asList("$price_per_item","$amount")))).
                                                         append( "count", new Document( "$sum", 1 ))
@@ -89,7 +91,9 @@ public class Q2 {
           
             AggregateIterable<Document>  it = collection.aggregate(
                    asList(
-                           new Document("$match", new Document("date.day",day2).append("day.month", month2)),
+                           new Document("$match", new Document("date.day",day2)
+                                                        .append("date.month", month2)
+                                                        .append("date.year", year2)),
                            new Document("$group", new Document("_id","$store.storeId").
                                                         append("today_total_sales", new Document("$sum",new Document("$multiply",asList("$price_per_item","$amount")))).
                                                         append( "count", new Document( "$sum", 1 ))
@@ -130,11 +134,11 @@ public class Q2 {
         ArrayList<String> olddate1 =new ArrayList();
         ArrayList<String> newdate2 =new ArrayList();
         olddate1.add("2017");
-        olddate1.add("2");
+        olddate1.add("02");
         olddate1.add("18");
         
         newdate2.add("2017");
-        newdate2.add("2");
+        newdate2.add("02");
         newdate2.add("28");
        
         ArrayList result = q.query( olddate1,  newdate2);
