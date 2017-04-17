@@ -3,28 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/web/adcSearch.jsp</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoServlet/MongoQ6.java</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/loginServlet.java</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/teachServlet.java</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/nbproject/build-impl.xml</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q1.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/nbproject/build-impl.xml</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass1.java</file>
-=======
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/itemClass.jsp</file>
->>>>>>> 51843510d6c9bb235d2cdfa8a61e366148846793
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/loginServlet.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/teachServlet.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/src/java/xy/service/userService.java</file>
-            <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/index.jsp</file>
->>>>>>> f7bafd1e8f51b0c5293d71f1c29698e233bf849e
->>>>>>> 698a2bc287c03e40c7ebd6bc7bc6b349af1fd0bb
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadProduct.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getFact.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadStore.java</file>
         </group>
     </open-files>
 </project-private>
