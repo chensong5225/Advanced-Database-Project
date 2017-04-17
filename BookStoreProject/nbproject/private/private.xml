@@ -3,11 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadFact.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getCustomer.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateFact.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/test.java</file>
             <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateCustomerDim.java</file>
+=======
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/web/itemClass.jsp</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/RegisterServlet.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/mongFromSql/Fact.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/web/WEB-INF/web.xml</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/CartCheckOut.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/EasyCheckOut.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/nbproject/build-impl.xml</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/nbproject/build-impl.xml~</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/web/adcSearchMongo.jsp</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/sqlJDBC/LoadProduct.java</file>
+            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/firstServlet.java</file>
+>>>>>>> 6c7bd44335a54be4d676560bd8c620fb2d29a68f
         </group>
     </open-files>
 </project-private>

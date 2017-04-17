@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Neo4j;
+package xy.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Weiqi Li
+ * @author mac
  */
-public class firstServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +35,10 @@ public class firstServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet firstServlet</title>");            
+            out.println("<title>Servlet RegisterServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet firstServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

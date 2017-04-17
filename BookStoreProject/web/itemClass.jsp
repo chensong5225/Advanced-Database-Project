@@ -116,13 +116,16 @@
 
 
         <%
+            
             HttpSession hs = request.getSession(true);
             String sd = hs.getAttribute("st").toString();
             String ed = hs.getAttribute("et").toString();
+            String mongoQ2result = hs.getAttribute("mongoQ2result").toString();
         %>
         <div id="t">
             <p><%= sd%></p>
             <p><%= ed%></p>
+            <p><%= mongoQ2result%></p>
         </div>
 
         <div class="footer">
