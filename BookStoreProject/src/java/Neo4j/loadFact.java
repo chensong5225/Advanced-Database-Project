@@ -32,6 +32,8 @@ public class loadFact {
     private String customer_id;
     private String sale;
     private String week;
+    private String price;
+    private String time;
 
     public loadFact() {
         con = new Neo4jcon();
@@ -54,13 +56,15 @@ public class loadFact {
             cost = str[2];
             store_id = str[3];
             customer_id = str[4];
-            sale = str[5];
-            week = str[6];
+            time = str[5];
+            sale = str[6];
+            price = str[7];
+            week = str[8];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
                     
-                    StatementResult sr = tx.run("CREATE(a:Fact{product_id:{id},amount:{amount},cost:{cost},store_id:{store_id},customer_id:{customer_id},sale:{sale},week:{week}})",
-                            parameters("id", product_id, "amount", amount, "cost", cost, "store_id", store_id, "customer_id", customer_id, "sale", sale, "week", week));
+                    StatementResult sr = tx.run("CREATE(a:Fact{product_id:{id},amount:{amount},cost:{cost},store_id:{store_id},customer_id:{customer_id},time:{time},sale:{sale},price:{price},week:{week}})",
+                            parameters("id", product_id, "amount", amount, "cost", cost, "store_id", store_id, "customer_id", customer_id,"time",time, "sale", sale,"price",price, "week", week));
                     tx.success();
                     
                 }
