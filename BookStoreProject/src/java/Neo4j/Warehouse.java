@@ -17,7 +17,6 @@ import org.neo4j.driver.v1.Record;
 import org.neo4j.driver.v1.StatementResult;
 import org.neo4j.driver.v1.Transaction;
 import java.util.ArrayList;
-import net.sf.cglib.core.EmitUtils;
 import static org.neo4j.driver.v1.Values.parameters;
 
 public class Warehouse {

@@ -4,8 +4,6 @@
     Author     : mac
 --%>
 
-<%@page import="Neo4j.ProductTest"%>
-<%@page import="Neo4j.Product"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="xy.bean.customer"%>
@@ -25,7 +23,7 @@
                     <div class="leftArea">
                         <a href="OrderHistoryServlet" class="collection">Order</a>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="logoBar">
@@ -117,23 +115,17 @@
         <div class="comWidth"> </div>
 
 
-        <jsp:useBean id="test" class="Neo4j.test"></jsp:useBean>
-
-            <div id="t">
-            <%
-                ProductTest pt = new ProductTest();
-                List products = pt.first();
-                //out.print(node.size());
-                Iterator iter = products.iterator();
-                while (iter.hasNext()) {
-                    //out.print(iter.next());
-                    Product product = (Product) iter.next();
-                   // String name = product.getName();
-                   // String category = product.getCategory();
-            %>
-           <!-- <p></p>-->
-            <p><%=  product.getCategory() %></p>
-            <%}%>
+        <%
+            
+            HttpSession hs = request.getSession(true);
+            String sd = hs.getAttribute("st").toString();
+            String ed = hs.getAttribute("et").toString();
+            String mongoQ2result = hs.getAttribute("mongoQ2result").toString();
+        %>
+        <div id="t">
+            <p><%= sd%></p>
+            <p><%= ed%></p>
+            <p><%= mongoQ2result%></p>
         </div>
 
         <div class="footer">

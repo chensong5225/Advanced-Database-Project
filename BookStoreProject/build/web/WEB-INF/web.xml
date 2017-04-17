@@ -12,20 +12,23 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>MongodbQ6</servlet-name>
-        <servlet-class>xy.controller.MongodbQ6</servlet-class>
-    </servlet>
-     <servlet-mapping>
-        <servlet-name>MongodbQ6</servlet-name>
-        <url-pattern>/MongodbQ6</url-pattern>
-    </servlet-mapping>
+<<<<<<< HEAD
     
+=======
+    <servlet>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MongoServletQ2</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ2</servlet-class>
+    </servlet>
+>>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-   
+    
     <session-config>
         <session-timeout>
             30
@@ -78,9 +81,61 @@
         <servlet-name>firstServlet</servlet-name>
         <servlet-class>Neo4j.firstServlet</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>firstServlet</servlet-name>
         <url-pattern>/firstServlet</url-pattern>
+    </servlet-mapping> 
+<<<<<<< HEAD
+   <servlet>
+        <servlet-name>teachServlet</servlet-name>
+        <servlet-class>xy.controller.teachServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>teachServlet</servlet-name>
+        <url-pattern>/teachServlet</url-pattern>
     </servlet-mapping>
-   
+=======
+    <servlet>
+            <servlet-name>teachServlet</servlet-name>
+            <servlet-class>xy.controller.teachServlet</servlet-class>
+    </servlet>   
+>>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
+    <servlet>
+        <servlet-name>EasyCheckOut</servlet-name>
+        <servlet-class>xy.controller.EasyCheckOut</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>EasyCheckOut</servlet-name>
+        <url-pattern>/EasyCheckOut</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>xy.controller.RegisterServlet</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CartCheckOut</servlet-name>
+        <servlet-class>xy.controller.CartCheckOut</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>CartCheckOut</servlet-name>
+        <url-pattern>/CartCheckOut</url-pattern>
+    </servlet-mapping>
+    
+<<<<<<< HEAD
+   <servlet>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
+    </servlet>
+   <servlet-mapping>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <url-pattern>/MongoServletQ6</url-pattern>
+    </servlet-mapping>
+    
+    
+=======
+>>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
 </web-app>

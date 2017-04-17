@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,15 +16,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import xy.bean.Message;
-import xy.bean.customer;
-import xy.service.userService;
 
 /**
  *
  * @author mac
  */
-public class loginServlet extends HttpServlet {
+public class teachServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,28 +35,16 @@ public class loginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String start = request.getParameter("startdate");
+        String end = request.getParameter("enddate");
+        
+        
         HttpSession session = request.getSession();
-
-        //int uid = Integer.valueOf(request.getParameter("uid"));
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        customer ct = new customer();
-        //ct.setId(uid);
-        ct.setEmail(email);
-        ct.setPassword(password);
-        userService us = new userService();
-        if (us.validUser(ct)) {
-            ct = us.findIdType(ct);
-            session.setAttribute("customer", ct);
-            ServletContext SC = getServletContext();
-            RequestDispatcher rd = SC.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
-        } else {
-            Message msg = new Message();
-            msg.setMessageInfo("Please enter correct email and password.");
-            session.setAttribute("msgInfo", msg);
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
-        }
+        session.setAttribute("st", start);
+        session.setAttribute("et", end);
+        ServletContext SC = getServletContext();
+        RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
+        rd.forward(request, response);
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -65,10 +52,10 @@ public class loginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet loginServlet</title>");
+            out.println("<title>Servlet teachServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet loginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet teachServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

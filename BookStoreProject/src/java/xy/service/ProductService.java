@@ -30,7 +30,7 @@ public class ProductService {
         List productList = new ArrayList();
 
         try {
-            pstmt = conn.prepareStatement("SELECT distinct * FROM product");
+            pstmt = conn.prepareStatement("SELECT * FROM product");
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 Book book = new Book();

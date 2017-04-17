@@ -65,9 +65,13 @@ public class Fact extends MongoDbCon{
              load sale measure
              */
              String[] sale_amount_price = new LoadSale().load(tId,pId);
-             Float price_per_item = Float.valueOf(sale_amount_price[1]);
-             Float cost_per_item = Float.valueOf(sale_amount_price[2]);
-             Float amount = Float.valueOf(sale_amount_price[3]);
+             Double price_per_itemF = Double.valueOf(sale_amount_price[1])*100;
+             Double price_per_item = (price_per_itemF.intValue()) * 1.0/100;
+             
+             Double cost_per_itemF = Double.valueOf(sale_amount_price[2])*100;
+             Double cost_per_item = (cost_per_itemF.intValue()) * 1.0/100;
+             
+             Double amount = Double.valueOf(sale_amount_price[3])*100/100;
              
              /*
              load date measure
