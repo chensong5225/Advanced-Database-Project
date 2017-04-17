@@ -16,14 +16,15 @@
         <servlet-name>MongoServletQ6</servlet-name>
         <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MongoServletQ2</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MongoServletQ6</servlet-name>
-        <url-pattern>/MongoServletQ6</url-pattern>
-    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
@@ -79,14 +80,34 @@
     <servlet-mapping>
         <servlet-name>firstServlet</servlet-name>
         <url-pattern>/firstServlet</url-pattern>
+    </servlet-mapping> 
+    <servlet>
+            <servlet-name>teachServlet</servlet-name>
+            <servlet-class>xy.controller.teachServlet</servlet-class>
+    </servlet>   
+    <servlet>
+        <servlet-name>EasyCheckOut</servlet-name>
+        <servlet-class>xy.controller.EasyCheckOut</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>EasyCheckOut</servlet-name>
+        <url-pattern>/EasyCheckOut</url-pattern>
     </servlet-mapping>
     <servlet>
-   <servlet>
-        <servlet-name>teachServlet</servlet-name>
-        <servlet-class>xy.controller.teachServlet</servlet-class>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>xy.controller.RegisterServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>teachServlet</servlet-name>
-        <url-pattern>/teachServlet</url-pattern>
+     <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CartCheckOut</servlet-name>
+        <servlet-class>xy.controller.CartCheckOut</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>CartCheckOut</servlet-name>
+        <url-pattern>/CartCheckOut</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
