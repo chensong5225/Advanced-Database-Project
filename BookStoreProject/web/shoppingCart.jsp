@@ -47,7 +47,8 @@
             }
 
 
-            $(function () {//Reference from: http://www.jb51.net/article/50732.htm
+            $(function () {
+                //Reference from: http://www.jb51.net/article/50732.htm
                 $(".add").click(function () {
                     var t = $(this).parent().find('input[class*=text_box]');
                     t.val(parseInt(t.val()) + 1)
