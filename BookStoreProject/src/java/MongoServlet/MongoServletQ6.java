@@ -39,7 +39,7 @@ public class MongoServletQ6 extends HttpServlet {
         
         //设置data
         HttpSession session = request.getSession();
-        ArrayList<String>
+        //ArrayList<String>
         session.setAttribute("st", start);
         session.setAttribute("et", end);
         

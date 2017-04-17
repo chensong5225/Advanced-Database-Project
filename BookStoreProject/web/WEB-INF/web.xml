@@ -12,18 +12,12 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>MongoServletQ6</servlet-name>
-        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
-    </servlet>
+    
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MongoServletQ6</servlet-name>
-        <url-pattern>/MongoServletQ6</url-pattern>
-    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
@@ -79,12 +73,7 @@
     <servlet-mapping>
         <servlet-name>firstServlet</servlet-name>
         <url-pattern>/firstServlet</url-pattern>
-<<<<<<< HEAD
     </servlet-mapping> 
-=======
-    </servlet-mapping>
-    <servlet>
->>>>>>> 21b29e1de2bd4423178871151afd18e329ff324a
    <servlet>
         <servlet-name>teachServlet</servlet-name>
         <servlet-class>xy.controller.teachServlet</servlet-class>
@@ -93,7 +82,6 @@
         <servlet-name>teachServlet</servlet-name>
         <url-pattern>/teachServlet</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
     <servlet>
         <servlet-name>EasyCheckOut</servlet-name>
         <servlet-class>xy.controller.EasyCheckOut</servlet-class>
@@ -118,20 +106,15 @@
         <servlet-name>CartCheckOut</servlet-name>
         <url-pattern>/CartCheckOut</url-pattern>
     </servlet-mapping>
-=======
-<<<<<<< HEAD
-     <servlet>
-        <servlet-name>Question2</servlet-name>
-        <servlet-class>Neo4jServlet.Question2</servlet-class>
+    
+   <servlet>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
     </servlet>
-     <servlet-mapping>
-        <servlet-name>Question2</servlet-name>
-        <url-pattern>/Question2</url-pattern>
+   <servlet-mapping>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <url-pattern>/MongoServletQ6</url-pattern>
     </servlet-mapping>
-   
-=======
->>>>>>> 835be7bd9cbf4b14ba40edeb4677fd3b522712b5
-=======
->>>>>>> 8d4dd21893feccb384e19d73eff546c22509d25e
->>>>>>> 21b29e1de2bd4423178871151afd18e329ff324a
+    
+    
 </web-app>

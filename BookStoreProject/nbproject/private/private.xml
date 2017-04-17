@@ -3,21 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/D:/newGit/Advanced-Database-Project/BookStoreProject/web/register.jsp</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass1.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getFact.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getCustomer.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateFact.java</file>
-            <file>file:/C:/Users/hom19/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateCustomerDim.java</file>
-=======
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadProduct.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/getFact.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/loadStore.java</file>
->>>>>>> 8d4dd21893feccb384e19d73eff546c22509d25e
->>>>>>> 21b29e1de2bd4423178871151afd18e329ff324a
         </group>
     </open-files>
 </project-private>
