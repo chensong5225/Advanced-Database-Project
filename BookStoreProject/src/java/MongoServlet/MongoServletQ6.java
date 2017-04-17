@@ -14,7 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import MongoJDBC.aggregation.Q6;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import MongoJDBC.aggregation.Q6;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author fei
@@ -31,19 +38,24 @@ public class MongoServletQ6 extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        // 获取data
-        String start = request.getParameter("startdate");
-        String end = request.getParameter("enddate");
+        // 获取product
+        String productname = request.getParameter("ProductName");
         
-        //设置data
+        //后台返回查询结果
         HttpSession session = request.getSession();
+<<<<<<< HEAD
         //ArrayList<String>
         session.setAttribute("st", start);
         session.setAttribute("et", end);
         
         
+=======
+        String result =new Q6().query(productname);
+        session.setAttribute("Q6result", result);   
+        //返回前台 
+>>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
         ServletContext SC = getServletContext();
         RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
         rd.forward(request, response);
@@ -74,7 +86,11 @@ public class MongoServletQ6 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(MongoServletQ6.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -88,7 +104,11 @@ public class MongoServletQ6 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(MongoServletQ6.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -16,6 +16,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mac
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
 public class CartCheckOut extends HttpServlet {
 
     /**
