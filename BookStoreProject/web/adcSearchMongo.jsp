@@ -91,8 +91,8 @@
                         <input type="text" id="enddate3" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
                 <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
                 <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>
-                <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
-                <tr><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value=""  selected="selected">please select.</option>
+                
+                 <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value=""  selected="selected">please select.</option>
                             <% while (iter.hasNext()) {
                                     Book book = (Book) iter.next();
                                     int bid = book.getId();
@@ -104,7 +104,7 @@
                             List products2 = productSearch.findProductList();
                             Iterator iter2 = products2.iterator();
                         %>
-                <tr><form action="#"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
+                <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
                 <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" id="Q7" selected="selected">please select.</option>
                             <%
                                 while (iter2.hasNext()) {
