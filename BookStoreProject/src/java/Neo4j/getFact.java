@@ -27,11 +27,11 @@ public class getFact {
     public ArrayList<String[]> load(){
         try {
             conn = ConnectSQL.getConn();
-            // product_id,amount,cost,store_id,sale,customer_id,week
-            ps = conn.prepareStatement("select product_id,amount,cost,store_id,customer_id,sale,week from product,fact where product.id=fact.product_id");
+            // product_id,amount,cost,store_id,customer_id,time,sale,price,week
+            ps = conn.prepareStatement("select product_id,amount,cost,store_id,customer_id,time,sale,price,week from product,fact where product.id=fact.product_id");
             rs = ps.executeQuery();
             while(rs.next()){
-                String[] str = new String[7];
+                String[] str = new String[9];
                 str[0] = rs.getString(1);
                 str[1] = rs.getString(2);
                 str[2] = rs.getString(3);
@@ -39,6 +39,8 @@ public class getFact {
                 str[4] = rs.getString(5);
                 str[5] = rs.getString(6);
                 str[6] = rs.getString(7);
+                str[7] = rs.getString(8);
+                str[8] = rs.getString(9);
                 list.add(str);
             }
         } catch (SQLException se) {
