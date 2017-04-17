@@ -43,30 +43,15 @@ public class loginServlet extends HttpServlet {
         String password = request.getParameter("password");
         customer ct = new customer();
         //ct.setId(uid);
-        //ct.setEmail(email);
-        //ct.setPassword(password);
+        ct.setEmail(email);
+        ct.setPassword(password);
         userService us = new userService();
-        if (us.validUser(email, password)) {
-            ct = us.findIdType(email, password);
-            if (ct.getType().equals("home")) {
-                String name = us.findHName(ct);
-                ct.setName(name);
-                session.setAttribute("customer", ct);
-                ServletContext SC = getServletContext();
-                RequestDispatcher rd = SC.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }
-            if (ct.getType().equals("business")) {
-                String name = us.findBName(ct);
-                ct.setName(name);
-                session.setAttribute("customer", ct);
-                ServletContext SC = getServletContext();
-                RequestDispatcher rd = SC.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }
-            else{
-                request.getRequestDispatcher("/error.jsp").forward(request, response);
-            }
+        if (us.validUser(ct)) {
+            ct = us.findIdType(ct);
+            session.setAttribute("customer", ct);
+            ServletContext SC = getServletContext();
+            RequestDispatcher rd = SC.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
         } else {
             Message msg = new Message();
             msg.setMessageInfo("Please enter correct email and password.");
