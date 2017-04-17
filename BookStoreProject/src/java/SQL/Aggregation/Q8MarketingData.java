@@ -20,25 +20,25 @@ public class Q8MarketingData {
     static private Connection conn;
     static private ResultSet rs = null;
     
-    public static ArrayList<String> show(String product) throws ClassNotFoundException{
+    public static ArrayList<String> show(String product, String week) throws ClassNotFoundException{
         ArrayList<String> list = new ArrayList<>();
         PreparedStatement ps = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("select fact.product_id, fact.price, sum(sale) as sales from fact, product_dim where fact.product_id = product_dim.product_id and product_dim.name = ? group by fact.price");            
+            ps = conn.prepareStatement("select customer.name, week, count(transaction_id) from transaction, product, customer where customer.id = transaction.customer_id and product.id = transaction.product_id and product_name = ? and week = ? group by customer_id, week");            
             ps.setObject(1, product);
+            ps.setObject(2, week);            
             rs = ps.executeQuery();            
             while(rs.next()){
-                price.add(rs.getDouble(2));
-                sales.add(rs.getDouble(3));
-            }
-            
+                if(rs.getInt(3) > 2){
+                    list.add(rs.getString(1));
+                }
+            }           
         } catch (SQLException se) {
             se.printStackTrace();
-        }
-        
+        }        
         return list;
     }
 }
