@@ -89,6 +89,14 @@
         <servlet-name>teachServlet</servlet-name>
         <url-pattern>/teachServlet</url-pattern>
     </servlet-mapping>
+     <servlet>
+        <servlet-name>Question2</servlet-name>
+        <servlet-class>Neo4jServlet.Question2</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>Question2</servlet-name>
+        <url-pattern>/Question2</url-pattern>
+    </servlet-mapping>
    
 =======
 >>>>>>> 835be7bd9cbf4b14ba40edeb4677fd3b522712b5
