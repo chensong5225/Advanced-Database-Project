@@ -37,7 +37,7 @@ public class Q8_customer {
                         StatementResult sr = tx.run("match (a:Fact{product_id:{id}}),(c:Customer_D)"
                                 + "where a.customer_id=c.id"
                                 + "with c,sum(toFloat(a.sale))as sales"
-                                + "return c.category as category,sum(sales) as sale", parameters("id",product));
+                                + "return c.category as category,sum(sales) as sale", parameters("id",category));
                         tx.success();
                         while (sr.hasNext()) {
                             Record record = sr.next();
