@@ -6,6 +6,7 @@
 package Neo4j;
 
 import java.util.List;
+import SQL.Aggregation.*;
 
 /**
  *
@@ -14,8 +15,12 @@ import java.util.List;
 public class NewClass {
     public static void main(String[] args) {
         Warehouse wh = new Warehouse();
+<<<<<<< HEAD
        wh.loadWarehouse();
        
+=======
+        wh.loadWarehouse();
+>>>>>>> 65bc0173d2f89f5d72c7dbecc059b120f3990a43
     }
     
 }
