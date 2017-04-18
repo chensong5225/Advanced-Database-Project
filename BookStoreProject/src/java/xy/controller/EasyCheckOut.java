@@ -11,6 +11,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import xy.bean.Book;
+import xy.bean.Message;
+import xy.bean.customer;
+import xy.service.CheckOutService;
 
 /**
  *
@@ -29,6 +34,32 @@ public class EasyCheckOut extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        HttpSession session = request.getSession();
+        customer ct = new customer();
+        ct = (customer)  session.getAttribute("customer");
+        Book book = new Book();
+        book = (Book) session.getAttribute("book");
+        
+        if(ct != null){
+            CheckOutService cos = new CheckOutService();
+            if(cos.validCheckOut(ct, book)){
+                System.out.print("-------------------------Check Insert success");
+                request.getRequestDispatcher("/ship.jsp").forward(request, response);
+            }
+            else{
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }           
+        }
+        else{
+            Message msg = new Message();
+            msg.setMessageInfo("Please login first.");
+            session.setAttribute("msgInfo", msg);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+        
+        
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

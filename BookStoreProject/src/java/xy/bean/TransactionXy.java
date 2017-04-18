@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author mac
  */
-public class Transaction extends Object implements Serializable{
+public class TransactionXy extends Object implements Serializable{
     private static long serialVersionUID = 102831973239L;
     
     private int transaction_id;
@@ -22,6 +22,8 @@ public class Transaction extends Object implements Serializable{
     private int store_id;
     private String time;
     private float sale;
+    private int week;
+    
 
     /**
      * @return the serialVersionUID
@@ -147,6 +149,20 @@ public class Transaction extends Object implements Serializable{
      */
     public void setSale(float sale) {
         this.sale = sale;
+    }
+
+    /**
+     * @return the week
+     */
+    public int getWeek() {
+        return week;
+    }
+
+    /**
+     * @param week the week to set
+     */
+    public void setWeek(int week) {
+        this.week = week;
     }
     
     

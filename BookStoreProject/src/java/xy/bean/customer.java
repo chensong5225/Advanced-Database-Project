@@ -22,11 +22,11 @@ public class customer extends Object implements Serializable{
     private String password;
     private String email;
     private String name;
-    private String addressid;
+    private int addressid;
     private String gender;
     private String marriage_status;
     private int age;
-    private long income;
+    private String income;
     private String category;
     private String type;
     
@@ -48,14 +48,14 @@ public class customer extends Object implements Serializable{
     /**
      * @return the addressid
      */
-    public String getAddressid() {
+    public int getAddressid() {
         return addressid;
     }
 
     /**
      * @param addressid the addressid to set
      */
-    public void setAddressid(String addressid) {
+    public void setAddressid(int addressid) {
         this.addressid = addressid;
     }
 
@@ -104,14 +104,14 @@ public class customer extends Object implements Serializable{
     /**
      * @return the income
      */
-    public long getIncome() {
+    public String getIncome() {
         return income;
     }
 
     /**
      * @param income the income to set
      */
-    public void setIncome(long income) {
+    public void setIncome(String income) {
         this.income = income;
     }
 

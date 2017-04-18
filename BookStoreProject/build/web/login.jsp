@@ -86,7 +86,7 @@
                      }%>
                 </table>
                 </form>
-                <a href="#" class="reg_link">Register&gt&gt</a>
+                <a href="register.jsp" class="reg_link">Register&gt&gt</a>
             </center>
         </div>
 
