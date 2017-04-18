@@ -31,7 +31,9 @@ public class Q2_increase_sale {
     public List answer(String date1,String date2){
         try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("match (n:Customer_D),(m:Customer_D{category:'home'}) where n.category<>'home' return toFloat(count(n))/ toFloat(count(m)) as Ratio", parameters());
+                    StatementResult sr = tx.run("match(n:Fact{time:{time1}),(m:Fact{time:{time2}})"
+                            + " where n.store_id=m.store_id with n.store_id as id,sum(toFloat(n.sale))as sale1,sum(toFloat(m.sale))as sale2 "
+                            + "return id,toFloat(sale1)-toFloat(sale2) as change", parameters("time1",date1,"time2",date2));
                     tx.success();
                     Record record = sr.next();
                     
