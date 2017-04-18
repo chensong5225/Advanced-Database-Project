@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +49,7 @@ public class MongoServletQ2 extends HttpServlet {
         String month1 = new SimpleDateFormat("MM").format(tmpstart);
         String day1 = new SimpleDateFormat("dd").format(tmpstart);
         
-        System.out.println("start date: "+start);
+        System.out.println("start date: "+year1+"--"+month1+"---"+day1);
         
         String end = request.getParameter("enddate");
         Date tmpend = new SimpleDateFormat("yyyy-MM-dd").parse(end);
@@ -71,6 +73,9 @@ public class MongoServletQ2 extends HttpServlet {
         ArrayList<String> result = new Q2().query(olddate1,newdate2);
         session.setAttribute("mongoQ2result", result);
         
+        ServletContext SC = getServletContext();
+        RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
+        rd.forward(request, response);
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
