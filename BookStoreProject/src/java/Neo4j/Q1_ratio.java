@@ -22,18 +22,18 @@ import java.util.ArrayList;
 public class Q1_ratio {
     private Driver driver;
     private Neo4jcon con;
-    private String result;
+    private Float result;
     public Q1_ratio(){
         con = new Neo4jcon();
         driver = con.driver;
     }
-    public String answer(){
+    public Float answer(){
         try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
                     StatementResult sr = tx.run("match (n:Customer_D),(m:Customer_D{category:'home'}) where n.category<>'home' return toFloat(count(n))/ toFloat(count(m)) as Ratio", parameters());
                     tx.success();
                     Record record = sr.next();
-                    result = record.get("Ratio").asString();
+                    result = record.get("Ratio").asFloat();
                 }
             }
         return result;
