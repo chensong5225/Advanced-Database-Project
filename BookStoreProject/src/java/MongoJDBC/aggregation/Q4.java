@@ -49,10 +49,14 @@ public class Q4 extends MongoDbCon{
         
         //筛选出前2的product
 <<<<<<< HEAD
+<<<<<<< HEAD
         collection.find();
 =======
         collection.aggregate("",);
 >>>>>>> e0c9165d45fab33384ee6b9ad2c51f2d97cc73ae
+=======
+//        collection.aggregate("",);
+>>>>>>> 703f25989c99a54a7787804108a4b7d7b4ed9171
         
     }
     
