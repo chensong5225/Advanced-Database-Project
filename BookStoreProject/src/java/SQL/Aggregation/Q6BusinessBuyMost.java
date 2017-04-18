@@ -20,7 +20,7 @@ public class Q6BusinessBuyMost {
     static private Connection conn;
     static private ResultSet rs = null;
     
-    public static ArrayList<String> buyMost(String product) throws ClassNotFoundException{
+    public ArrayList<String> buyMost(String product) throws ClassNotFoundException{
         ArrayList<String> res = new ArrayList<>();
         PreparedStatement ps = null;
         double max = 0;
