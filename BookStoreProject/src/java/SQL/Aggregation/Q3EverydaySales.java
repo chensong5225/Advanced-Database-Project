@@ -20,7 +20,7 @@ import java.util.PriorityQueue;
  * @author yuq
  */
 public class Q3EverydaySales {
-    public void maintain(String date){
+    public static void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
         PreparedStatement nestps = null;

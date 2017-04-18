@@ -21,29 +21,34 @@ public class Q7DemandCurve {
     static private Connection conn;
     static private ResultSet rs = null;
     
-    public static ArrayList<ArrayList<Double>> demand(String product) throws ClassNotFoundException{
-        ArrayList<ArrayList<Double>> list = new ArrayList<>();
-        ArrayList<Double> price = new ArrayList<>();
-        ArrayList<Double> sales = new ArrayList<>();
+    public static HashMap<String, HashMap<Double, Double>> demand() throws ClassNotFoundException{
+        HashMap<String, HashMap<Double, Double>> map = new HashMap<>();
         PreparedStatement ps = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("select fact.product_id, fact.price, sum(sale) as sales from fact, product_dim where fact.product_id = product_dim.product_id and product_dim.name = ? group by fact.price");            
-            ps.setObject(1, product);
+            ps = conn.prepareStatement("select fact.product_id, category, fact.price, amount from fact, product_dim where fact.product_id = product_dim.product_id group by fact.product_id");            
             rs = ps.executeQuery();            
             while(rs.next()){
-                price.add(rs.getDouble(2));
-                sales.add(rs.getDouble(3));
+                String category = rs.getString(2);
+                double price = rs.getDouble(3);
+                    double sale = rs.getDouble(4);
+                if(map.containsKey(category)){                    
+                    map.get(category).put(price, sale);
+                }else{
+                    HashMap<Double, Double> temp = new HashMap<>();
+                    temp.put(price, sale);
+                    map.put(category, temp);
+                }
             }
-            
         } catch (SQLException se) {
             se.printStackTrace();
-        }
-        list.add(price);
-        list.add(sales);
-        return list;
+        }       
+        return map;
     }
-    
+    public static void main(String args[]) throws ClassNotFoundException{
+        Q7DemandCurve a = new Q7DemandCurve();
+        a.demand();
+    }
 }

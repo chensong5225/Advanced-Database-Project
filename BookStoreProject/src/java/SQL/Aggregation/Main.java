@@ -29,12 +29,12 @@ public class Main {
         //CreateCustomerDim.create();
         //CreateStoreDim.create();
         
-        /*
+        
         HashMap<String, Integer> map = Q5RegionCompare.regionCompare();
         for(String s: map.keySet()){
                 System.out.println(s + " " + map.get(s));
             }
-        */
+        
         
         /*
         HashMap<String, HashMap<Double, Double>> map = Q7DemandCurve.demand();
@@ -55,13 +55,6 @@ public class Main {
                 System.out.println(s);
             }
         */
-        
-        ArrayList<ArrayList<Double>> list = Q7DemandCurve.demand("Leonardo and the Last Supper");
-        ArrayList<Double> price = list.get(0);
-        ArrayList<Double> sale = list.get(1);
-        for(int i = 0; i < price.size(); i++){
-            System.out.println(price.get(i) + "   " + sale.get(i));
-        }
     }
     
 }

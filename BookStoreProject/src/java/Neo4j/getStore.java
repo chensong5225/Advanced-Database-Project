@@ -29,7 +29,7 @@ public class getStore {
          try {
             conn = ConnectSQL.getConn();
             //id,state
-            ps = conn.prepareStatement("select store_id,region from store_dim");
+            ps = conn.prepareStatement("select store.id, store.state from store");
             rs = ps.executeQuery();
             while(rs.next()){
                 String[] str = new String[2];

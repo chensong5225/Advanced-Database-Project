@@ -16,7 +16,7 @@ import java.util.HashMap;
  * @author yuq
  */
 public class Q4bTopProductCategories {
-    public void maintain(String date){
+    public static void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
         PreparedStatement nestps = null;

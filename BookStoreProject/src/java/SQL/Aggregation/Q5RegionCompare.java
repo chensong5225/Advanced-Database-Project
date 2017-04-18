@@ -21,7 +21,7 @@ public class Q5RegionCompare {
     static private Connection conn;
     static private ResultSet rs = null;
     
-    public HashMap<String, Integer> regionCompare() throws ClassNotFoundException{
+    public static HashMap<String, Integer> regionCompare() throws ClassNotFoundException{
         
         HashMap<String, Integer> map = new HashMap<>();
         PreparedStatement ps = null;       

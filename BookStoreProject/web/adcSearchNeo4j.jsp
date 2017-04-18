@@ -4,6 +4,7 @@
     Author     : mac
 --%>
 
+<%@page import="xy.bean.TransactionXy"%>
 <%@page import="xy.bean.Book"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -30,26 +31,26 @@
                     dateFormat: "yy-mm-dd"
                 });
             });
-             $( function() {
-                start = $( "#startdate2" ).datepicker({
-                    dateFormat:"yy-mm-dd"
+            $(function () {
+                start = $("#startdate2").datepicker({
+                    dateFormat: "yy-mm-dd"
                 });
-            } );
-            $( function() {               
-                $( "#enddate2" ).datepicker({
-                    dateFormat:"yy-mm-dd"
+            });
+            $(function () {
+                $("#enddate2").datepicker({
+                    dateFormat: "yy-mm-dd"
                 });
-            } );
-            $( function() {
-                start = $( "#startdate3" ).datepicker({
-                    dateFormat:"yy-mm-dd"
+            });
+            $(function () {
+                start = $("#startdate3").datepicker({
+                    dateFormat: "yy-mm-dd"
                 });
-            } );
-            $( function() {               
-                $( "#enddate3" ).datepicker({
-                    dateFormat:"yy-mm-dd"
+            });
+            $(function () {
+                $("#enddate3").datepicker({
+                    dateFormat: "yy-mm-dd"
                 });
-            } );
+            });
         </script>
     </head>
     <body>
@@ -76,20 +77,28 @@
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-                <tr><td></td><td></td></tr>
-                <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
+                    <tr><td></td><td></td></tr>
+                    <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
                 <tr><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
                 <tr><form action="#"><td>Start date: 
                         <input type="text" id="startdate2" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate2" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-                <tr><td></td><td><input type="submit" value="submit"></form></td></tr>
+                    <tr><td><select name="saleP">
+                                <option value="topsale">top5sale</option>
+                                <option value ="bottomsale">bottom5sale</option>
+                                <option value="topprofit">top5profit</option>
+                                <option value="bottomprofit">bottom5profit</option>
+                            </select>
+
+                        </td><td></td></tr>
+                    <tr><td></td><td><input type="submit" value="submit"></form></td></tr>
                 <tr><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
                 <tr><form action="#"><td>Start date: 
                         <input type="text" id="startdate3" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate3" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-                <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
+                    <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
                 <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>
                 <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
                             <% while (iter.hasNext()) {
@@ -114,15 +123,29 @@
                             <%}
                             %>
                         </select></td><td><input type="submit" value="submit"/></form></td></tr>
+                        
+                <tr><form action="#" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
+                        <jsp:useBean id="transactionService" class="xy.service.TransactionService"></jsp:useBean>
+                        <%
+                            List weeks = transactionService.findWeekList();
+                            Iterator iterW = weeks.iterator();
+                        %>
+                        week:<select id="week" name="week"><option value="pls" selected="selected">please select.</option>
+                            <%
+                                while(iterW.hasNext()){
+                                    TransactionXy tx = (TransactionXy)iterW.next();
+                                    int week  = tx.getWeek();
+                            %>
+                            <option value="<%= week%>"><%= week%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                    </td><td>
                         <%
                             List products3 = productSearch.findProductList();
                             Iterator iter3 = products3.iterator();
                         %>
-                <tr><form action="#" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
-                        <select id="week" name="week"><option value="pls" selected="selected">please select.</option>
-
-                        </select>
-                    </td><td>
                         <select id="sn3" name="sn3"><option value="pls" selected="selected">please select.</option>
                             <%
                                 while (iter3.hasNext()) {
