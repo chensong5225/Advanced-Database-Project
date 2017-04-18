@@ -120,6 +120,13 @@
         <jsp:useBean id="Q1" class="Neo4j.Q1_ratio" ></jsp:useBean>
         <p><%= Q1.answer()%></p>
         
-        
+        <%
+             HttpSession hs = request.getSession(true);
+             List result =(List) hs.getAttribute("q2");
+             Iterator iter = result.iterator();
+             while(iter.hasNext()){
+        %>
+        <p><%= iter.next()%></p>
+        <%}%>
         
 </html>
