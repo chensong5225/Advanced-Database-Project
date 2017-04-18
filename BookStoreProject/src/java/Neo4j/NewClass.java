@@ -13,15 +13,15 @@ import java.util.List;
  */
 public class NewClass {
     public static void main(String[] args) {
-<<<<<<< HEAD
+
        ProductTest pt = new ProductTest();
        pt.first();
        
-=======
+
         Q1_ratio test = new Q1_ratio();
         Float result = test.answer();
         System.out.println(result);
->>>>>>> 1e68771e06d94e4b1ac79b5e84d5193203e7e877
+
     }
     
 }

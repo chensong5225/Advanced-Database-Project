@@ -3,33 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MongoServlet;
+package Neo4jServlet;
 
-import MongoJDBC.aggregation.Q2;
+import Neo4j.Q2_increase_sale;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.Pattern.List;
+import java.util.*;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author fei
- * 
- * What stores are increasing in sales?
+ * @author hom19
  */
-public class MongoServletQ2 extends HttpServlet {
+public class TestServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,53 +36,27 @@ public class MongoServletQ2 extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
-       
-         response.setContentType("text/html;charset=UTF-8");
-        // 获取日期
-        String start = request.getParameter("startdate");
-        Date tmpstart = new SimpleDateFormat("yyyy-MM-dd").parse(start);
-        String year1 = new SimpleDateFormat("yyyy").format(tmpstart);
-        String month1 = new SimpleDateFormat("MM").format(tmpstart);
-        String day1 = new SimpleDateFormat("dd").format(tmpstart);
-        
-        System.out.println("start date: "+year1+"--"+month1+"---"+day1);
-        
-        String end = request.getParameter("enddate");
-        Date tmpend = new SimpleDateFormat("yyyy-MM-dd").parse(end);
-        String year2 = new SimpleDateFormat("yyyy").format(tmpend);
-        String month2 = new SimpleDateFormat("MM").format(tmpend);
-        String day2 = new SimpleDateFormat("dd").format(tmpend);
-        
-        ArrayList<String> olddate1 = new ArrayList();
-        olddate1.add(year1);
-        olddate1.add(month1);
-        olddate1.add(day1);
-        
-        ArrayList<String> newdate2 = new ArrayList();
-        newdate2.add(year2);
-        newdate2.add(month2);
-        newdate2.add(day2);
-        
-        //设置data
-        HttpSession session = request.getSession();
-        
-        ArrayList<String> result = new Q2().query(olddate1,newdate2);
-        session.setAttribute("mongoQ2result", result);
-        
+            throws ServletException, IOException {
+        String date1 = request.getParameter("startdate");
+        String date2 = request.getParameter("enddate");
+        Q2_increase_sale q2 = new Q2_increase_sale();
+        List result = (List) q2.answer(date1, date2);
+        HttpSession hs = request.getSession();
+        hs.setAttribute("q2", result);
         ServletContext SC = getServletContext();
-        RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
+        RequestDispatcher rd = SC.getRequestDispatcher("/neoQ1.jsp");
         rd.forward(request, response);
-        
+
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MongoServletQ2</title>");            
+            out.println("<title>Servlet TestServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet MongoServletQ2 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet TestServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -105,11 +74,7 @@ public class MongoServletQ2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(MongoServletQ2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -123,11 +88,7 @@ public class MongoServletQ2 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(MongoServletQ2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
