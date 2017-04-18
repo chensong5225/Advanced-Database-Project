@@ -160,7 +160,7 @@
                             <form action="AddToCartServlet" class="f1 fl">
                                 <input type="submit" value="AddToCart" class="search_btn">
                             </form>
-                            <form action="#" class="f2 fl">
+                            <form action="EasyCheckOut" class="f2 fl">
                                 <input type="submit" value="CheckOut" class="search_btn">
                             </form>
                         </div>

@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author yuq
  */
 public class Q4aTopCustomerCategories {
-    public void maintain(String date){
+    public static void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
         String viewName = "TopCustomerCategories_" + RemoveDateSlash.remove(date);
