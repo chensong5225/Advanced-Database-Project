@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/Q3EverydaySales.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/neoQ1.jsp</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateCustomerDim.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/mongodbQ1.jsp</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Q1_ratio.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Q2_increase_sale.java</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/itemClass.jsp</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/adcSearchNeo4j.jsp</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Q1_ratio.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/neoQ1.jsp</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/mongodbQ1.jsp</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass.java</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/index.jsp</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/SQL/Aggregation/CreateCustomerDim.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/teachServlet.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/testNeo.java</file>
         </group>
     </open-files>
 </project-private>
