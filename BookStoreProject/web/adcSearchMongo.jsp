@@ -72,47 +72,55 @@
             <table>
                 <tr><td>1.What is the ratio of business to home customers?</td><td><a href="itemClass.jsp">result</a></td></tr>
                 <tr><td>2.What stores are increasing in sales?</td><td></td></tr>
-                <tr><form action="MongoServletQ6"><td>Start date: 
+                <tr><form action="teachServlet"><td>Start date: 
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
                 <tr><td></td><td></td></tr>
                 <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
-                <tr><form action="#"><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
-                <tr><td>Start date: 
+                <tr><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
+                <tr><form action="#"><td>Start date: 
                         <input type="text" id="startdate2" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate2" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
                 <tr><td></td><td><input type="submit" value="submit"></form></td></tr>
-                <tr><form action="#"><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
-                <tr><td>Start date: 
+                <tr><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
+                <tr><form action="#"><td>Start date: 
                         <input type="text" id="startdate3" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate3" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
                 <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
                 <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>
+<<<<<<< HEAD
+                <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
+=======
                 
                  <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value=""  selected="selected">please select.</option>
+>>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
                             <% while (iter.hasNext()) {
                                     Book book = (Book) iter.next();
                                     int bid = book.getId();
                                     String bname = book.getName();%>
-                            <option id="Q6" value="<%= bname%>" ><%=  bname%></option>
+                            <option value="<%= bname%>" ><%=  bname%></option>
                             <%}%>
                         </select></td><td><input type="submit" value="submit"/></form></td></tr>
                         <%
                             List products2 = productSearch.findProductList();
                             Iterator iter2 = products2.iterator();
                         %>
+<<<<<<< HEAD
+                <tr><form action="#"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
+=======
                 <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
                 <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" id="Q7" selected="selected">please select.</option>
+>>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
                             <%
                                 while (iter2.hasNext()) {
                                     Book book2 = (Book) iter2.next();
                                     int bid2 = book2.getId();
                                     String bname2 = book2.getName();
                             %>
-                            <option id="" value="<%=bname2%>"><%=bname2%></option>
+                            <option value="<%=bname2%>"><%=bname2%></option>
                             <%}
                             %>
                         </select></td><td><input type="submit" value="submit"/></form></td></tr>

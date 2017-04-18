@@ -21,7 +21,7 @@ public class Q1CustomerRatio {
     static private Connection conn;
     static private ResultSet rs = null;
     static private Statement st;
-    public static int[] ratio() throws ClassNotFoundException{
+    public int[] ratio() throws ClassNotFoundException{
         PreparedStatement ps = null;
         int[] ratio = new int[2];
         //int[0]: number of home, int[1]: number of business

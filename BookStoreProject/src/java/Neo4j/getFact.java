@@ -28,10 +28,10 @@ public class getFact {
         try {
             conn = ConnectSQL.getConn();
             // product_id,amount,cost,store_id,customer_id,time,sale,price,week
-            ps = conn.prepareStatement("select product_id,amount,cost,store_id,customer_id,time,sale,price,week from product,fact where product.id=fact.product_id");
+            ps = conn.prepareStatement("select product_id,amount,cost*amount as totalcost,fact.price,sale,store_id,customer_id,time,week from product,fact where product.id=fact.product_id");
             rs = ps.executeQuery();
             while(rs.next()){
-                String[] str = new String[9];
+                String[] str = new String[10];
                 str[0] = rs.getString(1);
                 str[1] = rs.getString(2);
                 str[2] = rs.getString(3);
