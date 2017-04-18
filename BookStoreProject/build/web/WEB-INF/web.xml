@@ -12,6 +12,9 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
+<<<<<<< HEAD
+   
+=======
     <servlet>
         <servlet-name>MongoServletQ6</servlet-name>
         <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
@@ -20,6 +23,7 @@
         <servlet-name>MongoServletQ2</servlet-name>
         <servlet-class>MongoServlet.MongoServletQ2</servlet-class>
     </servlet>
+>>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -85,10 +89,13 @@
         <servlet-name>teachServlet</servlet-name>
         <servlet-class>xy.controller.teachServlet</servlet-class>
     </servlet>
+<<<<<<< HEAD
+=======
     <servlet-mapping>
         <servlet-name>teachServlet</servlet-name>
         <url-pattern>/teachServlet</url-pattern>
     </servlet-mapping>
+>>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
     <servlet>
         <servlet-name>EasyCheckOut</servlet-name>
         <servlet-class>xy.controller.EasyCheckOut</servlet-class>
@@ -106,11 +113,29 @@
         <url-pattern>/CartCheckOut</url-pattern>
     </servlet-mapping>
     
+<<<<<<< HEAD
+   <servlet>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
+    </servlet>
+=======
+>>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
    <servlet-mapping>
         <servlet-name>MongoServletQ6</servlet-name>
         <url-pattern>/MongoServletQ6</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MongoServletQ2</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ2</servlet-name>
+        <url-pattern>/MongoServletQ2</url-pattern>
+    </servlet-mapping>
     
+<<<<<<< HEAD
+=======
     <servlet>
         <servlet-name>HomeRegisterServlet</servlet-name>
         <servlet-class>xy.controller.HomeRegisterServlet</servlet-class>
@@ -129,4 +154,5 @@
         <url-pattern>/BusinessRegisterServlet</url-pattern>
     </servlet-mapping>
     
+>>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
 </web-app>

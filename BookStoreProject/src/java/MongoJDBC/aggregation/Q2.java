@@ -5,6 +5,7 @@
  */
 package MongoJDBC.aggregation;
 
+import MongoJDBC.connectMongo.MongoDbCon;
 import static MongoJDBC.connectMongo.MongoDbCon.Connect;
 import static MongoJDBC.connectMongo.MongoDbCon.collection;
 import com.mongodb.client.AggregateIterable;
@@ -22,7 +23,7 @@ import org.bson.Document;
  * 
  * What stores are increasing in sales?
  */
-public class Q2 {
+public class Q2 extends MongoDbCon{
      public ArrayList<String> query(ArrayList<String> olddate1,ArrayList<String> newdate2){
         //connect
         Connect("ADB_ware","Fact");
@@ -119,7 +120,7 @@ public class Q2 {
               Iterator itarray = IdList.iterator();              
               while(itarray.hasNext()){
                   String id = (String)itarray.next();
-                  System.out.println("old_"+id+"--->"+old.get(id));
+//                  System.out.println("old_"+id+"--->"+old.get(id));
                   if(old.get(id)<newd.get(id)){
                       result.add(id);
                   }
@@ -129,22 +130,22 @@ public class Q2 {
        return result;
      }
      
-    public static void main(String args[]){
-        Q2 q = new Q2();
-        ArrayList<String> olddate1 =new ArrayList();
-        ArrayList<String> newdate2 =new ArrayList();
-        olddate1.add("2017");
-        olddate1.add("02");
-        olddate1.add("18");
-        
-        newdate2.add("2017");
-        newdate2.add("02");
-        newdate2.add("28");
-       
-        ArrayList result = q.query( olddate1,  newdate2);
-        for(int i=0;i<result.size();i++){
-             System.out.println("结果是:-->"+result.get(i));
-        }
-//        System.out.println("结果是:-->"+c);
-    }
+//    public static void main(String args[]){
+//        Q2 q = new Q2();
+//        ArrayList<String> olddate1 =new ArrayList();
+//        ArrayList<String> newdate2 =new ArrayList();
+//        olddate1.add("2017");
+//        olddate1.add("02");
+//        olddate1.add("18");
+//        
+//        newdate2.add("2017");
+//        newdate2.add("02");
+//        newdate2.add("28");
+//       
+//        ArrayList result = q.query( olddate1,  newdate2);
+//        for(int i=0;i<result.size();i++){
+//             System.out.println("结果是:-->"+result.get(i));
+//        }
+////        System.out.println("结果是:-->"+c);
+//    }
 }

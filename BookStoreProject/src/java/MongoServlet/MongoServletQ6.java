@@ -46,10 +46,17 @@ public class MongoServletQ6 extends HttpServlet {
         //后台返回查询结果
         HttpSession session = request.getSession();
         //ArrayList<String>
-        session.setAttribute("st", start);
-        session.setAttribute("et", end);
+//        session.setAttribute("st", start);
+//        session.setAttribute("et", end);;
         
         
+<<<<<<< HEAD
+        String result =new Q6().query(productname);
+        session.setAttribute("Q6result", result);   
+        //返回前台 
+//        RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
+//        rd.forward(request, response);
+=======
 
         String result =new Q6().query(productname);
         session.setAttribute("Q6result", result);   
@@ -61,6 +68,7 @@ public class MongoServletQ6 extends HttpServlet {
         ServletContext SC = getServletContext();
         RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
         rd.forward(request, response);
+>>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
