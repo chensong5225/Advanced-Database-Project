@@ -18,28 +18,28 @@ import org.neo4j.driver.v1.StatementResult;
 import org.neo4j.driver.v1.Transaction;
 import static org.neo4j.driver.v1.Values.parameters;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Q1_ratio {
+public class Q2_increase_sale {
     private Driver driver;
     private Neo4jcon con;
-    private String result;
-    
-    
-    public Q1_ratio(){
+    private List result;
+    public Q2_increase_sale(){
         con = new Neo4jcon();
         driver = con.driver;
-    }
-    public String answer(){
+}
+    public List answer(String date1,String date2){
         try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
                     StatementResult sr = tx.run("match (n:Customer_D),(m:Customer_D{category:'home'}) where n.category<>'home' return toFloat(count(n))/ toFloat(count(m)) as Ratio", parameters());
                     tx.success();
                     Record record = sr.next();
-                    result = record.get(1).asString();
+                    
                 }
             }
+        
         return result;
     }
     
-    
 }
+
