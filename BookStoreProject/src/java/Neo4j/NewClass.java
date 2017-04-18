@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class NewClass {
     public static void main(String[] args) {
-       ProductTest pt = new ProductTest();
-       pt.first();
+        Warehouse wh = new Warehouse();
+       wh.loadWarehouse();
        
     }
     
