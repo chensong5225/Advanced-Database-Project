@@ -118,9 +118,18 @@
         <%
             
             HttpSession hs = request.getSession(true);
-            String sd = hs.getAttribute("st").toString();
-            String ed = hs.getAttribute("et").toString();
-            String mongoQ2result = hs.getAttribute("mongoQ2result").toString();
+            String sd = " ";
+            String ed= " ";
+            String mongoQ2result = " ";
+            if(hs.getAttribute("st")!=null){
+                 sd = hs.getAttribute("st").toString();
+            }
+            if(hs.getAttribute("et")!=null){
+                ed = hs.getAttribute("et").toString();
+            }
+            if(hs.getAttribute("mongoQ2result")!=null){
+                 mongoQ2result = hs.getAttribute("mongoQ2result").toString();
+            }
         %>
         <div id="t">
             <p><%= sd%></p>

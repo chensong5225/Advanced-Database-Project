@@ -71,3 +71,19 @@ how to write in java:
 
 
 db.getCollection('Fact').aggregate([{$match:{"date.day":"28"}},{$group:{_id:"$store.storeId",totalsales:{$sum:{$multiply:["$price_per_item","$amount"]}}}}])
+
+
+
+
+
+
+
+Q4:
+db.getCollection('Fact').aggregate([
+{$group:{"_id":{"cat":"$customer.category","date":"$date"}
+        ,"total_sales":{$sum:{$multiply:["$price_per_item","$amount"]}}}},
+{$sort:{"date":-1}},
+{$project:{"total_sales":1,"date":1}}
+])
+
+how to write in java:

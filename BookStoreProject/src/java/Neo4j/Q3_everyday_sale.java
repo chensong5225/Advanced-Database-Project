@@ -35,8 +35,8 @@ public class Q3_everyday_sale {
     }
 
     public List answer(String mode) {
-        if (mode.equalsIgnoreCase("top")) {
-            if (mode.equalsIgnoreCase("profit")) {
+        if (mode.contains("top")) {
+            if (mode.contains("profit")) {
                 try (Session s = driver.session()) {
                     try (Transaction tx = s.beginTransaction()) {
                         StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
@@ -54,14 +54,35 @@ public class Q3_everyday_sale {
                         }
                     }
                 }
+            } else {
+                try (Session s = driver.session()) {
+                    try (Transaction tx = s.beginTransaction()) {
+                        StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
+                                + "where n.product_id = m.id "
+                                + "with m,sum(toFloat(n.totalcost)) as cost,sum(toFloat(n.sale)) as sale"
+                                + "return m.name as name,sale"
+                                + "order by totalsale desc limit 5", parameters());
+                        tx.success();
+                        while (sr.hasNext()) {
+                            Record record = sr.next();
+                            sale = record.get("sale").asString();
+                            product = record.get("name").asString();
+                            String temp = "";
+                            temp = temp + product + "     " + profit;
+                            result.add(temp);
+                        }
+                    }
+                }
             }
-            else{
+        }
+        else{
+            if(mode.contains(profit)){
                 try (Session s = driver.session()) {
                     try (Transaction tx = s.beginTransaction()) {
                         StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
                                 + "where n.product_id = m.id with m,sum(toFloat(n.totalcost)) as cost,sum(toFloat(n.sale)) as sale,n.product_id as id "
                                 + "return m.name as name,toFloat(sale)-toFloat(cost) as profit"
-                                + "order by totalsale desc limit 5", parameters());
+                                + "order by totalsale asc limit 5", parameters());
                         tx.success();
                         while (sr.hasNext()) {
                             Record record = sr.next();
@@ -70,10 +91,31 @@ public class Q3_everyday_sale {
                             String temp = "";
                             temp = temp + product + "     " + profit;
                             result.add(temp);
-                
+                        }
+                    }
+                }
+            }
+            else{
+                try (Session s = driver.session()) {
+                    try (Transaction tx = s.beginTransaction()) {
+                        StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
+                                + "where n.product_id = m.id "
+                                + "with m,sum(toFloat(n.totalcost)) as cost,sum(toFloat(n.sale)) as sale"
+                                + "return m.name as name,sale"
+                                + "order by totalsale asc limit 5", parameters());
+                        tx.success();
+                        while (sr.hasNext()) {
+                            Record record = sr.next();
+                            sale = record.get("sale").asString();
+                            product = record.get("name").asString();
+                            String temp = "";
+                            temp = temp + product + "     " + profit;
+                            result.add(temp);
+                        }
+                    }
+                }
             }
         }
         return result;
-
     }
 }

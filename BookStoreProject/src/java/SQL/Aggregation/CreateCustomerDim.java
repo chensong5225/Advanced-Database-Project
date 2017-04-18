@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author yuq
  */
 public class CreateCustomerDim {
-    public void create(){
+    public static void create(){
         Connection conn;
         PreparedStatement ps = null;
         PreparedStatement update = null;

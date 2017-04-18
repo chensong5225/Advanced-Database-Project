@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import xy.bean.Transaction;
+import xy.bean.TransactionXy;
 
 /**
  *
@@ -33,7 +33,7 @@ public class OrderService {
             pstmt.setInt(1, cid);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                Transaction tt = new Transaction();
+                TransactionXy tt = new TransactionXy();
                 tt.setCustomer_id(cid);
                 tt.setTransaction_id(rs.getInt("transaction_id"));
                 tt.setProduct_id(rs.getInt("product_id"));

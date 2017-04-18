@@ -6,7 +6,6 @@
 package Neo4j;
 
 import java.util.List;
-import SQL.Aggregation.*;
 
 /**
  *
@@ -14,9 +13,15 @@ import SQL.Aggregation.*;
  */
 public class NewClass {
     public static void main(String[] args) {
+
+       ProductTest pt = new ProductTest();
+       pt.first();
+       
+
         Q1_ratio test = new Q1_ratio();
         Float result = test.answer();
         System.out.println(result);
+
     }
     
 }

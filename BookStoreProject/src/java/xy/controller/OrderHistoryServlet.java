@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import xy.bean.Book;
 import xy.bean.Message;
-import xy.bean.Transaction;
+import xy.bean.TransactionXy;
 import xy.bean.customer;
 import xy.service.OrderService;
 import xy.service.bookService;
@@ -47,10 +47,10 @@ public class OrderHistoryServlet extends HttpServlet {
             OrderService os = new OrderService();
             bookService bs = new bookService();
 
-            List<Transaction> transactions = os.findHisOrder(ct.getId());
+            List<TransactionXy> transactions = os.findHisOrder(ct.getId());
             if (transactions != null) {//size?
                 List<Book> books = new ArrayList<Book>();
-                for (Transaction item : transactions) {
+                for (TransactionXy item : transactions) {
                     Book book = new Book();
                     int bid = item.getProduct_id();
                     book.setId(bid);

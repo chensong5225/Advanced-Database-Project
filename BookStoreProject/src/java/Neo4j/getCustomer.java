@@ -28,12 +28,13 @@ public class getCustomer {
         try {
             conn = ConnectSQL.getConn();
             //customer_id,type
-            ps = conn.prepareStatement("select customer_id,type from customer_dim");
+            ps = conn.prepareStatement("select distinct customer_id,customer.type from transaction,customer where transaction.customer_id=customer.id");
             rs = ps.executeQuery();
             while(rs.next()){
                 String[] str = new String[2];
                 str[0] = rs.getString(1);
                 str[1] = rs.getString(2);
+//                System.out.println("customer id : "+str[0]+"type : "+ str[1]);
                 list.add(str);
             }
         } catch (SQLException se) {
