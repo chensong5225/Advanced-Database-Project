@@ -20,22 +20,22 @@ import static org.neo4j.driver.v1.Values.parameters;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Q2_increase_sale {
-    private Driver driver;
+public class Q3_everyday_sale {
     private Neo4jcon con;
+    private Driver driver;
+    private String product;
+    private String sale;
     private List result;
-    private String id;
-    private String change;
-    public Q2_increase_sale(){
+    
+    public Q3_everyday_sale(){
         con = new Neo4jcon();
         driver = con.driver;
-}
-    public List answer(String date1,String date2){
-        try (Session s = driver.session()) {
+    }
+    public List answer(String mode){
+        if(mode.equalsIgnoreCase("top")){
+            try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("match(n:Fact{time:{time1}),(m:Fact{time:{time2}})"
-                            + " where n.store_id=m.store_id with n.store_id as id,sum(toFloat(n.sale))as sale1,sum(toFloat(m.sale))as sale2 "
-                            + "return id,toFloat(sale1)-toFloat(sale2) as change", parameters("time1",date1,"time2",date2));
+                    StatementResult sr = tx.run("", parameters());
                     tx.success();
                     while(sr.hasNext()){
                         Record record = sr.next();
@@ -46,7 +46,8 @@ public class Q2_increase_sale {
                     }
                 }
         }
+        }
         return result;
+        
     }
 }
-

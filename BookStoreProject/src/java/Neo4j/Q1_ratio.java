@@ -23,8 +23,6 @@ public class Q1_ratio {
     private Driver driver;
     private Neo4jcon con;
     private String result;
-    
-    
     public Q1_ratio(){
         con = new Neo4jcon();
         driver = con.driver;
@@ -35,11 +33,9 @@ public class Q1_ratio {
                     StatementResult sr = tx.run("match (n:Customer_D),(m:Customer_D{category:'home'}) where n.category<>'home' return toFloat(count(n))/ toFloat(count(m)) as Ratio", parameters());
                     tx.success();
                     Record record = sr.next();
-                    result = record.get(1).asString();
+                    result = record.get("Ratio").asString();
                 }
             }
         return result;
     }
-    
-    
 }
