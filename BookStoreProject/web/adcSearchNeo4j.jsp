@@ -70,7 +70,7 @@
         %>
         <div class="adSearch">
             <table>
-                <tr><td>1.What is the ratio of business to home customers?</td><td><a href="itemClass.jsp">result</a></td></tr>
+                <tr><td>1.What is the ratio of business to home customers?</td><td><a href="neoQ1.jsp">result</a></td></tr>
                 <tr><td>2.What stores are increasing in sales?</td><td></td></tr>
                 <tr><form action="teachServlet"><td>Start date: 
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>

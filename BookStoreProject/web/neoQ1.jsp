@@ -117,6 +117,8 @@
         </div>
         <div class="comWidth"> </div>
         
+        <jsp:useBean id="Q1" class="Neo4j.Q1_ratio" ></jsp:useBean>
+        <p><%= Q1.answer()%></p>
         
         
         
