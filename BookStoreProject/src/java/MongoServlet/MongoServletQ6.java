@@ -45,17 +45,16 @@ public class MongoServletQ6 extends HttpServlet {
         
         //后台返回查询结果
         HttpSession session = request.getSession();
-<<<<<<< HEAD
         //ArrayList<String>
         session.setAttribute("st", start);
         session.setAttribute("et", end);
         
         
-=======
+
         String result =new Q6().query(productname);
         session.setAttribute("Q6result", result);   
         //返回前台 
->>>>>>> 76787ce9735c0b8d994f1164b29b385c165f2f35
+
         ServletContext SC = getServletContext();
         RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
         rd.forward(request, response);
