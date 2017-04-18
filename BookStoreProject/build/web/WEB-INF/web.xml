@@ -12,10 +12,6 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
-<<<<<<< HEAD
-=======
-
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
     <servlet>
         <servlet-name>MongoServletQ6</servlet-name>
         <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
@@ -24,10 +20,6 @@
         <servlet-name>MongoServletQ2</servlet-name>
         <servlet-class>MongoServlet.MongoServletQ2</servlet-class>
     </servlet>
-<<<<<<< HEAD
-=======
-
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -93,18 +85,10 @@
         <servlet-name>teachServlet</servlet-name>
         <servlet-class>xy.controller.teachServlet</servlet-class>
     </servlet>
-<<<<<<< HEAD
-=======
-
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
     <servlet-mapping>
         <servlet-name>teachServlet</servlet-name>
         <url-pattern>/teachServlet</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
-=======
-
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
     <servlet>
         <servlet-name>EasyCheckOut</servlet-name>
         <servlet-class>xy.controller.EasyCheckOut</servlet-class>
@@ -121,15 +105,6 @@
         <servlet-name>CartCheckOut</servlet-name>
         <url-pattern>/CartCheckOut</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
-=======
-    
-
-   <servlet>
-        <servlet-name>MongoServletQ6</servlet-name>
-        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
-    </servlet>
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
 
    <servlet-mapping>
         <servlet-name>MongoServletQ6</servlet-name>
@@ -140,10 +115,6 @@
         <url-pattern>/MongoServletQ2</url-pattern>
     </servlet-mapping>
     
-<<<<<<< HEAD
-=======
-
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
     <servlet>
         <servlet-name>HomeRegisterServlet</servlet-name>
         <servlet-class>xy.controller.HomeRegisterServlet</servlet-class>
@@ -162,18 +133,34 @@
         <url-pattern>/BusinessRegisterServlet</url-pattern>
     </servlet-mapping>
     
-<<<<<<< HEAD
     <servlet>
-        <servlet-name>TServlet</servlet-name>
-        <servlet-class>Neo4jServlet.TServlet</servlet-class>
+        <servlet-name>neoQ2</servlet-name>
+        <servlet-class>Neo4jServlet.neoQ2</servlet-class>
     </servlet>
      <servlet-mapping>
-        <servlet-name>TServlet</servlet-name>
-        <url-pattern>/TServlet</url-pattern>
+        <servlet-name>neoQ2</servlet-name>
+        <url-pattern>/neoQ2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>neoQ6</servlet-name>
+        <servlet-class>Neo4jServlet.neoQ6</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>neoQ6</servlet-name>
+        <url-pattern>/neoQ6</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>neoQ3</servlet-name>
+        <servlet-class>Neo4jServlet.neoQ3</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>neoQ3</servlet-name>
+        <url-pattern>/neoQ3</url-pattern>
     </servlet-mapping>
     
     
-=======
-
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
+    
+    
 </web-app>

@@ -5,13 +5,15 @@
  */
 package Neo4jServlet;
 
-import Neo4j.Q2_increase_sale;
+
+import Neo4j.Q3_everyday_sale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,9 +21,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author mac
+ * @author Weiqi Li
  */
-public class TServlet extends HttpServlet {
+
+public class neoQ3 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,27 +37,32 @@ public class TServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String date1 = request.getParameter("startdate");
-        String date2 = request.getParameter("enddate");
-        Q2_increase_sale q2 = new Q2_increase_sale();
-        List result = q2.answer(date1, date2);
-        HttpSession sesson = request.getSession();
-        sesson.setAttribute("q2", result);
-        ServletContext SC = getServletContext();
-        RequestDispatcher rd = SC.getRequestDispatcher("/neoQ1.jsp");
+        
+        String s1=request.getParameter("startdate");
+        String s2=request.getParameter("enddate");
+        String s3=request.getParameter("saleP");
+        Q3_everyday_sale q3=new Q3_everyday_sale();
+        List r= (List) q3.answer(s1,s2,s3);
+        
+        HttpSession hs=request.getSession();
+        hs.setAttribute("q3", r);
+        ServletContext sc = getServletContext();
+        RequestDispatcher rd = sc.getRequestDispatcher("/neoQ3.jsp");
         rd.forward(request, response);
-
+        
+        
+        
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TServlet</title>");
+            out.println("<title>Servlet neoQ3</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet neoQ3 at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -73,11 +73,11 @@
             <table>
                 <tr><td>1.What is the ratio of business to home customers?</td><td><a href="neoQ1.jsp">result</a></td></tr>
                 <tr><td>2.What stores are increasing in sales?</td><td></td></tr>
-<<<<<<< HEAD
-                <tr><form action="TServlet"><td>Start date: 
-=======
-                <tr><form action="TestServlet"><td>Start date: 
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
+
+               
+
+                <tr><form action="neoQ2"><td>Start date: 
+
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
@@ -103,7 +103,9 @@
                     <td>End date: 
                         <input type="text" id="enddate3" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
                     <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
-                <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>
+        
+                <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="neoQ5.jsp">result</a></td></tr>
+                
                 <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
                             <% while (iter.hasNext()) {
                                     Book book = (Book) iter.next();

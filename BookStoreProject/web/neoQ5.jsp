@@ -1,23 +1,18 @@
 <%-- 
-    Document   : neoQ2
-    Created on : Apr 17, 2017, 11:16:29 PM
-    Author     : mac
+    Document   : newQ5
+    Created on : Apr 18, 2017, 2:34:07 PM
+    Author     : Weiqi Li
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Neo4j.ProductTest"%>
+<%@page import="Neo4j.Product"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="xy.bean.customer"%>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-    
-    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>neo4j_result</title>
@@ -121,19 +116,8 @@
             </div>
         </div>
         <div class="comWidth"> </div>
-    
-    
-    
-    <%
-
-             HttpSession hs = request.getSession(true);
-             List result =(List) hs.getAttribute("q2");
-             Iterator iter = result.iterator();
-             while(iter.hasNext()){
-        %>
-        <p><%= iter.next()%></p>
-        <%}
-        %>
-
-            
+        
+        <jsp:useBean id="Q5" class="Neo4j.Q5_region_sale" ></jsp:useBean>
+        <p><%= Q5.answer()%></p>
+        
 </html>

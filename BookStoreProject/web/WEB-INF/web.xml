@@ -134,13 +134,33 @@
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>TServlet</servlet-name>
-        <servlet-class>Neo4jServlet.TServlet</servlet-class>
+        <servlet-name>neoQ2</servlet-name>
+        <servlet-class>Neo4jServlet.neoQ2</servlet-class>
     </servlet>
      <servlet-mapping>
-        <servlet-name>TServlet</servlet-name>
-        <url-pattern>/TServlet</url-pattern>
+        <servlet-name>neoQ2</servlet-name>
+        <url-pattern>/neoQ2</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>neoQ6</servlet-name>
+        <servlet-class>Neo4jServlet.neoQ6</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>neoQ6</servlet-name>
+        <url-pattern>/neoQ6</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>neoQ3</servlet-name>
+        <servlet-class>Neo4jServlet.neoQ3</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>neoQ3</servlet-name>
+        <url-pattern>/neoQ3</url-pattern>
+    </servlet-mapping>
+    
+    
     
     
 </web-app>
