@@ -48,7 +48,7 @@ public class Q4 extends MongoDbCon{
         collection.insertMany(Q4Document);
         
         //筛选出前2的product
-        collection.find()
+        collection.aggregate("",);
         
     }
     

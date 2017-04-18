@@ -36,6 +36,9 @@ public class MongoServletQ6 extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * 
+     * 
+     *      Which businesses are buying given products the most?
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
@@ -44,27 +47,13 @@ public class MongoServletQ6 extends HttpServlet {
         String productname = request.getParameter("ProductName");
         
         //后台返回查询结果
-        HttpSession session = request.getSession();
-        //ArrayList<String>
-//        session.setAttribute("st", start);
-//        session.setAttribute("et", end);;
-        
-        
-<<<<<<< HEAD
-        String result =new Q6().query(productname);
-        session.setAttribute("Q6result", result);   
-        //返回前台 
-//        RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
-//        rd.forward(request, response);
-=======
-
+        HttpSession session = request.getSession();   
         String result =new Q6().query(productname);
         session.setAttribute("Q6result", result);   
         //返回前台 
         ServletContext SC = getServletContext();
         RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
         rd.forward(request, response);
->>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

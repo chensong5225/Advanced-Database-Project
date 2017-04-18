@@ -26,6 +26,8 @@ import javax.servlet.http.HttpSession;
 /**
  *
  * @author fei
+ * 
+ * What stores are increasing in sales?
  */
 public class MongoServletQ2 extends HttpServlet {
 
