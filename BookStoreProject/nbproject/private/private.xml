@@ -2,30 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Q1_ratio.java</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/Q2_increase_sale.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q4.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/neoQ1.jsp</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass1.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/BusinessRegisterServlet.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/MongoServlet/MongoServletQ2.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/teachServlet.java</file>
+            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4jServlet/neoQ2.java</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/itemClass.jsp</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/adcSearchNeo4j.jsp</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/NewClass1.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/loginServlet.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/MongoServlet/MongoServletQ2.java</file>
-            <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/xy/controller/teachServlet.java</file>
             <file>file:/C:/Users/ricky/Downloads/git%20adv-db/Advanced-Database-Project-master/Advanced-Database-Project/BookStoreProject/src/java/Neo4j/testNeo.java</file>
-=======
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoServlet/MongoServletQ2.java</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/web/adcSearchMongo.jsp</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoServlet/MongoServletQ6.java</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/web/itemClass.jsp</file>
-            <file>file:/Users/fei/Documents/Advanced-Database-Project/BookStoreProject/src/java/MongoJDBC/aggregation/Q2.java</file>
->>>>>>> 1f3824d981fab5b08381adfddd13e759b9f8aff0
         </group>
-=======
-        <group/>
->>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
     </open-files>
 </project-private>
