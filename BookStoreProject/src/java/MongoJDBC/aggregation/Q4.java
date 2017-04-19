@@ -73,6 +73,19 @@ public class Q4 extends MongoDbCon{
         System.out.println("reuslt-->"+result);
         return result;
         
+<<<<<<< HEAD
+=======
+        //筛选出前2的product
+<<<<<<< HEAD
+<<<<<<< HEAD
+        collection.find();
+=======
+        collection.aggregate("",);
+>>>>>>> e0c9165d45fab33384ee6b9ad2c51f2d97cc73ae
+=======
+//        collection.aggregate("",);
+>>>>>>> 703f25989c99a54a7787804108a4b7d7b4ed9171
+>>>>>>> a08ecd25716d95888ad6a94bc1be634dfb29852b
         
     }
     
