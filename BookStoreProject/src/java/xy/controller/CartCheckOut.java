@@ -7,19 +7,24 @@ package xy.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import xy.bean.Book;
+import xy.bean.Cart;
 import xy.bean.customer;
+import xy.service.CartService;
+import xy.service.CheckOutService;
 
 /**
  *
  * @author mac
  */
-
 public class CartCheckOut extends HttpServlet {
 
     /**
@@ -33,18 +38,36 @@ public class CartCheckOut extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
-        
-        
+
+        //int amount = Integer.valueOf(request.getParameter("amount"));
+        HttpSession session = request.getSession();
+        List<Book> bookList = (List<Book>) session.getAttribute("bookList");
+        List<Cart> cartList = (List<Cart>) session.getAttribute("cartList");
+        customer ct = new customer();
+        ct = (customer) session.getAttribute("customer");
+        int cid = ct.getId();
+        CheckOutService cos = new CheckOutService();
+        CartService cs = new CartService();
+        if (cos.validCartCheckOut(cid, bookList, cartList)) {
+            if (cs.clearCart(cid)) {
+                ServletContext SC = getServletContext();
+                RequestDispatcher rd = SC.getRequestDispatcher("/ship.jsp");
+                rd.forward(request, response);
+            } else {
+                request.getRequestDispatcher("/error.jsp").forward(request, response);
+            }
+
+        } else {
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+        }
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CartCheckOut</title>");            
+            out.println("<title>Servlet CartCheckOut</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CartCheckOut at " + request.getContextPath() + "</h1>");

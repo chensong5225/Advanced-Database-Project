@@ -17,7 +17,13 @@ import org.bson.Document;
 /**
  *
  * @author fei
+ * 
+ * 
+ * /*
+    which business are buying given products the most
+   
  */
+ 
 public class Q6 extends MongoDbCon{
      static Block<Document> printBlock = new Block<Document>() {
 	       @Override
@@ -25,9 +31,7 @@ public class Q6 extends MongoDbCon{
 	           System.out.println(document.toJson());
 	       }
     };
-    /*
-    which business are buying given products the most
-    */
+    
     public String query(String productname){
         String result="";
         //connect
@@ -67,7 +71,7 @@ public class Q6 extends MongoDbCon{
     
     public static void main(String args[]){
         Q6 q = new Q6();
-        String c=q.query("Today I ll Be a Princess");
+        String c=q.query("Countdown to Pearl Harbor");
         System.out.println("结果是:-->"+c);
     }
 }

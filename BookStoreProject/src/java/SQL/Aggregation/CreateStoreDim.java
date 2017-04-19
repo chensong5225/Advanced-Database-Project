@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author yuq
  */
 public class CreateStoreDim {
-    public static void create(){
+    public void create(){
         Connection conn;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -27,7 +27,7 @@ public class CreateStoreDim {
             ps.executeUpdate();
             ps = conn.prepareStatement("Insert into store_dim select id,state from store");
             ps.executeUpdate();
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

@@ -19,59 +19,64 @@ import org.neo4j.driver.v1.Transaction;
 import static org.neo4j.driver.v1.Values.parameters;
 import java.util.ArrayList;
 import java.util.List;
+import Neo4j.beans.Q4_result;
 
 public class Q4_top_category {
+
     private Neo4jcon con;
-    private  Driver driver;
-    private String sale;
+    private Driver driver;
+    private float sale;
     private String category;
-    private List result;
-    public Q4_top_category(){
+    private ArrayList<Q4_result> result;
+
+    public Q4_top_category() {
         con = new Neo4jcon();
         driver = con.driver;
         result = new ArrayList();
     }
-    public List answer(String mode){
-        if(mode.contains("customer")){
+
+    public ArrayList answer(String mode) {
+        if (mode.contains("customer")) {
             try (Session s = driver.session()) {
-                    try (Transaction tx = s.beginTransaction()) {
-                        StatementResult sr = tx.run("match (a:Fact),(d:Customer_D) "
-                                + "where a.customer_id=d.id"
-                                + "with d,sum(toFloat(a.sale))as sales"
-                                + "return d.category as category,sum(sales)as sale order by sale desc limit 2", parameters());
-                        tx.success();
-                        while (sr.hasNext()) {
-                            Record record = sr.next();
-                            category = record.get("category").asString();
-                            sale = record.get("sale").asString();
-                            String temp = "";
-                            temp = temp + category + "     " + sale;
-                            result.add(temp);
-                        }
+                try (Transaction tx = s.beginTransaction()) {
+                    StatementResult sr = tx.run("match (a:Fact),(d:Customer_D) "
+                            + " where a.customer_id=d.id"
+                            + " with d,sum(toInteger(a.sale))as sales"
+                            + " return d.type as category,sum(sales)as sale order by sale desc limit 2", parameters());
+                    tx.success();
+                    while (sr.hasNext()) {
+                        Q4_result q4 = new Q4_result();
+                        Record record = sr.next();
+                        category = record.get("category").asString();
+                        sale = record.get("sale").asFloat();
+                        String sale2 = Float.toString(sale);
+                        q4.setCategory(category);
+                        q4.setSale(sale2);
+                        result.add(q4);
                     }
                 }
-        }
-        else{
+            }
+        } else {
             try (Session s = driver.session()) {
-                    try (Transaction tx = s.beginTransaction()) {
-                        StatementResult sr = tx.run("match (a:Fact),(d:Product_D)"
-                                + "where a.product_id=d.id"
-                                + "with d,sum(toFloat(a.sale))as sales"
-                                + "return d.category as category,sum(sales)as sale order by sale desc limit 2", parameters());
-                        tx.success();
-                        while (sr.hasNext()) {
-                            Record record = sr.next();
-                            category = record.get("category").asString();
-                            sale = record.get("sale").asString();
-                            String temp = "";
-                            temp = temp + category + "     " + sale;
-                            result.add(temp);
-                        }
+                try (Transaction tx = s.beginTransaction()) {
+                    StatementResult sr = tx.run("match (a:Fact),(d:Product_D)"
+                            + " where a.product_id=d.id"
+                            + " with d,sum(toInteger(a.sale))as sales"
+                            + " return d.category as category,sum(sales)as sale order by sale desc limit 2", parameters());
+                    tx.success();
+                    while (sr.hasNext()) {
+                        Q4_result q4 = new Q4_result();
+                        Record record = sr.next();
+                        category = record.get("category").asString();
+                        sale = record.get("sale").asFloat();
+                        String sale2 = Float.toString(sale);
+                        q4.setCategory(category);
+                        q4.setSale(sale2);
+                        result.add(q4);
                     }
                 }
+            }
         }
-        
-        return null;
-    
-}
+        return result;
+    }
 }

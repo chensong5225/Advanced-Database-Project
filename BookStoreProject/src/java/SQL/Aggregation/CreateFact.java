@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author yuq
  */
 public class CreateFact {
-    public static void create(){
+    public void create(){
         Connection conn;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -27,7 +27,7 @@ public class CreateFact {
             ps.executeUpdate();
             ps = conn.prepareStatement("Insert into fact select product_id, amount, store_id, customer_id, time, sum(sale), price*discount, week from transaction group by product_id,customer_id,store_id,time");
             ps.executeUpdate();
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

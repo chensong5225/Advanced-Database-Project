@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author yuq
  */
 public class CreateCustomerDim {
-    public static void create(){
+    public void create(){
         Connection conn;
         PreparedStatement ps = null;
         PreparedStatement update = null;
@@ -38,7 +38,8 @@ public class CreateCustomerDim {
                 update.setObject(1, category);
                 update.setObject(2, id);
                 update.executeUpdate();
-            }           
+            }
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

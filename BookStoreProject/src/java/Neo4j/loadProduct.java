@@ -27,7 +27,6 @@ public class loadProduct {
     private String product_id;
     private String name;
     private String cost;
-    private String price;
     private String category;
     public loadProduct(){
         con = new Neo4jcon();
@@ -48,12 +47,11 @@ public class loadProduct {
             product_id = str[0];
             name = str[1];
             cost = str[2];
-            price = str[3];
-            category = str[4];
+            category = str[3];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("CREATE (a:Product_D{id:{id},name:{name},cost:{cost},price:{price},category:{category}})", 
-                            parameters("id",product_id, "name",name,"cost",cost,"price",price,"category",category));
+                    StatementResult sr = tx.run("CREATE (a:Product_D{id:{id},name:{name},cost:{cost},category:{category}})", 
+                            parameters("id",product_id, "name",name,"cost",cost,"category",category));
                     tx.success();
                 }
             }

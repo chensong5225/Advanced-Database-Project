@@ -110,16 +110,16 @@
                 List<Cart> cartList = (List<Cart>) hs.getAttribute("cartList");
                 Iterator itb = bookList.iterator();
                 Iterator itc = cartList.iterator();
-                int index = 0;
+                //int index = 0;
                 float total_price = 0;
                 while (itb.hasNext() && itc.hasNext()) {
                     Book book = (Book) itb.next();
                     Cart cart = (Cart) itc.next();
-                    index++;
+                    //index++;
                     total_price = total_price + (float) (book.getPrice()) * Integer.valueOf(cart.getQuantity());
 
             %>
-            <form action=""method="post">
+            <form action="CartCheckOut"method="post">
                 <table id="goods">
                     <tr>
                         <td><img src="<%= book.getImage()%>" width="200" height="100"/></td>
@@ -130,13 +130,12 @@
                         <td> 
                             <span>Price:</span><span class="price"><%= book.getPrice()%>&nbsp;&nbsp;&nbsp;&nbsp;</span> 
                             <input class="min" name="" type="button" value="-" /> 
-                            <input class="text_box" name="" type="text" value="<%= cart.getQuantity()%>" /> 
+                            <input class="text_box" name="amount" type="text" value="<%= cart.getQuantity()%>" /> 
                             <input class="add" name="" type="button" value="+" /> 
                         </td> 
                     </tr> 
-                    <tr><td></td><td>Book Information:<%= book.getIntroduction()%></td></tr>
-                    <tr></tr>
-                    <tr><td></td><td></td><td></td><td><a href="/DeleteBook?Bid=<%= book.getId()%>">Delete</a></td><td></td><td></td></tr>
+                    <tr><td></td><td></td></tr>
+                    <tr><td></td><td></td><td></td><td><a href="CartDeleteServlet?Bid=<%= book.getId()%>">Delete</a></td><td></td><td></td></tr>
                     <tr></tr>
                     <tr></tr> 
                 </table>
@@ -145,20 +144,21 @@
                 %>
 
                 <table>
-                    <tr><td>total:<%= total_price%></td><label id="total">$0.00</label><td></td><td></td></tr>
+                    <tr><td>total:<%= total_price%></td><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <tr><td></td><td></td><td></td></tr>
                     <div class="br25"></div>
-                    <tr><td><input type="button" class="cart_btn" value="Check Out"/></td></tr>
+                    <tr><td></td><td></td><td></td><td><a href="index.jsp">continue shopping.</a></td></tr>
+                    <tr><td><input type="submit" class="cart_btn" value="Check Out"/></td></tr>
                 </table>
 
             </form>
         </div>
     </center>
     <div class="footer">
-        <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-        <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-        <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+        <p>INFSCI 2711: Advanced Topics in Database Management</p>
+        <p>University of Pittsburgh</p>
+        <p>School of Information Sciences</p>
     </div>
 </body>
 </html>

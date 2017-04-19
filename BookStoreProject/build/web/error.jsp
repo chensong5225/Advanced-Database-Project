@@ -14,17 +14,16 @@
         <link type="text/css" rel="stylesheet" href="style/login.css">
     </head>
     <body>
-        <h1>Error Page!</h1>
         <center>
         <div class="error commonWidth">
-            <!--<img src="images/404.png">-->
+            <img style="height: 700px;width: 900px;" src="images/errorLogo.jpg">
             <p style="font-family:Microsoft YaHei;color:black;font-size:20px;">There are something wrong, Please Click <a href="index.jsp" style="color: red">here</a> to return the Home page!</p>
         </div>
     </center> 
         <div class="footer">
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+            <p>INFSCI 2711: Advanced Topics in Database Management</p>
+            <p>University of Pittsburgh</p>
+            <p>School of Information Sciences</p>
         </div>
     </body>
 </html>

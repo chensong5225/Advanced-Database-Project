@@ -46,6 +46,7 @@ public class SQLIncreasingStores {
                 }
                  map.put(s, store);
             }
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

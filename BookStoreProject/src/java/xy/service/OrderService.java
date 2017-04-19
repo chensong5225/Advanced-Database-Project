@@ -35,7 +35,7 @@ public class OrderService {
             while (rs.next()) {
                 TransactionXy tt = new TransactionXy();
                 tt.setCustomer_id(cid);
-                tt.setTransaction_id(rs.getInt("transaction_id"));
+                tt.setTransaction_id(rs.getString("transaction_id"));
                 tt.setProduct_id(rs.getInt("product_id"));
                 tt.setAmount(rs.getInt("amount"));
                 tt.setPrice(rs.getFloat("price"));

@@ -21,21 +21,20 @@ public class Q5RegionCompare {
     static private Connection conn;
     static private ResultSet rs = null;
     
-    public static HashMap<String, Integer> regionCompare() throws ClassNotFoundException{
+    public HashMap<String, Double> regionCompare() throws ClassNotFoundException{
         
-        HashMap<String, Integer> map = new HashMap<>();
+        HashMap<String, Double> map = new HashMap<>();
         PreparedStatement ps = null;       
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
-            conn = DriverManager.getConnection(connectionURL, "root", "root");
+            conn = SQLConnectSQL.getConn();
             ps = conn.prepareStatement("select region, sum(sale) from fact, store_dim where fact.store_id = store_dim.store_id group by region");
             rs = ps.executeQuery();
             while(rs.next()){
                 String region = rs.getString(1);
-                int sum = (int) rs.getDouble(2);
+                double sum = rs.getDouble(2);
                 map.put(region, sum);
             }
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }       

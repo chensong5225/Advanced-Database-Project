@@ -47,17 +47,17 @@ public class OrderHistoryServlet extends HttpServlet {
             OrderService os = new OrderService();
             bookService bs = new bookService();
 
-            List<TransactionXy> transactions = os.findHisOrder(ct.getId());
-            if (transactions != null) {//size?
+            List<TransactionXy> ts = os.findHisOrder(ct.getId());
+            if (ts != null) {//size?
                 List<Book> books = new ArrayList<Book>();
-                for (TransactionXy item : transactions) {
+                for (TransactionXy item : ts) {
                     Book book = new Book();
                     int bid = item.getProduct_id();
                     book.setId(bid);
                     books.add(bs.aBookSearch(bid));
                 }
                 if (books != null) {
-                    session.setAttribute("transactionList", transactions);
+                    session.setAttribute("transactionList", ts);
                     session.setAttribute("bookList", books);
                     ServletContext SC = getServletContext();
                     RequestDispatcher rd = SC.getRequestDispatcher("/historyOrder.jsp");

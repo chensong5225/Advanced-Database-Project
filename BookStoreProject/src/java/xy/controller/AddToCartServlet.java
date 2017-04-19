@@ -59,26 +59,28 @@ public class AddToCartServlet extends HttpServlet {
             if (cs.addToCart(cart)) {
                 System.out.println("---------------------------------------------------------------Insert Success.");
             } else {
-                if (cs.findCart(cart)) {
+               // if (cs.findCart(cart)) {
                     //already exists, update shopping cart.
                     Cart oldCart = cs.findOldCart(ct.getId(), book1.getId());
                     cart.setQuantity(oldCart.getQuantity() + 1);
                     cart.setTotoal_price(oldCart.getTotoal_price()+oldCart.getTotoal_price());
                     if (cs.updateCart(cart)) {
                         System.out.println("--------------------------------------------------------------------update cart success.");
-                    }
+                //    }
                 }
             }
             
             cart = new Cart();
             cart.setCid(cid);
-            List<Cart> carts = cs.findCartList(cart);
+            List<Cart> carts = cs.findCartList(cid);
+            System.out.println(carts);
             List<Book> books = new ArrayList<Book>();
             for (Cart item : carts) {
                 Book book = new Book();
                 int bid = item.getBid();
-                book.setId(bid);
-                books.add(bs.cartBookSearch(book));
+                List<Book> temp = new ArrayList<>();
+                temp.add(bs.aBookSearch(bid));
+                books.add(temp.get(0));
             }
             if (books != null) {
                 session.setAttribute("cartList", carts);

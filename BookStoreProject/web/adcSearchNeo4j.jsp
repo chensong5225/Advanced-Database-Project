@@ -71,40 +71,41 @@
         %>
         <div class="adSearch">
             <table>
+                <tr><td>
+                        Update Neo4j datawarehouse.
+                    </td><td> <form action="updateNeoServlet">
+                            <input type="submit" value="update"/>
+                        </form></td></tr>
                 <tr><td>1.What is the ratio of business to home customers?</td><td><a href="neoQ1.jsp">result</a></td></tr>
                 <tr><td>2.What stores are increasing in sales?</td><td></td></tr>
-<<<<<<< HEAD
-                <tr><form action="TServlet"><td>Start date: 
-=======
-                <tr><form action="TestServlet"><td>Start date: 
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
+
+                <tr><form action="Q2Servlet"><td>Start date: 
+
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
                     <tr><td></td><td></td></tr>
                     <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
-                <tr><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
-                <tr><form action="#"><td>Start date: 
-                        <input type="text" id="startdate2" name="startdate" placeholder="YYYY-MM--DD"/></td>
-                    <td>End date: 
-                        <input type="text" id="enddate2" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
+                <tr><form action="Q3Servlet"><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
+
                     <tr><td><select name="saleP">
                                 <option value="topsale">top5sale</option>
                                 <option value ="bottomsale">bottom5sale</option>
                                 <option value="topprofit">top5profit</option>
                                 <option value="bottomprofit">bottom5profit</option>
                             </select>
-
-                        </td><td></td></tr>
-                    <tr><td></td><td><input type="submit" value="submit"></form></td></tr>
+                        </td><td><input type="submit" value="submit"/></td></form></tr>
+                <tr><td></td><td><a href="neoQ3.jsp" /></td></tr>
                 <tr><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
-                <tr><form action="#"><td>Start date: 
-                        <input type="text" id="startdate3" name="startdate" placeholder="YYYY-MM--DD"/></td>
-                    <td>End date: 
-                        <input type="text" id="enddate3" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-                    <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
-                <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>
-                <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
+                <tr><form action="Q4Servlet"><td></td><td></td></tr>
+                    <tr><td><select name="cp">
+                                <option value="customer">customer</option>
+                                <option value="product">product</option>
+                            </select>
+
+                        </td><td><input type="submit" value="submit"/></form></td></tr>
+                <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="neoQ5.jsp">result</a></td></tr>
+                <tr><form action="Q6Servlet"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
                             <% while (iter.hasNext()) {
                                     Book book = (Book) iter.next();
                                     int bid = book.getId();
@@ -116,7 +117,7 @@
                             List products2 = productSearch.findProductList();
                             Iterator iter2 = products2.iterator();
                         %>
-                <tr><form action="#"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
+                <tr><form action="Q7Servlet"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
                             <%
                                 while (iter2.hasNext()) {
                                     Book book2 = (Book) iter2.next();
@@ -127,8 +128,8 @@
                             <%}
                             %>
                         </select></td><td><input type="submit" value="submit"/></form></td></tr>
-                        
-                <tr><form action="#" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
+
+                <tr><form action="Q8Servlet" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
                         <jsp:useBean id="transactionService" class="xy.service.TransactionService"></jsp:useBean>
                         <%
                             List weeks = transactionService.findWeekList();
@@ -136,9 +137,9 @@
                         %>
                         week:<select id="week" name="week"><option value="pls" selected="selected">please select.</option>
                             <%
-                                while(iterW.hasNext()){
-                                    TransactionXy tx = (TransactionXy)iterW.next();
-                                    int week  = tx.getWeek();
+                                while (iterW.hasNext()) {
+                                    TransactionXy tx = (TransactionXy) iterW.next();
+                                    int week = tx.getWeek();
                             %>
                             <option value="<%= week%>"><%= week%></option>
                             <%
@@ -146,29 +147,15 @@
                             %>
                         </select>
                     </td><td>
-                        <%
-                            List products3 = productSearch.findProductList();
-                            Iterator iter3 = products3.iterator();
-                        %>
-                        <select id="sn3" name="sn3"><option value="pls" selected="selected">please select.</option>
-                            <%
-                                while (iter3.hasNext()) {
-                                    Book book3 = (Book) iter3.next();
-                                    int bid3 = book3.getId();
-                                    String bname3 = book3.getName();
-                            %>
-                            <option value="<%=bid3%>"><%=bname3%></option>
-                            <%}
-                            %>
-                        </select>
+
                     </td><td><input type="submit" value="submit"/></form></td></tr>
-                <tr><td>9.Other interesting aggregate values that you will come up with.</td><td><a href="#">result</a></td></tr>
+                <tr><td>9.How do the various stores compare by sales volume?</td><td><a href="neoQ9.jsp">result</a></td></tr>
             </table>
         </div>
         <div class="footer">
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+            <p>INFSCI 2711: Advanced Topics in Database Management</p>
+            <p>University of Pittsburgh</p>
+            <p>School of Information Sciences</p>
         </div>
     </body>
 </html>

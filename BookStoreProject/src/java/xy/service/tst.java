@@ -19,9 +19,11 @@ public class tst {
 
     public static void main(String args[]) {
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd HHMMss");
         String str = formatter.format(date);
         String str2 = "2017-2-15";
+        int tid = Integer.parseInt(str);
+       // int tid2 = Integer.valueOf(date);
         //  int wk = Integer.valueOf(str - str2);
 
         Random r = new Random();
@@ -31,6 +33,6 @@ public class tst {
         //df.format(dis);
         BigDecimal b = new BigDecimal(dis);
         double f1 = b.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
-        System.out.print(f1);
+        System.out.print(tid);
     }
 }

@@ -4,8 +4,8 @@
     Author     : mac
 --%>
 
+<%@page import="xy.bean.TransactionXy"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="xy.bean.Transaction"%>
 <%@page import="xy.bean.Book"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -31,13 +31,13 @@
         <%
             HttpSession hs = request.getSession(true);
             List<Book> bookList = (List<Book>) hs.getAttribute("bookList");
-            List<Transaction> transactionList = (List<Transaction>) hs.getAttribute("transactionList");
+            List<TransactionXy> transactionList = (List<TransactionXy>) hs.getAttribute("transactionList");
             Iterator itb = bookList.iterator();
             Iterator itt = transactionList.iterator();
             int index = 0;
             while (itb.hasNext() && itt.hasNext()) {
                 Book book = (Book) itb.next();
-                Transaction tt = (Transaction) itt.next();
+                TransactionXy tt = (TransactionXy) itt.next();
                 index++;
         %>
     <center>
@@ -59,8 +59,8 @@
 </body>
 
 <div class="footer">
-    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+    <p>INFSCI 2711: Advanced Topics in Database Management</p>
+    <p>University of Pittsburgh</p>
+    <p>School of Information Sciences</p>
 </div>
 </html>

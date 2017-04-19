@@ -27,16 +27,14 @@ public class SQLRetrieveBusinessCustomer {
         String type1 = "home";
         ArrayList<String> businessList = new ArrayList<>();
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
-            conn = DriverManager.getConnection(connectionURL, "root", "root");
+            conn = SQLConnectSQL.getConn();
             ps = conn.prepareStatement("SELECT customer_id from customer_dim where type != ?");           
             ps.setObject(1,type1);           
             rs = ps.executeQuery();
             while(rs.next()){
                 businessList.add(rs.getString(1));
             }
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

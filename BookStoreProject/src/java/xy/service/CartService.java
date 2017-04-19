@@ -104,17 +104,18 @@ public class CartService {
 
     }
 
-    public List findCartList(Cart cart) {
+    public List findCartList(int cid) {
 
         List cartList = new ArrayList();
 
         try {
             pstmt = conn.prepareStatement("SELECT * FROM cart where cid=?");
-            pstmt.setInt(1, cart.getCid());
+            pstmt.setInt(1, cid);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                //Cart cart = new Cart();
-                //cart.setCid(cid);
+                Cart cart = new Cart();
+                cart.setCid(cid);
+                //Cart cart1 = new Cart();
                 cart.setBid(rs.getInt("bid"));
                 cart.setTotoal_price(rs.getFloat("totoal_price"));
                 cart.setQuantity(rs.getInt("quantity"));
@@ -153,4 +154,44 @@ public class CartService {
         return cartList;
 
     }
+    
+    
+    public boolean cartBookDelete(int cid, int bid){
+        
+        try {
+            pstmt = conn.prepareStatement("delete from cart where cid=? and bid=?");
+            pstmt.setInt(1, cid);
+            pstmt.setInt(2, bid);
+            int result = pstmt.executeUpdate();
+            if (result > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+            return false;
+        }
+
+        
+    }
+    
+    public boolean clearCart(int cid){
+        try {
+            pstmt = conn.prepareStatement("delete from cart where cid=?");
+            pstmt.setInt(1, cid);
+            int result = pstmt.executeUpdate();
+            if (result > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+            return false;
+        }
+    }
+    
+    
+    
 }

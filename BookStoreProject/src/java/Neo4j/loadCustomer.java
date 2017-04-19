@@ -26,7 +26,7 @@ public class loadCustomer {
     private ArrayList<String[]> list;
     private getCustomer getc;
     private String customer_id;
-    private String category;
+    private String type;
 
     public loadCustomer() {
         con = new Neo4jcon();
@@ -45,10 +45,10 @@ public class loadCustomer {
         }
         for (String[] str : list) {
             customer_id = str[0];
-            category = str[1];
+            type = str[1];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    StatementResult sr = tx.run("CREATE (a:Customer_D{id:{id},category:{category}})", parameters("id", customer_id, "category", category));
+                    StatementResult sr = tx.run("CREATE (a:Customer_D{id:{id},type:{type}})", parameters("id", customer_id, "type", type));
                     tx.success();
                 }
             }

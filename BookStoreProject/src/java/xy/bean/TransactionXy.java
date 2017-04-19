@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class TransactionXy extends Object implements Serializable{
     private static long serialVersionUID = 102831973239L;
     
-    private int transaction_id;
+    private String transaction_id;
     private int product_id;
     private int amount;
     private float price;
@@ -39,19 +39,7 @@ public class TransactionXy extends Object implements Serializable{
         serialVersionUID = aSerialVersionUID;
     }
 
-    /**
-     * @return the transaction_id
-     */
-    public int getTransaction_id() {
-        return transaction_id;
-    }
 
-    /**
-     * @param transaction_id the transaction_id to set
-     */
-    public void setTransaction_id(int transaction_id) {
-        this.transaction_id = transaction_id;
-    }
 
     /**
      * @return the product_id
@@ -163,6 +151,20 @@ public class TransactionXy extends Object implements Serializable{
      */
     public void setWeek(int week) {
         this.week = week;
+    }
+
+    /**
+     * @return the transaction_id
+     */
+    public String getTransaction_id() {
+        return transaction_id;
+    }
+
+    /**
+     * @param transaction_id the transaction_id to set
+     */
+    public void setTransaction_id(String transaction_id) {
+        this.transaction_id = transaction_id;
     }
     
     

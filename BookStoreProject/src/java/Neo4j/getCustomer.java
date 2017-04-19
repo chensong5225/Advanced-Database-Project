@@ -28,7 +28,7 @@ public class getCustomer {
         try {
             conn = ConnectSQL.getConn();
             //customer_id,type
-            ps = conn.prepareStatement("select distinct customer_id,customer.type from transaction,customer where transaction.customer_id=customer.id");
+            ps = conn.prepareStatement("select customer_id,type from customer_dim");
             rs = ps.executeQuery();
             while(rs.next()){
                 String[] str = new String[2];

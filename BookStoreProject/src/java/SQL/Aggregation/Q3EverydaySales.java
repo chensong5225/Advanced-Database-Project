@@ -20,12 +20,9 @@ import java.util.PriorityQueue;
  * @author yuq
  */
 public class Q3EverydaySales {
-    public static void maintain(String date){
+    public void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
-        PreparedStatement nestps = null;
-        ResultSet rs = null;
-        ResultSet nestrs = null;
         String str = RemoveDateSlash.remove(date);
         String viewName = "";
         HashMap<String, double[]> map = new HashMap<>();
@@ -66,7 +63,7 @@ public class Q3EverydaySales {
             ps.setObject(1, date);
             ps.executeUpdate();
             
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

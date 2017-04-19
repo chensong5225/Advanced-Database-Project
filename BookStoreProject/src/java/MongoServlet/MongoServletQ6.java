@@ -44,33 +44,18 @@ public class MongoServletQ6 extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         // 获取product
-        String productname = request.getParameter("ProductName");
-        
+        String productname = request.getParameter("sn1");
+        System.out.println("servlet--> productname-->"+productname);
         //后台返回查询结果
         HttpSession session = request.getSession();   
         String result =new Q6().query(productname);
-        session.setAttribute("Q6result", result);   
+        session.setAttribute("mongoQ6result", result);   
         //返回前台 
-<<<<<<< HEAD
-
-=======
->>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
         ServletContext SC = getServletContext();
-        RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
+        RequestDispatcher rd = SC.getRequestDispatcher("/itemClassMongodb_6.jsp");
         rd.forward(request, response);
         
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MongoServletQ6</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MongoServletQ6 at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+   
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

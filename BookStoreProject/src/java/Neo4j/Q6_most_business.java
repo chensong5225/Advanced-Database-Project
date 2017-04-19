@@ -19,33 +19,37 @@ import org.neo4j.driver.v1.Transaction;
 import static org.neo4j.driver.v1.Values.parameters;
 import java.util.ArrayList;
 import java.util.List;
+import Neo4j.beans.*;
 
 public class Q6_most_business {
     private Neo4jcon con;
     private  Driver driver;
     private String category;
-    private String sale;
-    private List result;
+    private float sale;
+    private ArrayList<Q6_result> result;
     public Q6_most_business(){
           con = new Neo4jcon();
         driver = con.driver;
-        result = new ArrayList();
+        result = new ArrayList<>();
     }
-    public List answer(String product){
+    public ArrayList answer(String product){
          try (Session s = driver.session()) {
                     try (Transaction tx = s.beginTransaction()) {
                         StatementResult sr = tx.run("match (a:Fact{product_id:{id}}),(c:Customer_D)"
-                                + "where a.customer_id=c.id"
-                                + "with c,sum(toFloat(a.sale))as sales"
-                                + "return c.category as category,sum(sales) as sale", parameters("id",product));
+                                + " where a.customer_id=c.id"
+                                + " with c,sum(toInteger(a.sale))as sales"
+                                + " return c.type as category,sum(sales) as sale"
+                                + " order by sale desc limit 1", parameters("id",product));
                         tx.success();
                         while (sr.hasNext()) {
+                            Q6_result q6 = new Q6_result();
                             Record record = sr.next();
                             category = record.get("category").asString();
-                            sale = record.get("sale").asString();
-                            String temp = "";
-                            temp = temp + category + "     " + sale;
-                            result.add(temp);
+                            sale = record.get("sale").asFloat();
+                            String sale2 = Float.toString(sale);
+                            q6.setBusiness(category);
+                            q6.setSale(sale2);
+                            result.add(q6);
                         }
                     }
                 }

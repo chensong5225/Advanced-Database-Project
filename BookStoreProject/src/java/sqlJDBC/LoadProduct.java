@@ -41,7 +41,7 @@ public class LoadProduct {
                 product[0] = rs.getString(1);
                 product[1] = rs.getString(2);
             }
-                        
+             conn.close();            
         } catch (SQLException se) {
             se.printStackTrace();
         }       

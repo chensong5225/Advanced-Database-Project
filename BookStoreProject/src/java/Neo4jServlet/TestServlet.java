@@ -6,6 +6,7 @@
 package Neo4jServlet;
 
 import Neo4j.Q2_increase_sale;
+import Neo4j.beans.Q2_result;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -40,11 +41,11 @@ public class TestServlet extends HttpServlet {
         String date1 = request.getParameter("startdate");
         String date2 = request.getParameter("enddate");
         Q2_increase_sale q2 = new Q2_increase_sale();
-        List result = (List) q2.answer(date1, date2);
+        ArrayList<Q2_result> result= q2.answer(date1, date2);
         HttpSession hs = request.getSession();
         hs.setAttribute("q2", result);
         ServletContext SC = getServletContext();
-        RequestDispatcher rd = SC.getRequestDispatcher("/neoQ1.jsp");
+        RequestDispatcher rd = SC.getRequestDispatcher("/neoQ2.jsp");
         rd.forward(request, response);
 
         response.setContentType("text/html;charset=UTF-8");

@@ -53,17 +53,16 @@ public class loadFact {
         for (String[] str : list) {
             product_id = str[0];
             amount = str[1];
-            cost = str[2];
-            store_id = str[3];
-            customer_id = str[4];
-            time = str[5];
-            sale = str[6];
-            price = str[7];
+            price = str[2];
+            sale = str[3];
+            cost = str[4];
+            store_id = str[5];
+            customer_id = str[6];
+            time = str[7];
             week = str[8];
             try (Session s = driver.session()) {
                 try (Transaction tx = s.beginTransaction()) {
-                    
-                    StatementResult sr = tx.run("CREATE(a:Fact{product_id:{id},amount:{amount},cost:{cost},store_id:{store_id},customer_id:{customer_id},time:{time},sale:{sale},price:{price},week:{week}})",
+                    StatementResult sr = tx.run("CREATE(a:Fact{product_id:{id},amount:{amount},price:{price},sale:{sale},cost:{cost},store_id:{store_id},customer_id:{customer_id},time:{time},week:{week}})",
                             parameters("id", product_id, "amount", amount, "cost", cost, "store_id", store_id, "customer_id", customer_id,"time",time, "sale", sale,"price",price, "week", week));
                     tx.success();
                     

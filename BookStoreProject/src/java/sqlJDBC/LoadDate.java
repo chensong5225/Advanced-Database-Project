@@ -22,19 +22,23 @@ public class LoadDate {
         Connection conn;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String[] date = new String[3];
-        //date[0]: year, date[1]: month, date[2]: day
+        String[] date = new String[4];
+        //date[0]: year, date[1]: month, date[2]: day, date[3]:week
         try {
             conn = ConnectSQL.getConn();
-            ps = conn.prepareStatement("select time from transaction where transaction_id = ? and product_id = ?");
+            ps = conn.prepareStatement("select time, week from transaction where transaction_id = ? and product_id = ?");
             ps.setObject(1, tid);
             ps.setObject(2, pid);
             rs = ps.executeQuery();
             if(rs.next()){
                 String time = rs.getString(1);
-                date = time.split("-");
+                String[] temp = time.split("-");
+                for(int i = 0; i < temp.length; i++){
+                    date[i] = temp[i];
+                }
+                date[3] = rs.getString(2);
             }
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

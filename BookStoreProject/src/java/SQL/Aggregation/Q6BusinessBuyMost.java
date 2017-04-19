@@ -20,14 +20,12 @@ public class Q6BusinessBuyMost {
     static private Connection conn;
     static private ResultSet rs = null;
     
-    public static ArrayList<String> buyMost(String product) throws ClassNotFoundException{
+    public ArrayList<String> buyMost(String product) throws ClassNotFoundException{
         ArrayList<String> res = new ArrayList<>();
         PreparedStatement ps = null;
         double max = 0;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String connectionURL = "jdbc:mysql://localhost:3306/booksys";
-            conn = DriverManager.getConnection(connectionURL, "root", "root");
+            conn = SQLConnectSQL.getConn();
             ps = conn.prepareStatement("select customer_id, sum(sale) from fact, product_dim where fact.product_id = product_dim.product_id and product_dim.name = ? group by customer_id order by sum(sale) desc");
             ps.setObject(1, product);
             rs = ps.executeQuery();
@@ -46,6 +44,7 @@ public class Q6BusinessBuyMost {
                     }
                 }              
             }
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }       

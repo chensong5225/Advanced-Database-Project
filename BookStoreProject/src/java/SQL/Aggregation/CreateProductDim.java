@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author yuq
  */
 public class CreateProductDim {
-    public static void create(){
+    public void create(){
         Connection conn;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -27,7 +27,7 @@ public class CreateProductDim {
             ps.executeUpdate();
             ps = conn.prepareStatement("Insert into product_dim select id,name, cost, category from product");
             ps.executeUpdate();
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }

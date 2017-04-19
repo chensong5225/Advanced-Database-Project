@@ -91,9 +91,9 @@
         </div>
 
         <div class="footer">
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-            <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
+            <p>INFSCI 2711: Advanced Topics in Database Management</p>
+            <p>University of Pittsburgh</p>
+            <p>School of Information Sciences</p>
         </div>
     </body>
 </html>

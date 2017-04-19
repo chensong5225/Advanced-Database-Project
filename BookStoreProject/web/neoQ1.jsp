@@ -18,6 +18,12 @@
         <title>neo4j_result</title>
         <link type="text/css" rel="stylesheet" href="style/reset.css">
         <link type="text/css" rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+        <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
     <body>
         <div class ="headerBar">
@@ -38,7 +44,7 @@
                         <input type="text" class="search_text fl">
                         <input type="button" value="Search" class="search_btn fr">
                     </div>
-                    <div class="shopCar fr">
+                    <div class="shopCar fr hide">
                         <span class="shopText fl">Cart</span>
                         <span class="shopNum fl"> 0 </span>
                     </div>
@@ -118,23 +124,9 @@
         <div class="comWidth"> </div>
         
         <jsp:useBean id="Q1" class="Neo4j.Q1_ratio" ></jsp:useBean>
-        <p><%= Q1.answer()%></p>
-        
-        <%
-<<<<<<< HEAD
-             HttpSession hs = request.getSession(true);
-             List result =(List) hs.getAttribute("q2");
-             Iterator iter = result.iterator();
-             while(iter.hasNext()){
-        %>
-        <p><%= iter.next()%></p>
-        <%}%>
-=======
-            HttpSession hs = request.getSession(true);
-            List result = (List)hs.getAttribute（"q2");
-            %>
-        
-        
->>>>>>> e2e4ab3a8d39c72c5be0b338a5134db59afb0f82
+        <table class="table table-striped">    
+            <tr><td>Customer ratio: </td><td><%= Q1.answer()%></td></tr>
+        </table>
+        <p></p>    
         
 </html>

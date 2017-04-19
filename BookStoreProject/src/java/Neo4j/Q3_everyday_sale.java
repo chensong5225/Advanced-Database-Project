@@ -19,38 +19,42 @@ import org.neo4j.driver.v1.Transaction;
 import static org.neo4j.driver.v1.Values.parameters;
 import java.util.ArrayList;
 import java.util.List;
+import  Neo4j.beans.Q3_result;
 
 public class Q3_everyday_sale {
 
     private Neo4jcon con;
     private Driver driver;
     private String product;
-    private String sale;
-    private List result;
-    private String profit;
+    private float sale;
+    private ArrayList<Q3_result> result;
+    private float profit;
 
     public Q3_everyday_sale() {
         con = new Neo4jcon();
         driver = con.driver;
+        result = new ArrayList<>();
     }
 
-    public List answer(String mode) {
+    public ArrayList answer(String mode) {
         if (mode.contains("top")) {
             if (mode.contains("profit")) {
                 try (Session s = driver.session()) {
                     try (Transaction tx = s.beginTransaction()) {
                         StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
-                                + "where n.product_id = m.id with m,sum(toFloat(n.totalcost)) as cost,sum(toFloat(n.sale)) as sale,n.product_id as id "
-                                + "return m.name as name,toFloat(sale)-toFloat(cost) as profit"
-                                + "order by totalsale desc limit 5", parameters());
+                                + " where n.product_id = m.id with m,sum(toInteger(n.totalcost)) as cost,sum(toInteger(n.sale)) as sale,n.product_id as id "
+                                + " return m.name as name,toInteger(sale)-toInteger(cost) as profit"
+                                + " order by profit desc limit 5", parameters());
                         tx.success();
                         while (sr.hasNext()) {
+                            Q3_result q3 = new Q3_result();
                             Record record = sr.next();
-                            profit = record.get("profit").asString();
+                            profit = record.get("profit").asFloat();
                             product = record.get("name").asString();
-                            String temp = "";
-                            temp = temp + product + "     " + profit;
-                            result.add(temp);
+                            String profit2 = Float.toString(profit);
+                            q3.setProduct(product);
+                            q3.setProfit(profit2);
+                            result.add(q3);
                         }
                     }
                 }
@@ -58,39 +62,43 @@ public class Q3_everyday_sale {
                 try (Session s = driver.session()) {
                     try (Transaction tx = s.beginTransaction()) {
                         StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
-                                + "where n.product_id = m.id "
-                                + "with m,sum(toFloat(n.totalcost)) as cost,sum(toFloat(n.sale)) as sale"
-                                + "return m.name as name,sale"
-                                + "order by totalsale desc limit 5", parameters());
+                                + " where n.product_id = m.id "
+                                + " with m,sum(toInteger(n.totalcost)) as cost,sum(toInteger(n.sale)) as sale"
+                                + " return m.name as name,sale"
+                                + " order by sale desc limit 5", parameters());
                         tx.success();
                         while (sr.hasNext()) {
+                            Q3_result q3 = new Q3_result();
                             Record record = sr.next();
-                            sale = record.get("sale").asString();
+                            sale = record.get("sale").asFloat();
                             product = record.get("name").asString();
-                            String temp = "";
-                            temp = temp + product + "     " + profit;
-                            result.add(temp);
+                            String sale2 = Float.toString(sale);
+                            q3.setProduct(product);
+                            q3.setSale(sale2);
+                            result.add(q3);
                         }
                     }
                 }
             }
         }
         else{
-            if(mode.contains(profit)){
+            if(mode.contains("profit")){
                 try (Session s = driver.session()) {
                     try (Transaction tx = s.beginTransaction()) {
                         StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
-                                + "where n.product_id = m.id with m,sum(toFloat(n.totalcost)) as cost,sum(toFloat(n.sale)) as sale,n.product_id as id "
-                                + "return m.name as name,toFloat(sale)-toFloat(cost) as profit"
-                                + "order by totalsale asc limit 5", parameters());
+                                + " where n.product_id = m.id with m,sum(toInteger(n.totalcost)) as cost,sum(toInteger(n.sale)) as sale,n.product_id as id "
+                                + " return m.name as name,toInteger(sale)-toInteger(cost) as profit"
+                                + " order by profit asc limit 5", parameters());
                         tx.success();
                         while (sr.hasNext()) {
+                            Q3_result q3 = new Q3_result();
                             Record record = sr.next();
-                            profit = record.get("profit").asString();
+                            profit = record.get("profit").asFloat();
                             product = record.get("name").asString();
-                            String temp = "";
-                            temp = temp + product + "     " + profit;
-                            result.add(temp);
+                            String profit2 = Float.toString(profit);
+                            q3.setProduct(product);
+                            q3.setProfit(profit2);
+                            result.add(q3);
                         }
                     }
                 }
@@ -99,18 +107,20 @@ public class Q3_everyday_sale {
                 try (Session s = driver.session()) {
                     try (Transaction tx = s.beginTransaction()) {
                         StatementResult sr = tx.run("match (n:Fact),(m:Product_D) "
-                                + "where n.product_id = m.id "
-                                + "with m,sum(toFloat(n.totalcost)) as cost,sum(toFloat(n.sale)) as sale"
-                                + "return m.name as name,sale"
-                                + "order by totalsale asc limit 5", parameters());
+                                + " where n.product_id = m.id "
+                                + " with m,sum(toInteger(n.totalcost)) as cost,sum(toInteger(n.sale)) as sale"
+                                + " return m.name as name,sale"
+                                + " order by sale asc limit 5", parameters());
                         tx.success();
                         while (sr.hasNext()) {
+                            Q3_result q3 = new Q3_result();
                             Record record = sr.next();
-                            sale = record.get("sale").asString();
+                            sale = record.get("sale").asFloat();
                             product = record.get("name").asString();
-                            String temp = "";
-                            temp = temp + product + "     " + profit;
-                            result.add(temp);
+                            String sale2 = Float.toString(sale);
+                            q3.setProduct(product);
+                            q3.setSale(sale2);
+                            result.add(q3);
                         }
                     }
                 }

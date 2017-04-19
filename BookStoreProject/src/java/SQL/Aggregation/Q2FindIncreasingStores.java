@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class Q2FindIncreasingStores {
     
-    public static ArrayList<String> stores(String startDate, String endDate) throws ClassNotFoundException{
+    public ArrayList<String> stores(String startDate, String endDate) throws ClassNotFoundException{
         ArrayList<String> list = new ArrayList<>();
         HashMap<String, HashMap<String, String>> map = SQLIncreasingStores.stores();
         for(String store: map.keySet()){

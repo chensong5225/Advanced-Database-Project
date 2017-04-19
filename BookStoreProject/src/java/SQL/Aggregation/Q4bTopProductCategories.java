@@ -16,7 +16,7 @@ import java.util.HashMap;
  * @author yuq
  */
 public class Q4bTopProductCategories {
-    public static void maintain(String date){
+    public void maintain(String date){
         Connection conn;
         PreparedStatement ps = null;
         PreparedStatement nestps = null;
@@ -33,7 +33,7 @@ public class Q4bTopProductCategories {
             ps.setObject(1, date);
             ps.executeUpdate();
             
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }
