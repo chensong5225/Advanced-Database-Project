@@ -69,28 +69,17 @@ public class MongoServletQ2 extends HttpServlet {
         newdate2.add(month2);
         newdate2.add(day2);
         
-        //设置data
+        //运行Q2
         HttpSession session = request.getSession();
         
         ArrayList<String> result = new Q2().query(olddate1,newdate2);
         session.setAttribute("mongoQ2result", result);
         
         ServletContext SC = getServletContext();
-        RequestDispatcher rd = SC.getRequestDispatcher("/itemClass.jsp");
+        RequestDispatcher rd = SC.getRequestDispatcher("/itemClassMongodb_2.jsp");
         rd.forward(request, response);
         
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MongoServletQ2</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MongoServletQ2 at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

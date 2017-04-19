@@ -5,8 +5,12 @@
  */
 package MongoServlet;
 
+import MongoJDBC.aggregation.Q2;
+import MongoJDBC.aggregation.Q8;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,19 +18,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import MongoJDBC.aggregation.Q6;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import MongoJDBC.aggregation.Q6;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  *
  * @author fei
  */
-public class MongoServletQ6 extends HttpServlet {
+public class MongoServletQ8 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,24 +35,29 @@ public class MongoServletQ6 extends HttpServlet {
      * @throws IOException if an I/O error occurs
      * 
      * 
-     *      Which businesses are buying given products the most?
+     * Q8:Develop a direct marketing data; for each product, a list of customers that buy the product more
+than 2 times per week.
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        // 获取product
-        String productname = request.getParameter("sn1");
-        System.out.println("servlet--> productname-->"+productname);
-        //后台返回查询结果
-        HttpSession session = request.getSession();   
-        String result =new Q6().query(productname);
-        session.setAttribute("mongoQ6result", result);   
-        //返回前台 
+        /*
+        
+        */
+        String productName = request.getParameter("sn3");
+        String week = request.getParameter("week");
+        Q8 q = new Q8();
+        HashMap<String,Integer> c=q.query(productName,week);
+        /*
+        返回前端
+        */
+        HttpSession session = request.getSession();
+        session.setAttribute("mongoQ8result", c);
+        
         ServletContext SC = getServletContext();
-        RequestDispatcher rd = SC.getRequestDispatcher("/itemClassMongodb_6.jsp");
+        RequestDispatcher rd = SC.getRequestDispatcher("/itemClassMongodb_8.jsp");
         rd.forward(request, response);
         
-   
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -70,11 +72,7 @@ public class MongoServletQ6 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(MongoServletQ6.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -88,11 +86,7 @@ public class MongoServletQ6 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(MongoServletQ6.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

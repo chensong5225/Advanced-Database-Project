@@ -36,7 +36,7 @@ public class Q5 extends MongoDbCon{
             AggregateIterable<Document>  it = collection.aggregate(
                asList(                     
                        new Document("$group", new Document("_id","$store.region").
-                                                  append( "totalsale", new Document("$sum",new Document("$multiply", asList("$price_per_item", "$amount" ) ) ))                                                  
+                                                  append( "totalsale", new Document("$sum","$sales"))                                                  
                                    )                    
                      )                                     
             );
@@ -51,16 +51,16 @@ public class Q5 extends MongoDbCon{
         return result;
     }
     
-    public static void main(String args[]){
-        Q5 q = new Q5();
-        HashMap c=q.query();
-        Iterator it = c.entrySet().iterator();
-        while(it.hasNext()){
-            Map.Entry entry = (Map.Entry) it.next();
-            String region = (String)entry.getKey();
-            Double sale = (Double)entry.getValue();
-             System.out.println("结果是:-->"+"region : "+region+"and sales : "+sale);
-        }
-       
-    }
+//    public static void main(String args[]){
+//        Q5 q = new Q5();
+//        HashMap c=q.query();
+//        Iterator it = c.entrySet().iterator();
+//        while(it.hasNext()){
+//            Map.Entry entry = (Map.Entry) it.next();
+//            String region = (String)entry.getKey();
+//            Double sale = (Double)entry.getValue();
+//             System.out.println("结果是:-->"+"region : "+region+"and sales : "+sale);
+//        }
+//       
+//    }
 }

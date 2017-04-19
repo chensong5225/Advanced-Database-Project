@@ -47,7 +47,7 @@ public class LoadStore {
                 store[0] = sid;
                 store[1] = rs.getString(1);
             }
-                        
+             conn.close();            
         } catch (SQLException se) {
             se.printStackTrace();
         }       

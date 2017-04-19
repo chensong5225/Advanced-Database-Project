@@ -20,6 +20,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+           <!--<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+           
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        
+     
+        
+        
         <script>
             $(function () {
                 start = $("#startdate").datepicker({
@@ -54,6 +62,7 @@
         </script>
     </head>
     <body>
+        
         <div class ="headerBar">
             <div class="logoBar login_logo">
                 <div class="comWidth">
@@ -69,34 +78,32 @@
             List products = productSearch.findProductList();
             Iterator iter = products.iterator();
         %>
+        <div >
+            <div style="margin-left: 10px">
+                <tr style="margin-left: 10px">
+                    <td style="margin-left: 10px">update Mongo Warehouse</td><td>
+                        <form action="updateWarehouse"><input type="submit" value="submit"/></form>
+                    </td>
+                </tr>
+            </div>
+        </div>
         <div class="adSearch">
             <table>
-                <tr><td>1.What is the ratio of business to home customers?</td><td><a href="itemClass.jsp">result</a></td></tr>
+                <tr><td>1.What is the ratio of business to home customers?</td><td>
+                        <form action="MongoServletQ1"><input type="submit" value="submit"/></form></td></tr>
                 
                 <tr><td>2.What stores are increasing in sales?</td><td></td></tr>
                 <tr><form action="MongoServletQ2"><td>Start date: 
                         <input type="text" id="startdate" name="startdate" placeholder="YYYY-MM--DD"/></td>
                     <td>End date: 
                         <input type="text" id="enddate" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-<<<<<<< HEAD
-                <tr><td></td><td></td></tr>
-                <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
-        
-        
-=======
                     <tr><td></td><td></td></tr>
                     <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
->>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
+        
                 <tr><td>3.Maintain every day the aggregate sales and profit of the top 5 and the bottom 5 products.</td><td></td></tr>
-                <tr><form action="#"><td>Start date: 
+                <tr><form action="MongoServletQ3"><td>Start date: 
                         <input type="text" id="startdate2" name="startdate" placeholder="YYYY-MM--DD"/></td>
-                    <td>End date: 
-                        <input type="text" id="enddate2" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-<<<<<<< HEAD
-                <tr><td></td><td><input type="submit" value="submit"></form></td></tr>
-        
-        
-=======
+                </tr>
                     <tr><td><select name="saleP">
                                 <option value="topsale">top5sale</option>
                                 <option value ="bottomsale">bottom5sale</option>
@@ -106,18 +113,22 @@
 
                         </td><td></td></tr>
                     <tr><td></td><td><input type="submit" value="submit"></form></td></tr>
->>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
-                <tr><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
-                <tr><form action="#"><td>Start date: 
-                        <input type="text" id="startdate3" name="startdate" placeholder="YYYY-MM--DD"/></td>
-                    <td>End date: 
-                        <input type="text" id="enddate3" name="enddate" placeholder="YYYY-MM--DD"/></td></tr>
-<<<<<<< HEAD
-                <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
         
-                <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>             
+                <tr><td>4.Maintain every day the top 2 customer categories (highest sales) and the top product categories.</td><td></td></tr>
+                <tr><form action="MongoServletQ4"><td>Start date: 
+                        <input type="text" id="startdate3" name="startdate" placeholder="YYYY-MM--DD"/></td>
+                </tr>
+                    <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
+        
+        
+                <tr><td>5.How do the various regions compare by sales volume?
+                    </td><td>
+                        <form action="MongoServletQ5">
+                           <input type="submit" value="submit"/>
+                        </form></td></tr>
+               
                 
-                 <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value=""  selected="selected">please select.</option>
+                <tr><form action="MongoServletQ6"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
                             <% while (iter.hasNext()) {
                                     Book book = (Book) iter.next();
                                     int bid = book.getId();
@@ -130,8 +141,8 @@
                             Iterator iter2 = products2.iterator();
                         %>
             
-                <tr><form action="#"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
-                
+            
+                <tr><form action="MongoServletQ7"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
                             <%
                                 while (iter2.hasNext()) {
                                     Book book2 = (Book) iter2.next();
@@ -142,89 +153,53 @@
                             <%}
                             %>
                         </select></td><td><input type="submit" value="submit"/></form></td></tr>
+                     
+            
+                <tr><form action="MongoServletQ8" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
+                        <jsp:useBean id="transactionService" class="xy.service.TransactionService"></jsp:useBean>
+                        <%
+                            List weeks = transactionService.findWeekList();
+                            Iterator iterW = weeks.iterator();
+                        %>
+                        week:<select id="week" name="week"><option value="pls" selected="selected">please select.</option>
+                            <%
+                                while(iterW.hasNext()){
+                                    TransactionXy tx = (TransactionXy)iterW.next();
+                                    int week  = tx.getWeek();
+                            %>
+                            <option value="<%= week%>"><%= week%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                    </td><td>
                         <%
                             List products3 = productSearch.findProductList();
                             Iterator iter3 = products3.iterator();
                         %>
-                <tr><form action="#" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
-                        <select id="week" name="week"><option value="pls" selected="selected">please select.</option>
-=======
-                    <tr><td></td><td><input type="submit" value="submit"/></form></td></tr>
-                <tr><td>5.How do the various regions compare by sales volume?</td><td><a href="#">result</a></td></tr>
+                        <select id="sn3" name="sn3"><option value="pls" selected="selected">please select.</option>
+                            <%
+                                while (iter3.hasNext()) {
+                                    Book book3 = (Book) iter3.next();
+                                    int bid3 = book3.getId();
+                                    String bname3 = book3.getName();
+                            %>
+                            <option value="<%=bname3%>"><%=bname3%></option>
+                            <%}
+                            %>
+                        </select>
+                    </td><td><input type="submit" value="submit"/></form></td></tr>
+                
+             <tr>
+                 <td>9. How do the various store compare by sales volume?</td>
+                 <td>
+                        <form action="MongoServletQ9"><input type="submit" value="submit"/>
+                        </form>
+                </td>
+             </tr>
+            </table>
+        </div>
+       
+    </body>
+</html>
 
-                <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value="pls" selected="selected">please select.</option>
->>>>>>> a16a6ccd63cf219948d34cce30e8ce6782934979
-
-
-                            <tr><form action="#"><td>6.Which businesses are buying given products the most?</td><td><select id="sn1" name="sn1"><option value=""  selected="selected">please select.</option>
-                                        <% while (iter.hasNext()) {
-                                                Book book = (Book) iter.next();
-                                                int bid = book.getId();
-                                                String bname = book.getName();%>
-                                        <option value="<%= bname%>" ><%=  bname%></option>
-                                        <%}%>
-                                    </select></td><td><input type="submit" value="submit"/></form></td></tr>
-                                    <%
-                                        List products2 = productSearch.findProductList();
-                                        Iterator iter2 = products2.iterator();
-                                    %>
-                    <tr><form action="#"><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
-
-                                <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" selected="selected">please select.</option>
-                                            <tr><td>7.What is the demand curve for each product category?</td><td><select id="sn2" name="sn2"><option value="pls" id="Q7" selected="selected">please select.</option>
-
-                                                        <%
-                                                            while (iter2.hasNext()) {
-                                                                Book book2 = (Book) iter2.next();
-                                                                int bid2 = book2.getId();
-                                                                String bname2 = book2.getName();
-                                                        %>
-                                                        <option value="<%=bname2%>"><%=bname2%></option>
-                                                        <%}
-                                                        %>
-                                                    </select></td><td><input type="submit" value="submit"/></form></td></tr>
-
-                                            <tr><form action="#" ><td>8.Develop a direct marketing data; for each product, a list of customers that buy the product more than 2 times per week.</td><td>
-                                                    <jsp:useBean id="transactionService" class="xy.service.TransactionService"></jsp:useBean>
-                                                    <%
-                                                        List weeks = transactionService.findWeekList();
-                                                        Iterator iterW = weeks.iterator();
-                                                    %>
-                                                   week:<select id="week" name="week"><option value="pls" selected="selected">please select.</option>
-                                                        <%
-                                                            while (iterW.hasNext()) {
-                                                                TransactionXy tx = (TransactionXy) iterW.next();
-                                                                int week = tx.getWeek();
-                                                        %>
-                                                        <option value="<%= week%>"><%= week%></option>
-                                                        <%
-                                                            }
-                                                        %>
-                                                    </select>
-                                                </td><td>
-                                                    <%
-                                                        List products3 = productSearch.findProductList();
-                                                        Iterator iter3 = products3.iterator();
-                                                    %>
-                                                    <select id="sn3" name="sn3"><option value="pls" selected="selected">please select.</option>
-                                                        <%
-                                                            while (iter3.hasNext()) {
-                                                                Book book3 = (Book) iter3.next();
-                                                                int bid3 = book3.getId();
-                                                                String bname3 = book3.getName();
-                                                        %>
-                                                        <option value="<%=bname3%>"><%=bname3%></option>
-                                                        <%}
-                                                        %>
-                                                    </select>
-                                                </td><td><input type="submit" value="submit"/></form></td></tr>
-                                <tr><td>9.Other interesting aggregate values that you will come up with.</td><td><a href="#">result</a></td></tr>
-                                </table>
-                                </div>
-                                <div class="footer">
-                                    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-                                    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-                                    <p>BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK</p>
-                                </div>
-                                </body>
-                                </html>

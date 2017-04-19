@@ -12,19 +12,13 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>MongoServletQ6</servlet-name>
-        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>MongoServletQ2</servlet-name>
-        <servlet-class>MongoServlet.MongoServletQ2</servlet-class>
-    </servlet>
+  
+   
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-    
+ 
     <session-config>
         <session-timeout>
             30
@@ -80,8 +74,8 @@
     <servlet-mapping>
         <servlet-name>firstServlet</servlet-name>
         <url-pattern>/firstServlet</url-pattern>
-    </servlet-mapping> 
-   <servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>teachServlet</servlet-name>
         <servlet-class>xy.controller.teachServlet</servlet-class>
     </servlet>
@@ -93,7 +87,7 @@
         <servlet-name>EasyCheckOut</servlet-name>
         <servlet-class>xy.controller.EasyCheckOut</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>EasyCheckOut</servlet-name>
         <url-pattern>/EasyCheckOut</url-pattern>
     </servlet-mapping>
@@ -101,46 +95,135 @@
         <servlet-name>CartCheckOut</servlet-name>
         <servlet-class>xy.controller.CartCheckOut</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CartCheckOut</servlet-name>
         <url-pattern>/CartCheckOut</url-pattern>
     </servlet-mapping>
-
-   <servlet-mapping>
-        <servlet-name>MongoServletQ6</servlet-name>
-        <url-pattern>/MongoServletQ6</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MongoServletQ2</servlet-name>
-        <url-pattern>/MongoServletQ2</url-pattern>
-    </servlet-mapping>
+   
     
     <servlet>
         <servlet-name>HomeRegisterServlet</servlet-name>
         <servlet-class>xy.controller.HomeRegisterServlet</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HomeRegisterServlet</servlet-name>
         <url-pattern>/HomeRegisterServlet</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>BusinessRegisterServlet</servlet-name>
         <servlet-class>xy.controller.BusinessRegisterServlet</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>BusinessRegisterServlet</servlet-name>
         <url-pattern>/BusinessRegisterServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>TServlet</servlet-name>
         <servlet-class>Neo4jServlet.TServlet</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>TServlet</servlet-name>
         <url-pattern>/TServlet</url-pattern>
     </servlet-mapping>
     
     
+     <servlet>
+        <servlet-name>MongoServletQ1</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ1</servlet-name>
+        <url-pattern>/MongoServletQ1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MongoServletQ2</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ2</servlet-name>
+        <url-pattern>/MongoServletQ2</url-pattern>
+    </servlet-mapping>
+      <servlet>
+        <servlet-name>MongoServletQ3</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ3</servlet-name>
+        <url-pattern>/MongoServletQ3</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>MongoServletQ4</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ4</servlet-name>
+        <url-pattern>/MongoServletQ4</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>MongoServletQ5</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ5</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ5</servlet-name>
+        <url-pattern>/MongoServletQ5</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ6</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ6</servlet-name>
+        <url-pattern>/MongoServletQ6</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>MongoServletQ7</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ7</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ7</servlet-name>
+        <url-pattern>/MongoServletQ7</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>MongoServletQ8</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ8</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ8</servlet-name>
+        <url-pattern>/MongoServletQ8</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>MongoServletQ9</servlet-name>
+        <servlet-class>MongoServlet.MongoServletQ9</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoServletQ9</servlet-name>
+        <url-pattern>/MongoServletQ9</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>cleanServlet</servlet-name>
+        <servlet-class>MongoServlet.cleanServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cleanServlet</servlet-name>
+        <url-pattern>/cleanServlet</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>updateWarehouse</servlet-name>
+        <servlet-class>MongoServlet.updateWarehouse</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateWarehouse</servlet-name>
+        <url-pattern>/updateWarehouse</url-pattern>
+    </servlet-mapping>
+    
+    
+   
 </web-app>

@@ -31,11 +31,11 @@ public class Q2 extends MongoDbCon{
         String year1 = olddate1.get(0);
         String month1 = olddate1.get(1);
         String day1 = olddate1.get(2);
-        System.out.println("day1-->"+day1);
+        System.out.println("day1-->"+month1+"--"+day1);
         String year2 = newdate2.get(0);
         String month2 = newdate2.get(1);
         String day2 = newdate2.get(2);
-          System.out.println("day2-->"+day2);
+        System.out.println("day2-->"+month2+"--"+day2);
         /*
         遍历所有店
         */
@@ -74,7 +74,7 @@ public class Q2 extends MongoDbCon{
                                                         .append("date.month", month1)
                                                         .append("date.year", year1)),
                            new Document("$group", new Document("_id","$store.storeId").
-                                                        append("today_total_sales", new Document("$sum",new Document("$multiply",asList("$price_per_item","$amount")))).
+                                                        append("total_sale", new Document("$sum","$sales")).
                                                         append( "count", new Document( "$sum", 1 ))
                                        )
                          )
@@ -82,7 +82,7 @@ public class Q2 extends MongoDbCon{
             MongoCursor<Document> mongoCursor = it.iterator();
             while(mongoCursor.hasNext()){
                 Document tmp = mongoCursor.next();
-                old.put((String)tmp.get("_id"),(double)tmp.get("today_total_sales"));
+                old.put((String)tmp.get("_id"),(double)tmp.get("total_sale"));
 //                System.out.println("oldtmp--->"+tmp);
 //                    old.add((String)tmp.get("_id"),(Double)tmp.get("totalsales_olddate"));
             }            
@@ -96,7 +96,7 @@ public class Q2 extends MongoDbCon{
                                                         .append("date.month", month2)
                                                         .append("date.year", year2)),
                            new Document("$group", new Document("_id","$store.storeId").
-                                                        append("today_total_sales", new Document("$sum",new Document("$multiply",asList("$price_per_item","$amount")))).
+                                                        append("total_sale", new Document("$sum","$sales")).
                                                         append( "count", new Document( "$sum", 1 ))
                                        )
                          )
@@ -104,13 +104,13 @@ public class Q2 extends MongoDbCon{
             MongoCursor<Document> mongoCursor = it.iterator();
             while(mongoCursor.hasNext()){
                 Document tmp = mongoCursor.next();
-                newd.put((String)tmp.get("_id"),(double)tmp.get("today_total_sales"));
+                newd.put((String)tmp.get("_id"),(double)tmp.get("total_sale"));
 //                System.out.println("newtmp--->"+tmp);
     //                    old.add((String)tmp.get("_id"),(Double)tmp.get("totalsales_olddate"));
             }            
          }
           
-         //test newd,old里面是否有数据
+        
           
          /*
             比较哪两个店销售量上升
@@ -130,22 +130,22 @@ public class Q2 extends MongoDbCon{
        return result;
      }
      
-//    public static void main(String args[]){
-//        Q2 q = new Q2();
-//        ArrayList<String> olddate1 =new ArrayList();
-//        ArrayList<String> newdate2 =new ArrayList();
-//        olddate1.add("2017");
-//        olddate1.add("02");
-//        olddate1.add("18");
-//        
-//        newdate2.add("2017");
-//        newdate2.add("02");
-//        newdate2.add("28");
-//       
-//        ArrayList result = q.query( olddate1,  newdate2);
-//        for(int i=0;i<result.size();i++){
-//             System.out.println("结果是:-->"+result.get(i));
-//        }
-////        System.out.println("结果是:-->"+c);
-//    }
+    public static void main(String args[]){
+        Q2 q = new Q2();
+        ArrayList<String> olddate1 =new ArrayList();
+        ArrayList<String> newdate2 =new ArrayList();
+        olddate1.add("2017");
+        olddate1.add("02");
+        olddate1.add("18");
+        
+        newdate2.add("2017");
+        newdate2.add("02");
+        newdate2.add("28");
+       
+        ArrayList result = q.query( olddate1,  newdate2);
+        for(int i=0;i<result.size();i++){
+             System.out.println("结果是:-->"+result.get(i));
+        }
+//        System.out.println("结果是:-->"+c);
+    }
 }

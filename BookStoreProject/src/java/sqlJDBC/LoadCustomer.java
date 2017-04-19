@@ -60,7 +60,7 @@ public class LoadCustomer {
                     customer[1] = rs.getString(2);
                 }
             }
-            
+            conn.close();
         } catch (SQLException se) {
             se.printStackTrace();
         }       

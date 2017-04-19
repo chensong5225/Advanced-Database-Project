@@ -5,8 +5,16 @@
  */
 package MongoServlet;
 
+import MongoJDBC.aggregation.Q4;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,19 +22,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import MongoJDBC.aggregation.Q6;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import MongoJDBC.aggregation.Q6;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  *
  * @author fei
  */
-public class MongoServletQ6 extends HttpServlet {
+public class MongoServletQ4 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,26 +37,37 @@ public class MongoServletQ6 extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * 
-     * 
-     *      Which businesses are buying given products the most?
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        // 获取product
-        String productname = request.getParameter("sn1");
-        System.out.println("servlet--> productname-->"+productname);
-        //后台返回查询结果
-        HttpSession session = request.getSession();   
-        String result =new Q6().query(productname);
-        session.setAttribute("mongoQ6result", result);   
-        //返回前台 
-        ServletContext SC = getServletContext();
-        RequestDispatcher rd = SC.getRequestDispatcher("/itemClassMongodb_6.jsp");
-        rd.forward(request, response);
         
-   
+        // 获取日期
+        String start = request.getParameter("startdate");
+        Date tmpstart = new SimpleDateFormat("yyyy-MM-dd").parse(start);
+        String year1 = new SimpleDateFormat("yyyy").format(tmpstart);
+        String month1 = new SimpleDateFormat("MM").format(tmpstart);
+        String day1 = new SimpleDateFormat("dd").format(tmpstart);
+        
+        System.out.println("start date: "+year1+"--"+month1+"---"+day1);
+     
+        ArrayList<String> querydate = new ArrayList();
+        querydate.add(year1);
+        querydate.add(month1);
+        querydate.add(day1);
+
+        //运行Q4
+        HttpSession session = request.getSession();
+        
+        HashMap<String,ArrayList<String> > result = new Q4().query(querydate);
+        System.out.println("servlet---->>mongoQ4result---> "+result);
+//         result.put("top2customer", top2_customer);
+//        result.put("top2product", top2_product);
+        session.setAttribute("mongoQ4result", result);
+        
+        ServletContext SC = getServletContext();
+        RequestDispatcher rd = SC.getRequestDispatcher("/itemClassMongodb_4.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -73,7 +85,7 @@ public class MongoServletQ6 extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(MongoServletQ6.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MongoServletQ4.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -91,7 +103,7 @@ public class MongoServletQ6 extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(MongoServletQ6.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MongoServletQ4.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

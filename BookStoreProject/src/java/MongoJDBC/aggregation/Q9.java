@@ -10,7 +10,6 @@ import static MongoJDBC.connectMongo.MongoDbCon.Connect;
 import static MongoJDBC.connectMongo.MongoDbCon.collection;
 import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoCursor;
-import java.util.ArrayList;
 import static java.util.Arrays.asList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,32 +19,26 @@ import org.bson.Document;
 /**
  *
  * @author fei
- * 
- * 
- * Q8:Develop a direct marketing data; for each product, a list of customers that buy the product more
-than 2 times per week.
  */
-public class Q8 extends MongoDbCon{
-    public HashMap<String,Integer> query(String prdtName,String week){      
+public class Q9 extends MongoDbCon{
+    public HashMap<String,Double> query(){      
         //connect
         Connect("ADB_ware","Fact");
         //query
-        HashMap<String,Integer> result = new HashMap<String,Integer>();
+        HashMap<String,Double> result = new HashMap<String,Double>();
         {
             AggregateIterable<Document>  it = collection.aggregate(
-               asList(      
-                       new Document("$match",new Document("product.name",prdtName).append("date.week", week)),
-                       new Document("$group", new Document("_id","$customer.name").
-                                                  append("count",new Document("$sum",1))                                               
+               asList(    
+                       new Document("$group", new Document("_id","$store.storeId").
+                                                  append("amount",new Document("$sum","$sales"))                                               
                                    )
-//                       new Document("$project",new Document("count",new Document("$gte",2)))
                      )                                     
             );
             MongoCursor<Document> mongoCursor = it.iterator();
             while(mongoCursor.hasNext()){
                 Document tmp = mongoCursor.next();
                 String tmpCusName = (String)tmp.get("_id");    
-                Integer tmpcnt = (Integer)tmp.get("count");    
+                Double tmpcnt = (Double)tmp.get("amount");    
                 result.put(tmpCusName,tmpcnt);
             }
         }
@@ -54,14 +47,14 @@ public class Q8 extends MongoDbCon{
    
     
     public static void main(String args[]){
-        Q8 q = new Q8();
-        String week = "3";
-        HashMap<String,Integer>  c=q.query("Leonardo and the Last Supper",week);
+        Q9 q = new Q9();
+       
+        HashMap<String,Double>  c=q.query();
         Iterator it = c.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry entry = (Map.Entry) it.next();
             String region = (String)entry.getKey();
-            Integer sale = (Integer)entry.getValue();
+            Double sale = (Double)entry.getValue();
              System.out.println("结果是:-->"+"customer : "+region+" and amount : "+sale);
         }
         

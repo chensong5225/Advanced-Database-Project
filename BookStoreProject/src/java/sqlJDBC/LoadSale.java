@@ -27,8 +27,9 @@ public class LoadSale {
     static private ResultSet rs = null;
     
     public static String[] load(String tid, String pid) throws ClassNotFoundException{
-        //sale[0]: transaction id, sale[1]: price per item
+        //sale[0]: transaction id, sale[1]: price per item(after *discount)
         //sale[2]: cost per item, sale[3]: amount
+
         String[] sale = new String[4];
         sale[0] = tid;
         PreparedStatement ps = null;       
@@ -36,12 +37,12 @@ public class LoadSale {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/booksys";
             conn = DriverManager.getConnection(connectionURL, "root", "root");
-            ps = conn.prepareStatement("select price, amount, product_id from transaction where transaction_id = ? and product_id = ?");
+            ps = conn.prepareStatement("select price, amount, product_id, discount from transaction where transaction_id = ? and product_id = ?");
             ps.setObject(1, tid);
             ps.setObject(2, pid);
             rs = ps.executeQuery();
             if(rs.next()){
-                sale[1] = rs.getString(1);
+                sale[1] = String.valueOf(Double.parseDouble(rs.getString(1)) * Double.parseDouble(rs.getString(4)));
                 sale[3] = rs.getString(2);
             }
             ps = conn.prepareStatement("select cost from product where id = ?");
@@ -50,12 +51,11 @@ public class LoadSale {
             if(rs.next()){
                 sale[2] = rs.getString(1);
             }
-                        
+             conn.close();            
         } catch (SQLException se) {
             se.printStackTrace();
         }       
         return sale;
     }
 }
-
 
